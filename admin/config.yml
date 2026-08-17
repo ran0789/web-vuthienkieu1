@@ -6,24 +6,37 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
+  # MỤC 1: ĐĂNG CÁC BÀI VIẾT & TÁC PHẨM
   - name: "posts"
-    label: "Tác Phẩm & Bài Viết"
+    label: "Bài Viết & Tác Phẩm"
     folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Tiêu đề bài viết", name: "title", widget: "string" }
       - { 
-          label: "Chuyên mục", 
+          label: "Thể loại", 
           name: "category", 
           widget: "select", 
           options: [
             "Thơ Vũ Thiên Kiều", 
             "Tản Văn & Ký", 
+            "Truyện Ngắn",
             "Góc Bạn Văn", 
             "Lý Luận & Bình Tác Phẩm"
           ] 
         }
-      - { label: "Tác giả (Nếu là bài viết của bạn văn)", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
+      - { label: "Tác giả (Ví dụ: Vũ Thiên Kiều hoặc Tên bạn văn)", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
       - { label: "Ngày đăng", name: "date", widget: "datetime" }
       - { label: "Nội dung văn thơ", name: "body", widget: "markdown" }
+
+  # MỤC 2: CHỈNH SỬA THÔNG TIN GIỚI THIỆU NHÀ THƠ VŨ THIÊN KIỀU
+  - name: "pages"
+    label: "Trang Giới Thiệu"
+    files:
+      - file: "content/about.md"
+        label: "Giới Thiệu Nhà Thơ Vũ Thiên Kiều"
+        name: "about"
+        fields:
+          - { label: "Tiêu đề trang", name: "title", widget: "string", default: "Giới Thiệu Nhà Thơ Vũ Thiên Kiều" }
+          - { label: "Lời giới thiệu / Tiểu sử / Lời ngỏ", name: "body", widget: "markdown" }
