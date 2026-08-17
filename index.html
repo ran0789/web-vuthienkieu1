@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vũ Thiên Kiều - Sáng Tác Văn Học & Góc Bạn Văn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    :root {
+      --bg-main: #fdfbf7;
+      --bg-card: #ffffff;
+      --text-main: #2c3e50;
+      --accent-green: #2d5a27;
+      --accent-gold: #c5a059;
+      --border-color: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.6; }
+    h1, h2, h3, h4, pre { font-family: 'Merriweather', serif; }
+    
+    /* Header & Navigation */
+    header { background: var(--bg-card); text-align: center; padding: 2.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border-color); }
+    header h1 { color: var(--accent-green); font-size: 2.2rem; margin-bottom: 0.4rem; }
+    header p { color: var(--accent-gold); font-style: italic; font-size: 0.95rem; }
+
+    nav { display: flex; justify-content: center; gap: 1.8rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
+    nav a:hover { color: var(--accent-green); }
+
+    .container { max-width: 850px; margin: 2rem auto; padding: 0 1rem; }
+    
+    /* Cards Structure */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    .card-tag {
+      display: inline-block;
+      background: rgba(197, 160, 89, 0.15);
+      color: var(--accent-gold);
+      padding: 0.2rem 0.8rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .card h2 { color: var(--accent-green); margin-bottom: 1rem; font-size: 1.6rem; }
+    .poem-content {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      color: var(--text-main);
+    }
+
+    footer { text-align: center; padding: 2rem; color: #888; font-size: 0.85rem; border-top: 1px solid var(--border-color); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Vũ Thiên Kiều</h1>
+    <p>Không Gian Sáng Tác Văn Học & Góc Bạn Văn</p>
+    <nav>
+      <a href="#tho-vu-thien-kieu">Thơ Sáng Tác</a>
+      <a href="#tan-van">Tản Văn & Ký</a>
+      <a href="#goc-ban-van">Góc Bạn Văn</a>
+      <a href="#giao-luu">Giao Lưu Văn Chương</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    
+    <!-- MỤC 1: THƠ SÁNG TÁC -->
+    <section id="tho-vu-thien-kieu">
+      <article class="card">
+        <span class="card-tag">Thơ Vũ Thiên Kiều</span>
+        <h2>Chạm Vào Mùa Gặt</h2>
+        <pre class="poem-content">Hương lúa chín quyện vào trong gió nhẹ
+Cánh cò chao nghiêng vút khoảng trời quê
+Giọt mồ hôi rơi trên vạt áo mẹ
+Nghe bâng khuâng bước chân nhỏ trở về.
+
+Con bấm ngón tay đếm từng mùa gặt
+Mắt mẹ buồn neo lại phía chân mây...</pre>
+      </article>
+    </section>
+
+    <!-- MỤC 2: TẢN VĂN & KÝ -->
+    <section id="tan-van">
+      <article class="card">
+        <span class="card-tag">Tản Văn & Ký</span>
+        <h2>Ký Ức Chiều Sơn Kiên</h2>
+        <p class="poem-content">Chiều ở Sơn Kiên luôn mang một sắc thái rất riêng. Đó không chỉ là màu vàng gạch của nắng hoàng hôn trải dài trên dòng kênh, mà còn là âm thanh xao động của hàng ngàn cánh cò chở hoàng hôn về tổ. Giữa cái lặng yên của đồng quê, tiếng bút mực chạm vào trang giấy như lắng đọng lại mọi tâm tư...</p>
+      </article>
+    </section>
+
+    <!-- MỤC 3: GÓC BẠN VĂN -->
+    <section id="goc-ban-van">
+      <article class="card">
+        <span class="card-tag">Góc Bạn Văn</span>
+        <h2>Trang Thơ Tặng & Cảm Nhận Của Bạn Văn</h2>
+        <p class="poem-content">Nơi lưu giữ những dòng văn, trang thơ, lời bình và kỷ niệm thân tình từ các văn nghệ sĩ, bạn văn xa gần gửi tặng. Văn chương là cầu nối đưa những tâm hồn đồng điệu đến gần nhau hơn giữa cuộc đời vội vã.</p>
+      </article>
+    </section>
+
+    <!-- MỤC 4: GIAO LƯU VĂN CHƯƠNG -->
+    <section id="giao-luu">
+      <article class="card" style="text-align: center;">
+        <span class="card-tag">Giao Lưu & Kết Nối</span>
+        <h2>Trò Chuyện & Chia Sẻ Tác Phẩm</h2>
+        <p class="poem-content">Quý bạn văn, nhà thơ, nhà văn có nhu cầu trao đổi tác phẩm, đóng góp bài viết hoặc giao lưu văn học, xin vui lòng gửi thư hoặc liên hệ trực tiếp.</p>
+      </article>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© Trang web văn học cá nhân Nhà Thơ Vũ Thiên Kiều</p>
+  </footer>
+
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
