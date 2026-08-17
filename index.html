@@ -19,18 +19,16 @@
     body { font-family: 'Montserrat', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.6; }
     h1, h2, h3, h4, pre { font-family: 'Merriweather', serif; }
     
-    /* Header & Navigation */
     header { background: var(--bg-card); text-align: center; padding: 2.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border-color); }
     header h1 { color: var(--accent-green); font-size: 2.2rem; margin-bottom: 0.4rem; }
     header p { color: var(--accent-gold); font-style: italic; font-size: 0.95rem; }
 
-    nav { display: flex; justify-content: center; gap: 1.8rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    nav { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
     nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
     nav a:hover { color: var(--accent-green); }
 
     .container { max-width: 850px; margin: 2rem auto; padding: 0 1rem; }
     
-    /* Cards Structure */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -50,12 +48,7 @@
       margin-bottom: 1rem;
     }
     .card h2 { color: var(--accent-green); margin-bottom: 1rem; font-size: 1.6rem; }
-    .poem-content {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      white-space: pre-wrap;
-      color: var(--text-main);
-    }
+    .empty-state { text-align: center; color: #888; font-style: italic; padding: 2rem 0; }
 
     footer { text-align: center; padding: 2rem; color: #888; font-size: 0.85rem; border-top: 1px solid var(--border-color); }
   </style>
@@ -66,54 +59,70 @@
     <h1>Vũ Thiên Kiều</h1>
     <p>Không Gian Sáng Tác Văn Học & Góc Bạn Văn</p>
     <nav>
+      <a href="#gioi-thieu">Tác Giả</a>
       <a href="#tho-vu-thien-kieu">Thơ Sáng Tác</a>
       <a href="#tan-van">Tản Văn & Ký</a>
+      <a href="#truyen-ngan">Truyện Ngắn</a>
       <a href="#goc-ban-van">Góc Bạn Văn</a>
-      <a href="#giao-luu">Giao Lưu Văn Chương</a>
+      <a href="#ly-luan">Lý Luận & Bình Tác Phẩm</a>
     </nav>
   </header>
 
   <div class="container">
     
-    <!-- MỤC 1: THƠ SÁNG TÁC -->
+    <!-- PHẦN 1: GIỚI THIỆU NHÀ THƠ VŨ THIÊN KIỀU -->
+    <section id="gioi-thieu">
+      <article class="card">
+        <span class="card-tag">Giới Thiệu Tác Giả</span>
+        <h2>Nhà Thơ Vũ Thiên Kiều</h2>
+        <div id="bio-content">
+          <p class="empty-state">Thông tin giới thiệu sẽ cập nhật từ trang quản trị Admin...</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- PHẦN 2: THƠ SÁNG TÁC -->
     <section id="tho-vu-thien-kieu">
       <article class="card">
         <span class="card-tag">Thơ Vũ Thiên Kiều</span>
-        <h2>Chạm Vào Mùa Gặt</h2>
-        <pre class="poem-content">Hương lúa chín quyện vào trong gió nhẹ
-Cánh cò chao nghiêng vút khoảng trời quê
-Giọt mồ hôi rơi trên vạt áo mẹ
-Nghe bâng khuâng bước chân nhỏ trở về.
-
-Con bấm ngón tay đếm từng mùa gặt
-Mắt mẹ buồn neo lại phía chân mây...</pre>
+        <h2>Thơ Sáng Tác</h2>
+        <p class="empty-state">Chưa có bài viết nào. Hãy đăng bài thơ đầu tiên từ trang Quản trị Admin.</p>
       </article>
     </section>
 
-    <!-- MỤC 2: TẢN VĂN & KÝ -->
+    <!-- PHẦN 3: TẢN VĂN & KÝ -->
     <section id="tan-van">
       <article class="card">
         <span class="card-tag">Tản Văn & Ký</span>
-        <h2>Ký Ức Chiều Sơn Kiên</h2>
-        <p class="poem-content">Chiều ở Sơn Kiên luôn mang một sắc thái rất riêng. Đó không chỉ là màu vàng gạch của nắng hoàng hôn trải dài trên dòng kênh, mà còn là âm thanh xao động của hàng ngàn cánh cò chở hoàng hôn về tổ. Giữa cái lặng yên của đồng quê, tiếng bút mực chạm vào trang giấy như lắng đọng lại mọi tâm tư...</p>
+        <h2>Tản Văn & Ký</h2>
+        <p class="empty-state">Chưa có bài viết nào.</p>
       </article>
     </section>
 
-    <!-- MỤC 3: GÓC BẠN VĂN -->
+    <!-- PHẦN 4: TRUYỆN NGẮN -->
+    <section id="truyen-ngan">
+      <article class="card">
+        <span class="card-tag">Truyện Ngắn</span>
+        <h2>Truyện Ngắn</h2>
+        <p class="empty-state">Chưa có bài viết nào.</p>
+      </article>
+    </section>
+
+    <!-- PHẦN 5: GÓC BẠN VĂN -->
     <section id="goc-ban-van">
       <article class="card">
         <span class="card-tag">Góc Bạn Văn</span>
-        <h2>Trang Thơ Tặng & Cảm Nhận Của Bạn Văn</h2>
-        <p class="poem-content">Nơi lưu giữ những dòng văn, trang thơ, lời bình và kỷ niệm thân tình từ các văn nghệ sĩ, bạn văn xa gần gửi tặng. Văn chương là cầu nối đưa những tâm hồn đồng điệu đến gần nhau hơn giữa cuộc đời vội vã.</p>
+        <h2>Góc Bạn Văn</h2>
+        <p class="empty-state">Chưa có bài viết nào.</p>
       </article>
     </section>
 
-    <!-- MỤC 4: GIAO LƯU VĂN CHƯƠNG -->
-    <section id="giao-luu">
-      <article class="card" style="text-align: center;">
-        <span class="card-tag">Giao Lưu & Kết Nối</span>
-        <h2>Trò Chuyện & Chia Sẻ Tác Phẩm</h2>
-        <p class="poem-content">Quý bạn văn, nhà thơ, nhà văn có nhu cầu trao đổi tác phẩm, đóng góp bài viết hoặc giao lưu văn học, xin vui lòng gửi thư hoặc liên hệ trực tiếp.</p>
+    <!-- PHẦN 6: LÝ LUẬN & BÌNH TÁC PHẨM -->
+    <section id="ly-luan">
+      <article class="card">
+        <span class="card-tag">Lý Luận & Bình Tác Phẩm</span>
+        <h2>Lý Luận & Bình Tác Phẩm</h2>
+        <p class="empty-state">Chưa có bài viết nào.</p>
       </article>
     </section>
 
