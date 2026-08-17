@@ -23,8 +23,8 @@
     header h1 { color: var(--accent-green); font-size: 2.2rem; margin-bottom: 0.4rem; }
     header p { color: var(--accent-gold); font-style: italic; font-size: 0.95rem; }
 
-    nav { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
-    nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
+    nav { display: flex; justify-content: center; gap: 1.2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
     nav a:hover { color: var(--accent-green); }
 
     .container { max-width: 850px; margin: 2rem auto; padding: 0 1rem; }
@@ -47,7 +47,8 @@
       font-weight: 600;
       margin-bottom: 1rem;
     }
-    .card h2 { color: var(--accent-green); margin-bottom: 1rem; font-size: 1.6rem; }
+    .card h2 { color: var(--accent-green); margin-bottom: 0.5rem; font-size: 1.6rem; }
+    .composition-date { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 1rem; display: block; }
     .empty-state { text-align: center; color: #888; font-style: italic; padding: 2rem 0; }
 
     footer { text-align: center; padding: 2rem; color: #888; font-size: 0.85rem; border-top: 1px solid var(--border-color); }
@@ -61,6 +62,7 @@
     <nav>
       <a href="#gioi-thieu">Tác Giả</a>
       <a href="#tho-vu-thien-kieu">Thơ Sáng Tác</a>
+      <a href="#chum-tho">Chùm Thơ</a>
       <a href="#tan-van">Tản Văn & Ký</a>
       <a href="#truyen-ngan">Truyện Ngắn</a>
       <a href="#goc-ban-van">Góc Bạn Văn</a>
@@ -70,7 +72,7 @@
 
   <div class="container">
     
-    <!-- PHẦN 1: GIỚI THIỆU NHÀ THƠ VŨ THIÊN KIỀU -->
+    <!-- PHẦN 1: GIỚI THIỆU -->
     <section id="gioi-thieu">
       <article class="card">
         <span class="card-tag">Giới Thiệu Tác Giả</span>
@@ -86,11 +88,20 @@
       <article class="card">
         <span class="card-tag">Thơ Vũ Thiên Kiều</span>
         <h2>Thơ Sáng Tác</h2>
-        <p class="empty-state">Chưa có bài viết nào. Hãy đăng bài thơ đầu tiên từ trang Quản trị Admin.</p>
+        <p class="empty-state">Chưa có bài viết nào.</p>
       </article>
     </section>
 
-    <!-- PHẦN 3: TẢN VĂN & KÝ -->
+    <!-- PHẦN 3: CHÙM THƠ (MỚI BỔ SUNG) -->
+    <section id="chum-tho">
+      <article class="card">
+        <span class="card-tag">Chùm Thơ</span>
+        <h2>Chùm Thơ Chọn Lọc</h2>
+        <p class="empty-state">Chưa có chùm thơ nào.</p>
+      </article>
+    </section>
+
+    <!-- PHẦN 4: TẢN VĂN & KÝ -->
     <section id="tan-van">
       <article class="card">
         <span class="card-tag">Tản Văn & Ký</span>
@@ -99,7 +110,7 @@
       </article>
     </section>
 
-    <!-- PHẦN 4: TRUYỆN NGẮN -->
+    <!-- PHẦN 5: TRUYỆN NGẮN -->
     <section id="truyen-ngan">
       <article class="card">
         <span class="card-tag">Truyện Ngắn</span>
@@ -108,7 +119,7 @@
       </article>
     </section>
 
-    <!-- PHẦN 5: GÓC BẠN VĂN -->
+    <!-- PHẦN 6: GÓC BẠN VĂN -->
     <section id="goc-ban-van">
       <article class="card">
         <span class="card-tag">Góc Bạn Văn</span>
@@ -117,7 +128,7 @@
       </article>
     </section>
 
-    <!-- PHẦN 6: LÝ LUẬN & BÌNH TÁC PHẨM -->
+    <!-- PHẦN 7: LÝ LUẬN & BÌNH TÁC PHẨM -->
     <section id="ly-luan">
       <article class="card">
         <span class="card-tag">Lý Luận & Bình Tác Phẩm</span>
