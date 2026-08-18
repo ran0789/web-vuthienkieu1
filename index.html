@@ -49,10 +49,10 @@
     }
     .card h2 { color: var(--accent-green); margin-bottom: 0.5rem; font-size: 1.6rem; }
 
-    /* Lớp CSS chung cho ảnh minh họa */
+    /* CSS ảnh minh họa */
     .post-image { 
       border-radius: 8px; 
-      margin: 1rem auto; 
+      margin: 1.2rem auto; 
       border: 1px solid var(--border-color);
       background-color: #f8fafc;
     }
@@ -170,16 +170,20 @@
               const card = document.createElement('article');
               card.className = 'card';
               
-              // Xử lý kiểu dáng hiển thị ảnh dựa trên tùy chọn trong Admin
-              const imageSize = imageSizeMatch ? imageSizeMatch[1].trim() : 'fit';
-              let imgStyle = 'width: 100%; max-height: 500px; object-fit: contain; display: block;'; // Mặc định Vừa khung (fit)
+              // Xử lý kích thước ảnh theo tùy chọn thu nhỏ
+              const imageSize = imageSizeMatch ? imageSizeMatch[1].trim() : 'medium';
+              let imgStyle = 'max-width: 500px; width: 100%; height: auto; display: block;'; // Mặc định Vừa (medium)
 
-              if (imageSize === 'small') {
-                imgStyle = 'max-width: 300px; width: 100%; height: auto; display: block;';
-              } else if (imageSize === 'medium') {
-                imgStyle = 'max-width: 500px; width: 100%; height: auto; display: block;';
-              } else if (imageSize === 'original') {
-                imgStyle = 'max-width: 100%; height: auto; display: block;';
+              if (imageSize === 'tiny') {
+                imgStyle = 'max-width: 200px; width: 100%; height: auto; display: block;';
+              } else if (imageSize === 'small') {
+                imgStyle = 'max-width: 350px; width: 100%; height: auto; display: block;';
+              } else if (imageSize === 'half') {
+                imgStyle = 'width: 50%; height: auto; display: block;';
+              } else if (imageSize === 'three_quarter') {
+                imgStyle = 'width: 75%; height: auto; display: block;';
+              } else if (imageSize === 'full') {
+                imgStyle = 'width: 100%; height: auto; display: block;';
               }
 
               let imgHTML = imageMatch && imageMatch[1].trim() ? `<img src="${imageMatch[1].trim()}" class="post-image" style="${imgStyle}" alt="Ảnh minh họa">` : '';
