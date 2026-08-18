@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vũ Thiên Kiều - Sáng Tác Văn Học & Góc Bạn Văn</title>
   
-  <!-- ================================================================= -->
-  <!-- THẺ OPEN GRAPH (Dùng hiển thị hình ảnh + thông tin khi chia sẻ) -->
-  <!-- ================================================================= -->
+  <!-- Thẻ Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vũ Thiên Kiều - Sáng Tác Văn Học & Góc Bạn Văn" />
   <meta property="og:description" content="Trang web tổng hợp thơ, tản văn, truyện ngắn và tác phẩm văn học của nhà thơ Vũ Thiên Kiều." />
@@ -71,7 +69,6 @@
     .post-body { white-space: pre-wrap; margin-top: 1rem; font-size: 1rem; line-height: 1.8; }
     .empty-state { text-align: center; color: #888; font-style: italic; padding: 1.5rem 0; }
 
-    /* Thanh phân trang */
     .pagination {
       display: flex;
       justify-content: center;
@@ -101,7 +98,7 @@
       border-color: var(--accent-green);
     }
 
-    /* CSS Bổ Sung: Thanh Chia Sẻ, Mã Nhúng & Link Preview */
+    /* CSS Thanh Chia Sẻ & Nhúng */
     .share-box {
       margin-top: 1.5rem;
       padding-top: 1rem;
@@ -203,7 +200,6 @@
 
   <div class="container">
     
-    <!-- Các Chuyên Mục Bài Viết -->
     <section id="tho-vu-thien-kieu">
       <div class="section-title" style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">THƠ SÁNG TÁC</div>
       <div id="container-Thơ Vũ Thiên Kiều"></div>
@@ -246,7 +242,6 @@
       <div id="pagination-Lý Luận & Bình Tác Phẩm" class="pagination"></div>
     </section>
 
-    <!-- SECTION BỔ SUNG: XEM TRƯỚC BÀI VIẾT TỪ TRANG KHÁC -->
     <section id="lien-quan-ngoai" class="external-section">
       <div class="section-title" style="font-weight: bold; color: var(--accent-green);">ĐỌC BÀI VIẾT TỪ TRANG WEB KHÁC</div>
       <p style="font-size: 0.85rem; color: #718096; margin-top: 0.3rem;">Dán đường dẫn (URL) bài báo hoặc bài viết văn học từ trang web khác để xem trước:</p>
@@ -264,7 +259,7 @@
   </footer>
 
   <script>
-    const POSTS_PER_PAGE = 5; // Số lượng bài viết hiển thị trên mỗi trang
+    const POSTS_PER_PAGE = 5;
     const categoryData = {};
     const currentPageData = {};
 
@@ -324,14 +319,13 @@
 
         categories.forEach(cat => renderCategory(cat));
 
-        // Tự động cuộn tới chuyên mục nếu có thẻ hashtag (#) trên URL sau khi tải dữ liệu xong
         if (window.location.hash) {
           setTimeout(() => {
             const targetElement = document.querySelector(window.location.hash);
             if (targetElement) {
               targetElement.scrollIntoView({ behavior: 'smooth' });
             }
-          }, 500); // Đợi 0.5s để bài viết render hoàn tất rồi mới cuộn
+          }, 500);
         }
 
       } catch (err) {
@@ -375,11 +369,18 @@
         let metaHTML = `<span class="meta-info">Tác giả: ${post.author}${post.date ? ' | Sáng tác: ' + post.date : ''}</span>`;
         let linkHTML = post.sourceUrl ? `<a href="${post.sourceUrl}" target="_blank" class="source-link">Xem bài báo gốc ➔</a>` : '';
 
-        // Ghép thêm Thanh Chia Sẻ & Lấy Mã Nhúng
-        const postShareUrl = encodeURIComponent(window.location.origin + window.location.pathname + '#' + post.id);
-        const embedIframeCode = `<iframe src="${window.location.origin}/embed.html?id=${post.id}" width="100%" height="250" frameborder="0" style="border:1px solid #e2e8f0; border-radius:8px;"></iframe>`;
+        // Đường dẫn bài viết trực tiếp
+        const postShareUrl = encodeURIComponent(`https://vuthienkieu.vn/#${post.id}`);
+        const embedIframeCode = `<iframe src="https://vuthienkieu.vn/embed.html?id=${post.id}" width="100%" height="250" frameborder="0" style="border:1px solid #e2e8f0; border-radius:8px;"></iframe>`;
 
-        let shareHTML = `
+        // Ghép nội dung hiển thị của 1 thẻ bài viết
+        card.innerHTML = `
+          <span class="card-tag">${cat}</span>
+          <h2>${post.title}</h2>
+          ${metaHTML}
+          ${imgHTML}
+          <div class="post-body">${post.body}</div>
+          ${linkHTML}
           <div class="share-box">
             <span class="share-title">Chia sẻ tác phẩm:</span>
             <button class="btn-share btn-fb" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${postShareUrl}', '_blank')">Facebook</button>
@@ -389,19 +390,9 @@
             
             <div id="embed-${post.id}" class="embed-container">
               <textarea readonly>${embedIframeCode}</textarea>
-              <button class="btn-share btn-copy" style="margin-top:5px;" onclick="copyText(\`${embedIframeCode.replace(/"/g, '&quot;')}\`)">Sao chép mã nhúng</button>
+              <button class="btn-share btn-copy" style="margin-top:5px;" onclick="copyText('${embedIframeCode}')">Sao chép mã nhúng</button>
             </div>
           </div>
-        `;
-
-        card.innerHTML = `
-          <span class="card-tag">${cat}</span>
-          <h2>${post.title}</h2>
-          ${metaHTML}
-          ${imgHTML}
-          <div class="post-body">${post.body}</div>
-          ${linkHTML}
-          ${shareHTML}
         `;
         container.appendChild(card);
       });
@@ -421,7 +412,6 @@
       }
     }
 
-    // Hàm phụ trợ cho việc Chia sẻ / Nhúng
     function copyText(str) {
       navigator.clipboard.writeText(decodeURIComponent(str));
       alert("Đã sao chép vào bộ nhớ tạm!");
@@ -434,7 +424,6 @@
       }
     }
 
-    // Hàm cào/xem trước đường dẫn báo chí ngoài
     async function fetchExternalArticle() {
       const url = document.getElementById('externalUrlInput').value.trim();
       const container = document.getElementById('externalArticlePreview');
