@@ -324,6 +324,16 @@
 
         categories.forEach(cat => renderCategory(cat));
 
+        // Tự động cuộn tới chuyên mục nếu có thẻ hashtag (#) trên URL sau khi tải dữ liệu xong
+        if (window.location.hash) {
+          setTimeout(() => {
+            const targetElement = document.querySelector(window.location.hash);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 500); // Đợi 0.5s để bài viết render hoàn tất rồi mới cuộn
+        }
+
       } catch (err) {
         console.error("Lỗi khi tải danh sách bài viết:", err);
       }
