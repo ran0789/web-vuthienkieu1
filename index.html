@@ -129,8 +129,8 @@
   <script>
     async function loadPosts() {
       try {
-        // Đã cập nhật chính xác tài khoản GitHub ran0789
-        const response = await fetch('https://api.github.com/repos/ran0789/web-vuthienkieu/contents/content/posts');
+        // Đã cập nhật đúng tên kho chứa web-vuthienkieu1
+        const response = await fetch('https://api.github.com/repos/ran0789/web-vuthienkieu1/contents/content/posts');
         if (!response.ok) return;
         const files = await response.json();
 
