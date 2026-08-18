@@ -31,15 +31,17 @@ collections:
       - { label: "Ngày sáng tác / Đăng", name: "created_date", widget: "string", required: false }
       - { label: "Ảnh đại diện / Minh họa chính", name: "featured_image", widget: "image", required: false }
       - { 
-          label: "Kích thước hiển thị ảnh minh họa", 
+          label: "Tùy chỉnh kích thước ảnh minh họa", 
           name: "image_size", 
           widget: "select", 
-          default: "fit",
+          default: "medium",
           options: [
-            { label: "Vừa khung bài viết (Khuyên dùng)", value: "fit" },
-            { label: "Nhỏ (Căn giữa - Max 300px)", value: "small" },
+            { label: "Siêu nhỏ (Căn giữa - Max 200px)", value: "tiny" },
+            { label: "Nhỏ (Căn giữa - Max 350px)", value: "small" },
             { label: "Vừa (Căn giữa - Max 500px)", value: "medium" },
-            { label: "Kích thước gốc của ảnh", value: "original" }
+            { label: "50% Chiều rộng khung bài", value: "half" },
+            { label: "75% Chiều rộng khung bài", value: "three_quarter" },
+            { label: "Tràn khung (100% Chiều rộng)", value: "full" }
           ],
           required: false 
         }
