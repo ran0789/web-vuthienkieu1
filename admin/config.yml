@@ -2,65 +2,39 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "posts"
-    label: "Bài Viết & Tác Phẩm"
+    label: "Bài viết"
     folder: "content/posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - { label: "Tiêu đề bài viết / Bài báo", name: "title", widget: "string" }
+      - { label: "Tiêu đề bài viết", name: "title", widget: "string" }
+      - { label: "Tác giả", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
       - { 
-          label: "Thể loại", 
+          label: "Chuyên mục", 
           name: "category", 
           widget: "select", 
           options: [
             "Thơ Vũ Thiên Kiều", 
-            "Chùm Thơ",
+            "Chùm Thơ", 
             "Tản Văn & Ký", 
-            "Truyện Ngắn",
+            "Truyện Ngắn", 
             "Góc Bạn Văn", 
-            "Báo Chí & Truyền Thông",
+            "Báo Chí & Truyền Thông", 
             "Lý Luận & Bình Tác Phẩm"
           ] 
         }
-      - { label: "Tác giả / Nguồn báo (Ví dụ: Vũ Thiên Kiều / Báo Văn Nghệ)", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
+      - { label: "Ngày sáng tác / Đăng", name: "created_date", widget: "string", required: false }
+      - { label: "Ảnh đại diện / Minh họa chính", name: "featured_image", widget: "image", required: false }
+      - { label: "Link bài báo gốc (nếu có)", name: "source_url", widget: "string", required: false }
       - { 
-          label: "Ảnh minh họa (Tùy chọn - Kích thước khuyên dùng: 1200 x 675px, tỉ lệ 16:9, dung lượng < 500KB, định dạng .jpg/.webp)", 
-          name: "featured_image", 
-          widget: "image", 
-          required: false 
+          label: "Nội dung bài viết", 
+          name: "body", 
+          widget: "markdown",
+          editor_components: ["image"],
+          modes: ["rich_text", "raw"]
         }
-      - { 
-          label: "Đường link bài báo gốc (Chỉ dùng khi đăng bài thuộc thể loại Báo Chí & Truyền Thông)", 
-          name: "source_url", 
-          widget: "string", 
-          required: false 
-        }
-      - { 
-          label: "Ngày / Địa điểm sáng tác (Tùy chọn - Ví dụ: Sơn Kiên, 2024)", 
-          name: "created_date", 
-          widget: "string", 
-          required: false 
-        }
-      - { label: "Ngày đăng bài", name: "date", widget: "datetime" }
-      - { label: "Nội dung trích dẫn / Văn thơ", name: "body", widget: "markdown" }
-
-  - name: "pages"
-    label: "Trang Giới Thiệu"
-    files:
-      - file: "content/about.md"
-        label: "Giới Thiệu Nhà Thơ Vũ Thiên Kiều"
-        name: "about"
-        fields:
-          - { label: "Tiêu đề trang", name: "title", widget: "string", default: "Giới Thiệu Nhà Thơ Vũ Thiên Kiều" }
-          - { 
-              label: "Chân dung nhà thơ (Tỉ lệ 1:1 hoặc 4:3, sắc nét, nét mặt rõ ràng)", 
-              name: "avatar", 
-              widget: "image", 
-              required: false 
-            }
-          - { label: "Lời giới thiệu / Tiểu sử / Lời ngỏ", name: "body", widget: "markdown" }
