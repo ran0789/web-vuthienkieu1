@@ -126,15 +126,14 @@
     <p>© Trang web văn học cá nhân Nhà Thơ Vũ Thiên Kiều</p>
   </footer>
 
-  <!-- Đoạn mã đọc bài viết tự động từ GitHub/Decap CMS -->
   <script>
     async function loadPosts() {
       try {
+        // Đã cập nhật chính xác tài khoản GitHub ran0789
         const response = await fetch('https://api.github.com/repos/ran0789/web-vuthienkieu/contents/content/posts');
         if (!response.ok) return;
         const files = await response.json();
 
-        // Xóa nội dung trống ban đầu
         const categories = ["Thơ Vũ Thiên Kiều", "Chùm Thơ", "Tản Văn & Ký", "Truyện Ngắn", "Góc Bạn Văn", "Báo Chí & Truyền Thông", "Lý Luận & Bình Tác Phẩm"];
         categories.forEach(cat => {
           const el = document.getElementById(`container-${cat}`);
@@ -146,7 +145,6 @@
             const res = await fetch(file.download_url);
             const text = await res.text();
             
-            // Phân tích dữ liệu bài viết
             const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
             const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
             const authorMatch = text.match(/author:\s*"(.*?)"/) || text.match(/author:\s*(.*)/);
