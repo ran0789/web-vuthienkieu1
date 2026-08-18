@@ -12,7 +12,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Tiêu đề bài viết / Chùm thơ", name: "title", widget: "string" }
+      - { label: "Tiêu đề bài viết / Bài báo", name: "title", widget: "string" }
       - { 
           label: "Thể loại", 
           name: "category", 
@@ -23,18 +23,31 @@ collections:
             "Tản Văn & Ký", 
             "Truyện Ngắn",
             "Góc Bạn Văn", 
+            "Báo Chí & Truyền Thông",
             "Lý Luận & Bình Tác Phẩm"
           ] 
         }
-      - { label: "Tác giả", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
+      - { label: "Tác giả / Nguồn báo (Ví dụ: Vũ Thiên Kiều / Báo Văn Nghệ)", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
       - { 
-          label: "Ngày / Thời gian sáng tác (Có thể bỏ trống nếu không hiển thị, ví dụ: Sơn Kiên, 2024 hoặc 12/04/2025)", 
+          label: "Ảnh minh họa (Tùy chọn - Kích thước khuyên dùng: 1200 x 675px, tỉ lệ 16:9, dung lượng < 500KB, định dạng .jpg/.webp)", 
+          name: "featured_image", 
+          widget: "image", 
+          required: false 
+        }
+      - { 
+          label: "Đường link bài báo gốc (Chỉ dùng khi đăng bài thuộc thể loại Báo Chí & Truyền Thông)", 
+          name: "source_url", 
+          widget: "string", 
+          required: false 
+        }
+      - { 
+          label: "Ngày / Địa điểm sáng tác (Tùy chọn - Ví dụ: Sơn Kiên, 2024)", 
           name: "created_date", 
           widget: "string", 
           required: false 
         }
       - { label: "Ngày đăng bài", name: "date", widget: "datetime" }
-      - { label: "Nội dung văn thơ / Các bài thơ trong chùm", name: "body", widget: "markdown" }
+      - { label: "Nội dung trích dẫn / Văn thơ", name: "body", widget: "markdown" }
 
   - name: "pages"
     label: "Trang Giới Thiệu"
@@ -44,4 +57,10 @@ collections:
         name: "about"
         fields:
           - { label: "Tiêu đề trang", name: "title", widget: "string", default: "Giới Thiệu Nhà Thơ Vũ Thiên Kiều" }
+          - { 
+              label: "Chân dung nhà thơ (Tỉ lệ 1:1 hoặc 4:3, sắc nét, nét mặt rõ ràng)", 
+              name: "avatar", 
+              widget: "image", 
+              required: false 
+            }
           - { label: "Lời giới thiệu / Tiểu sử / Lời ngỏ", name: "body", widget: "markdown" }
