@@ -48,7 +48,15 @@
       margin-bottom: 1rem;
     }
     .card h2 { color: var(--accent-green); margin-bottom: 0.5rem; font-size: 1.6rem; }
-    .post-image { width: 100%; max-height: 450px; object-fit: cover; border-radius: 8px; margin: 1rem 0; }
+
+    /* Lớp CSS chung cho ảnh minh họa */
+    .post-image { 
+      border-radius: 8px; 
+      margin: 1rem auto; 
+      border: 1px solid var(--border-color);
+      background-color: #f8fafc;
+    }
+
     .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 1rem; display: block; }
     .source-link { display: inline-block; margin-top: 1rem; font-weight: 600; color: var(--accent-green); text-decoration: none; }
     .source-link:hover { text-decoration: underline; }
@@ -129,7 +137,6 @@
   <script>
     async function loadPosts() {
       try {
-        // Đã cập nhật đúng tên kho chứa web-vuthienkieu1
         const response = await fetch('https://api.github.com/repos/ran0789/web-vuthienkieu1/contents/content/posts');
         if (!response.ok) return;
         const files = await response.json();
@@ -149,6 +156,7 @@
             const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
             const authorMatch = text.match(/author:\s*"(.*?)"/) || text.match(/author:\s*(.*)/);
             const imageMatch = text.match(/featured_image:\s*"(.*?)"/) || text.match(/featured_image:\s*(.*)/);
+            const imageSizeMatch = text.match(/image_size:\s*"(.*?)"/) || text.match(/image_size:\s*(.*)/);
             const dateMatch = text.match(/created_date:\s*"(.*?)"/) || text.match(/created_date:\s*(.*)/);
             const sourceMatch = text.match(/source_url:\s*"(.*?)"/) || text.match(/source_url:\s*(.*)/);
 
@@ -162,7 +170,19 @@
               const card = document.createElement('article');
               card.className = 'card';
               
-              let imgHTML = imageMatch && imageMatch[1].trim() ? `<img src="${imageMatch[1].trim()}" class="post-image" alt="Ảnh minh họa">` : '';
+              // Xử lý kiểu dáng hiển thị ảnh dựa trên tùy chọn trong Admin
+              const imageSize = imageSizeMatch ? imageSizeMatch[1].trim() : 'fit';
+              let imgStyle = 'width: 100%; max-height: 500px; object-fit: contain; display: block;'; // Mặc định Vừa khung (fit)
+
+              if (imageSize === 'small') {
+                imgStyle = 'max-width: 300px; width: 100%; height: auto; display: block;';
+              } else if (imageSize === 'medium') {
+                imgStyle = 'max-width: 500px; width: 100%; height: auto; display: block;';
+              } else if (imageSize === 'original') {
+                imgStyle = 'max-width: 100%; height: auto; display: block;';
+              }
+
+              let imgHTML = imageMatch && imageMatch[1].trim() ? `<img src="${imageMatch[1].trim()}" class="post-image" style="${imgStyle}" alt="Ảnh minh họa">` : '';
               let metaHTML = `<span class="meta-info">Tác giả: ${authorMatch ? authorMatch[1].trim() : 'Vũ Thiên Kiều'}${dateMatch && dateMatch[1].trim() ? ' | Sáng tác: ' + dateMatch[1].trim() : ''}</span>`;
               let linkHTML = sourceMatch && sourceMatch[1].trim() ? `<a href="${sourceMatch[1].trim()}" target="_blank" class="source-link">Xem bài báo gốc ➔</a>` : '';
 
