@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vũ Thiên Kiều - Sáng Tác Văn Học & Góc Bạn Văn</title>
   
-  <!-- Thẻ Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vũ Thiên Kiều - Sáng Tác Văn Học & Góc Bạn Văn" />
   <meta property="og:description" content="Trang web tổng hợp thơ, tản văn, truyện ngắn và tác phẩm văn học của nhà thơ Vũ Thiên Kiều." />
@@ -98,7 +97,7 @@
       border-color: var(--accent-green);
     }
 
-    /* CSS Thanh Chia Sẻ & Nhúng */
+    /* Thanh chia sẻ tác phẩm */
     .share-box {
       margin-top: 1.5rem;
       padding-top: 1rem;
@@ -111,7 +110,7 @@
     .share-title { font-size: 0.8rem; font-weight: 600; color: #718096; width: 100%; margin-bottom: 0.2rem; }
     .btn-share {
       border: none;
-      padding: 0.35rem 0.75rem;
+      padding: 0.4rem 0.8rem;
       border-radius: 6px;
       font-size: 0.8rem;
       font-weight: 600;
@@ -199,7 +198,6 @@
   </header>
 
   <div class="container">
-    
     <section id="tho-vu-thien-kieu">
       <div class="section-title" style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">THƠ SÁNG TÁC</div>
       <div id="container-Thơ Vũ Thiên Kiều"></div>
@@ -251,7 +249,6 @@
       </div>
       <div id="externalArticlePreview"></div>
     </section>
-
   </div>
 
   <footer>
@@ -369,11 +366,8 @@
         let metaHTML = `<span class="meta-info">Tác giả: ${post.author}${post.date ? ' | Sáng tác: ' + post.date : ''}</span>`;
         let linkHTML = post.sourceUrl ? `<a href="${post.sourceUrl}" target="_blank" class="source-link">Xem bài báo gốc ➔</a>` : '';
 
-        // Đường dẫn bài viết trực tiếp
-        const postShareUrl = encodeURIComponent(`https://vuthienkieu.vn/#${post.id}`);
-        const embedIframeCode = `<iframe src="https://vuthienkieu.vn/embed.html?id=${post.id}" width="100%" height="250" frameborder="0" style="border:1px solid #e2e8f0; border-radius:8px;"></iframe>`;
+        const embedCode = `<iframe src="https://vuthienkieu.vn/embed.html?id=${post.id}" width="100%" height="250" frameborder="0" style="border:1px solid #e2e8f0; border-radius:8px;"></iframe>`;
 
-        // Ghép nội dung hiển thị của 1 thẻ bài viết
         card.innerHTML = `
           <span class="card-tag">${cat}</span>
           <h2>${post.title}</h2>
@@ -383,14 +377,14 @@
           ${linkHTML}
           <div class="share-box">
             <span class="share-title">Chia sẻ tác phẩm:</span>
-            <button class="btn-share btn-fb" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${postShareUrl}', '_blank')">Facebook</button>
-            <button class="btn-share btn-zalo" onclick="window.open('https://zalo.me/share?url=${postShareUrl}', '_blank')">Zalo</button>
-            <button class="btn-share btn-copy" onclick="copyText('${postShareUrl}')">Chép Link</button>
+            <button class="btn-share btn-fb" onclick="shareFacebook('${post.id}')">Facebook</button>
+            <button class="btn-share btn-zalo" onclick="shareZalo('${post.id}')">Zalo</button>
+            <button class="btn-share btn-copy" onclick="copyPostLink('${post.id}')">Chép Link</button>
             <button class="btn-share btn-embed" onclick="toggleEmbed('${post.id}')">Lấy mã nhúng</button>
             
             <div id="embed-${post.id}" class="embed-container">
-              <textarea readonly>${embedIframeCode}</textarea>
-              <button class="btn-share btn-copy" style="margin-top:5px;" onclick="copyText('${embedIframeCode}')">Sao chép mã nhúng</button>
+              <textarea id="text-embed-${post.id}" readonly>${embedCode}</textarea>
+              <button class="btn-share btn-copy" style="margin-top:5px;" onclick="copyEmbedText('${post.id}')">Sao chép mã nhúng</button>
             </div>
           </div>
         `;
@@ -412,15 +406,35 @@
       }
     }
 
-    function copyText(str) {
-      navigator.clipboard.writeText(decodeURIComponent(str));
-      alert("Đã sao chép vào bộ nhớ tạm!");
+    /* Các hàm xử lý chia sẻ & sao chép tách biệt */
+    function shareFacebook(id) {
+      const url = encodeURIComponent(`https://vuthienkieu.vn/#${id}`);
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+    }
+
+    function shareZalo(id) {
+      const url = encodeURIComponent(`https://vuthienkieu.vn/#${id}`);
+      window.open(`https://zalo.me/share?url=${url}`, '_blank');
+    }
+
+    function copyPostLink(id) {
+      const url = `https://vuthienkieu.vn/#${id}`;
+      navigator.clipboard.writeText(url);
+      alert("Đã sao chép liên kết bài viết!");
+    }
+
+    function copyEmbedText(id) {
+      const textarea = document.getElementById(`text-embed-${id}`);
+      if (textarea) {
+        navigator.clipboard.writeText(textarea.value);
+        alert("Đã sao chép mã nhúng!");
+      }
     }
 
     function toggleEmbed(id) {
       const el = document.getElementById(`embed-${id}`);
       if (el) {
-        el.style.display = el.style.display === 'block' ? 'none' : 'block';
+        el.style.display = (el.style.display === 'block') ? 'none' : 'block';
       }
     }
 
