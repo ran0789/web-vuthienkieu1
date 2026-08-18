@@ -30,11 +30,18 @@ collections:
         }
       - { label: "Ngày sáng tác / Đăng", name: "created_date", widget: "string", required: false }
       - { label: "Ảnh đại diện / Minh họa chính", name: "featured_image", widget: "image", required: false }
-      - { label: "Link bài báo gốc (nếu có)", name: "source_url", widget: "string", required: false }
       - { 
-          label: "Nội dung bài viết", 
-          name: "body", 
-          widget: "markdown",
-          editor_components: ["image"],
-          modes: ["rich_text", "raw"]
+          label: "Kích thước hiển thị ảnh minh họa", 
+          name: "image_size", 
+          widget: "select", 
+          default: "fit",
+          options: [
+            { label: "Vừa khung bài viết (Khuyên dùng)", value: "fit" },
+            { label: "Nhỏ (Căn giữa - Max 300px)", value: "small" },
+            { label: "Vừa (Căn giữa - Max 500px)", value: "medium" },
+            { label: "Kích thước gốc của ảnh", value: "original" }
+          ],
+          required: false 
         }
+      - { label: "Link bài báo gốc (nếu có)", name: "source_url", widget: "string", required: false }
+      - { label: "Nội dung bài viết", name: "body", widget: "markdown" }
