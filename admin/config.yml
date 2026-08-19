@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ran0789/web-vuthienkieu1
   branch: main
 
 media_folder: "images/uploads"
