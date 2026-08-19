@@ -283,14 +283,17 @@
     const categoryData = {};
     const currentPageData = {};
 
+    // Cập nhật hàm getSnippet theo cấu trúc trong ảnh
     function getSnippet(body, category) {
       if (!body) return '';
       const isPoetry = category.includes("Thơ");
-      
+
       if (isPoetry) {
+        // Tách các dòng thơ
         const lines = body.trim().split('\n');
-        if (lines.length > 4) {
-          return lines.slice(0, 4).join('\n') + '\n...';
+        // Lấy 6-8 dòng đầu tiên bao gồm cả dòng trống ngắt khổ để hiển thị đẹp mắt
+        if (lines.length > 6) {
+          return lines.slice(0, 6).join('\n') + '\n...';
         }
         return body;
       } else {
