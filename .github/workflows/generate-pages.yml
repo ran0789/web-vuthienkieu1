@@ -1,0 +1,29 @@
+name: Tự động tạo trang bài viết HTML
+
+on:
+  push:
+    paths:
+      - 'content/posts/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kiểm tra mã nguồn
+        uses: actions/checkout@v3
+
+      - name: Cài đặt Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Chạy kịch bản tạo trang HTML
+        run: node build.js
+
+      - name: Lưu file HTML mới lên GitHub
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add posts/
+          git commit -m "Auto-generate HTML pages for posts" || exit 0
+          git push
