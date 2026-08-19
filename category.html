@@ -148,10 +148,10 @@
               const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
               const authorMatch = text.match(/author:\s*"(.*?)"/) || text.match(/author:\s*(.*)/);
 
-              // 1. Tách riêng Ngày Đăng Bài (date)
+              // 1. Ngày Đăng (chỉ dùng ngầm để xếp thứ tự)
               const pubDateMatch = text.match(/^date:\s*"(.*?)"/m) || text.match(/^date:\s*(.*)/m);
               
-              // 2. Tách riêng Ngày Sáng Tác (created_date hoặc written_date)
+              // 2. Ngày Sáng Tác (dùng để hiển thị lên màn hình)
               const createDateMatch = text.match(/^created_date:\s*"(.*?)"/m) || text.match(/^created_date:\s*(.*)/m) || 
                                       text.match(/^written_date:\s*"(.*?)"/m) || text.match(/^written_date:\s*(.*)/m);
 
@@ -167,9 +167,8 @@
                   postId: file.name.replace('.md', ''),
                   title: titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Không tiêu đề',
                   author: authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều',
-                  pubDate: pubDate,
                   createDate: createDate,
-                  timestamp: parseDate(pubDate), // Dùng Ngày Đăng để sắp xếp
+                  timestamp: parseDate(pubDate), // Vẫn giữ Ngày Đăng làm mốc sắp xếp ngầm
                   body: body
                 });
               }
@@ -182,16 +181,15 @@
           return;
         }
 
-        // SẮP XẾP BÀI ĐĂNG MỚI NHẤT LÊN ĐẦU (Dựa theo Timestamp Ngày Đăng)
+        // SẮP XẾP BÀI MỚI ĐĂNG LÊN ĐẦU
         matchedPosts.sort((a, b) => b.timestamp - a.timestamp);
 
         matchedPosts.forEach(post => {
           const item = document.createElement('article');
           item.className = 'post-item';
           
-          // Xử lý nhãn thông tin
+          // Đã ẩn hoàn toàn Ngày đăng, chỉ hiện Ngày sáng tác
           let metaText = `Tác giả: ${post.author}`;
-          if (post.pubDate) metaText += ` | Ngày đăng: ${post.pubDate}`;
           if (post.createDate) metaText += ` | Sáng tác: ${post.createDate}`;
 
           item.innerHTML = `
