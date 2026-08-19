@@ -19,15 +19,21 @@
     h1 { font-family: 'Merriweather', serif; color: #2d5a27; margin-bottom: 0.5rem; font-size: 2rem; }
     .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
     
-    /* Cấu hình giãn dòng nhỏ lại dành riêng cho thơ */
+    /* Điều chỉnh khoảng cách cực kỳ sát cho câu thơ */
     .post-body { 
       font-size: 1.05rem; 
-      line-height: 1.4; /* Thu nhỏ khoảng cách giữa các dòng thơ (Mặc định trước đây thường là 1.8 - 1.9) */
+      line-height: 1.25; /* Thu nhỏ chiều cao dòng sát nhất có thể mà không đè chữ */
       color: #2c3e50; 
       margin-top: 1.2rem; 
-      white-space: pre-wrap; /* Giữ nguyên khoảng cách xuống dòng giữa các khổ thơ */
+      white-space: pre-wrap; 
       word-break: keep-all;
       overflow-wrap: normal;
+    }
+
+    /* Thu hẹp khoảng cách dòng/đoạn về đúng tỉ lệ 0.6em */
+    .post-body p {
+      margin-bottom: 0.6em;
+      line-height: 1.25;
     }
     
     .post-img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; display: block; }
@@ -43,7 +49,10 @@
       h1 { font-size: 1.5rem; }
       .post-body {
         font-size: clamp(0.85rem, 3.8vw, 0.95rem);
-        line-height: 1.35; /* Giãn dòng thu nhỏ hơn trên màn hình điện thoại */
+        line-height: 1.2;
+      }
+      .post-body p {
+        margin-bottom: 0.5em;
       }
     }
   </style>
