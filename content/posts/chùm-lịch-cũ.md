@@ -20,6 +20,8 @@ Dường như tiếng thở dài
 
 Dường như ánh mắt đêm hiu hắt
 
+<br>
+
 Cuộc ngày
 
 Sạm xuân thì tàn canh mớ rối
@@ -32,6 +34,8 @@ Gầy vai gầy
 
 Sương trắng sương
 
+<br>
+
 Kìa giọt tuyết nhếch màu môi cười khóc
 
 Vụn khúc nhạc đời lễnh loãng tan xa
@@ -42,17 +46,23 @@ Mía non xơ giắng mùa sùng ái
 
 Hỉ nộ bức rèm ghẹo muối mặn làm thân
 
+<br>
+
 Rét nàng Bân
 
 Sa hoàng tím mộ vùi sâu lòng đất
 
 Lật bật rót hề thả trang sức đi ngông
 
+<br>
+
 Thời gian
 
 Xô lệch vào mái tóc
 
 Suối chảy ngược nguồn mầm đắng ngóng hạ lưu?
+
+<br>
 
 Cắm cơn khát giao thời
 
