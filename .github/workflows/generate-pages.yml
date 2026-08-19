@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'content/posts/**'
+  workflow_dispatch: # Thêm dòng này để xuất hiện nút bấm chạy tay
 
 jobs:
   build:
