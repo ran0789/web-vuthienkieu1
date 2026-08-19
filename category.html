@@ -150,7 +150,7 @@
 
     function parseDate(dateStr) {
       if (!dateStr) return 0;
-      const cleanDate = dateStr.replace(/"/g, '').trim();
+      const cleanDate = dateStr.replace(/['"]/g, '').trim();
       if (!cleanDate) return 0;
 
       const parts = cleanDate.split(/[\/\-]/);
@@ -158,6 +158,11 @@
         return new Date(parts[2], parts[1] - 1, parts[0]).getTime();
       }
       return new Date(cleanDate).getTime() || 0;
+    }
+
+    function cleanDateString(str) {
+      if (!str) return '';
+      return str.replace(/['"]/g, '').trim();
     }
 
     async function loadCategoryPage() {
@@ -182,27 +187,25 @@
               const res = await fetch(file.download_url);
               const text = await res.text();
 
-              const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
-              const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
+              const parts = text.split('---');
+              const frontMatter = parts.length > 1 ? parts[1] : '';
+              const body = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
+
+              const titleMatch = frontMatter.match(/title:\s*"(.*?)"/) || frontMatter.match(/title:\s*(.*)/);
+              const categoryMatch = frontMatter.match(/category:\s*"(.*?)"/) || frontMatter.match(/category:\s*(.*)/);
               
-              // 1. Ngày đăng (dùng ngầm để sắp xếp)
-              const pubDateMatch = text.match(/^date:\s*"(.*?)"/m) || text.match(/^date:\s*(.*)/m);
+              const pubDateMatch = frontMatter.match(/^date:\s*(.*)$/m);
+              const createDateMatch = frontMatter.match(/^created_date:\s*(.*)$/m) || frontMatter.match(/^written_date:\s*(.*)$/m);
 
-              // 2. Ngày sáng tác (dùng để hiển thị)
-              const createDateMatch = text.match(/^created_date:\s*"(.*?)"/m) || text.match(/^created_date:\s*(.*)/m) || 
-                                      text.match(/^written_date:\s*"(.*?)"/m) || text.match(/^written_date:\s*(.*)/m);
-
-              const bodyParts = text.split('---');
-              const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
-              const category = categoryMatch ? categoryMatch[1].replace(/"/g, '').trim() : 'Thơ Vũ Thiên Kiều';
+              const category = categoryMatch ? categoryMatch[1].replace(/['"]/g, '').trim() : 'Thơ Vũ Thiên Kiều';
 
               if (category === currentCat.name) {
-                let pubDate = pubDateMatch ? (pubDateMatch[1] || pubDateMatch[2] || '').replace(/"/g, '').trim() : '';
-                let createDate = createDateMatch ? (createDateMatch[1] || createDateMatch[2] || '').replace(/"/g, '').trim() : '';
+                let pubDate = cleanDateString(pubDateMatch ? pubDateMatch[1] : '');
+                let createDate = cleanDateString(createDateMatch ? createDateMatch[1] : '');
 
                 posts.push({
                   id: file.name.replace('.md', ''),
-                  title: titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Không tiêu đề',
+                  title: titleMatch ? titleMatch[1].replace(/['"]/g, '').trim() : 'Không tiêu đề',
                   createDate: createDate,
                   timestamp: parseDate(pubDate),
                   body: body,
@@ -215,7 +218,6 @@
 
         document.getElementById('category-count').innerText = `Tổng số: ${posts.length} tác phẩm`;
 
-        // Sắp xếp bài viết mới nhất lên đầu theo Ngày đăng
         posts.sort((a, b) => b.timestamp - a.timestamp);
 
         const container = document.getElementById('posts-container');
@@ -230,8 +232,7 @@
           const card = document.createElement('article');
           card.className = 'post-card';
 
-          // Chỉ hiển thị nhãn "Sáng tác:" nếu thực sự có Ngày sáng tác
-          const dateSpan = (post.createDate && post.createDate.trim() !== '') 
+          const dateSpan = (post.createDate && post.createDate.length > 0) 
             ? `<span class="meta">Sáng tác: ${post.createDate}</span>` 
             : '';
 
