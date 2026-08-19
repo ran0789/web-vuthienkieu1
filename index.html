@@ -311,10 +311,10 @@
               const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
               const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
               
-              // 1. Ngày đăng (chỉ dùng ngầm để sắp xếp bài đăng mới nhất)
+              // 1. Ngày đăng (dùng ngầm để sắp xếp bài mới nhất)
               const pubDateMatch = text.match(/^date:\s*"(.*?)"/m) || text.match(/^date:\s*(.*)/m);
 
-              // 2. Ngày sáng tác (dùng để hiển thị lên giao diện)
+              // 2. Ngày sáng tác (dùng để hiển thị)
               const createDateMatch = text.match(/^created_date:\s*"(.*?)"/m) || text.match(/^created_date:\s*(.*)/m) || 
                                       text.match(/^written_date:\s*"(.*?)"/m) || text.match(/^written_date:\s*(.*)/m);
 
@@ -330,7 +330,7 @@
                   id: file.name.replace('.md', ''),
                   title: titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Không tiêu đề',
                   createDate: createDate,
-                  timestamp: parseDate(pubDate), // Sắp xếp theo ngày đăng
+                  timestamp: parseDate(pubDate),
                   body: body,
                   category: category
                 });
@@ -346,10 +346,10 @@
           let posts = categoryData[cat.name] || [];
           if (posts.length === 0) return;
 
-          // Sắp xếp bài mới đăng lên đầu theo Timestamp Ngày Đăng (pubDate)
+          // Sắp xếp bài mới đăng lên đầu dựa theo timestamp của Ngày đăng
           posts.sort((a, b) => b.timestamp - a.timestamp);
 
-          // Lấy tối đa 3 bài mới nhất cho mỗi chuyên mục ở trang chủ
+          // Lấy 3 bài mới nhất ở mỗi chuyên mục
           const top3Posts = posts.slice(0, 3);
 
           const block = document.createElement('section');
@@ -368,8 +368,10 @@
             const item = document.createElement('article');
             item.className = 'post-card-mini';
             
-            // Ẩn hoàn toàn Ngày Đăng. Chỉ hiển thị Ngày Sáng Tác nếu có
-            const dateSpan = (post.createDate && post.createDate.length > 0) ? `<span class="meta">Sáng tác: ${post.createDate}</span>` : '';
+            // Chỉ hiển thị nhãn Sáng tác nếu thực sự có ngày sáng tác
+            const dateSpan = (post.createDate && post.createDate.trim() !== '') 
+              ? `<span class="meta">Sáng tác: ${post.createDate}</span>` 
+              : '';
 
             item.innerHTML = `
               <h3><a href="/posts/${post.id}.html">${post.title}</a></h3>
