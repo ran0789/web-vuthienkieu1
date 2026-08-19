@@ -21,24 +21,18 @@ fs.readdir(postsDir, (err, files) => {
       const imageMatch = content.match(/featured_image:\s*"(.*?)"/) || content.match(/featured_image:\s*(.*)/);
       const dateMatch = content.match(/created_date:\s*"(.*?)"/) || content.match(/created_date:\s*(.*)/);
 
-      // Cắt lấy phần nội dung chính sau Frontmatter
       const parts = content.split('---');
-      // Giữ nguyên văn bản gốc, chỉ dùng trim() để làm sạch khoảng trắng thừa đầu/cuối
       const formattedBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
 
       const title = titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Tác phẩm';
       const author = authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều';
-      
-      // Xử lý và làm sạch dữ liệu Ngày sáng tác
       let rawDate = dateMatch ? dateMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
 
-      // Xử lý và làm sạch đường dẫn Ảnh đại diện
       let image = imageMatch ? imageMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
       let hasImage = false;
 
       if (image && image.length > 0) {
         hasImage = true;
-        // Tự động tối ưu đường dẫn ảnh tuyệt đối cho Facebook/Zalo
         if (!image.startsWith('http')) {
           image = 'https://vuthienkieu.vn' + (image.startsWith('/') ? '' : '/') + image;
         }
@@ -55,35 +49,27 @@ fs.readdir(postsDir, (err, files) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title} - Vũ Thiên Kiều</title>
   
-  <!-- Thẻ Meta Open Graph hiển thị chuẩn Facebook, Zalo -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="${postUrl}" />
   <meta property="og:title" content="${title} - Vũ Thiên Kiều" />
   <meta property="og:description" content="${description}" />
   ${hasImage ? `<meta property="og:image" content="${image}" />` : ''}
-  ${hasImage ? `<meta property="og:image:secure_url" content="${image}" />` : ''}
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="${title} - Vũ Thiên Kiều" />
-  <meta name="twitter:description" content="${description}" />
-  ${hasImage ? `<meta name="twitter:image" content="${image}" />` : ''}
 
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    body { font-family: 'Montserrat', sans-serif; background: #fdfbf7; color: #2c3e50; line-height: 1.8; margin: 0; padding: 2rem 1rem; }
+    body { font-family: 'Montserrat', sans-serif; background: #fdfbf7; color: #2c3e50; line-height: 1.5; margin: 0; padding: 2rem 1rem; }
     .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
     h1 { font-family: 'Merriweather', serif; color: #2d5a27; margin-bottom: 0.5rem; font-size: 2rem; }
     .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
     
-    /* Cấu hình hiển thị thơ: giữ đúng tuyệt đối khoảng cách khổ thơ và xuống dòng */
+    /* Cấu hình giãn dòng nhỏ lại dành riêng cho thơ */
     .post-body { 
-      font-size: 1.1rem; 
-      line-height: 1.9; 
+      font-size: 1.05rem; 
+      line-height: 1.4; /* Thu nhỏ khoảng cách giữa các dòng thơ (Mặc định trước đây thường là 1.8 - 1.9) */
       color: #2c3e50; 
-      margin-top: 1.5rem; 
-      white-space: pre-wrap; /* Tự động nhận diện dòng trống và xuống dòng từ Markdown */
+      margin-top: 1.2rem; 
+      white-space: pre-wrap; /* Giữ nguyên khoảng cách xuống dòng giữa các khổ thơ */
       word-break: keep-all;
       overflow-wrap: normal;
     }
@@ -95,14 +81,13 @@ fs.readdir(postsDir, (err, files) => {
     .btn-zalo { background: #0068ff; }
     .btn-back { background: #4a5568; display: inline-block; margin-bottom: 1.5rem; }
 
-    /* Điều chỉnh riêng cho màn hình điện thoại */
     @media (max-width: 768px) {
       body { padding: 1rem 0.5rem; }
       .container { padding: 1.2rem 0.8rem; }
       h1 { font-size: 1.5rem; }
       .post-body {
-        font-size: clamp(0.78rem, 3.8vw, 0.95rem);
-        letter-spacing: -0.2px;
+        font-size: clamp(0.85rem, 3.8vw, 0.95rem);
+        line-height: 1.35; /* Giãn dòng thu nhỏ hơn trên màn hình điện thoại */
       }
     }
   </style>
@@ -114,7 +99,6 @@ fs.readdir(postsDir, (err, files) => {
     <div class="meta">Tác giả: ${author} ${rawDate ? '| Sáng tác: ' + rawDate : ''}</div>
     ${hasImage ? `<img src="${image}" class="post-img" onerror="this.style.display='none'" />` : ''}
     
-    <!-- Hiển thị trực tiếp formattedBody -->
     <div class="post-body">${formattedBody}</div>
     
     <div class="share-box">
