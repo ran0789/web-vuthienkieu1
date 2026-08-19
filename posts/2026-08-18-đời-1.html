@@ -27,13 +27,13 @@
     h1 { font-family: 'Merriweather', serif; color: #2d5a27; margin-bottom: 0.5rem; font-size: 2rem; }
     .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
     
-    /* Cấu hình hiển thị thơ chống nhảy dòng */
+    /* Cấu hình hiển thị thơ: giữ đúng tuyệt đối khoảng cách khổ thơ và xuống dòng */
     .post-body { 
       font-size: 1.1rem; 
       line-height: 1.9; 
       color: #2c3e50; 
       margin-top: 1.5rem; 
-      white-space: pre-wrap;
+      white-space: pre-wrap; /* Tự động nhận diện dòng trống và xuống dòng từ Markdown */
       word-break: keep-all;
       overflow-wrap: normal;
     }
@@ -63,7 +63,39 @@
     <h1>Đời...</h1>
     <div class="meta">Tác giả: Vũ Thiên Kiều | Sáng tác: Đêm 26.3.2026</div>
     
-    <div class="post-body">Chật chiếc phao cũng nặng thêm hạt bụi<br><br>Búng lửa đầu hè vịn chắc biểu ngoan<br><br>Cơn thớ lớ đọc về người khôn dại<br><br>Phận sương đêm rũ sạch phút ửng ngày<br><br>Mây nịnh gió... ừ năm mười ngón đếm<br><br>Cờ phướn rập rình loang lổ móng nền quê<br><br>Se thắt bến của thời cổ tích<br><br>Dọc quấn vào ngang tìm nết mở hàng<br><br>Có cánh đồng gọi màu thương màu nhớ<br><br>Có dòng sông chưa biết chảy ngược nguồn<br><br>Từng cánh cổng vẫn khép hờ như thể...<br><br>Ai đợi! Ai chờ! Ai lấp lửng rằng... <br><br>AI?Quầy lư tự chan cùng rèm tử tế?<br><br>Rút lõi hò khoan bấm nút ảo mờ<br><br>Hoa đã giữ một miền hương cũ<br><br>Gương mặt người đâu thật ở trăm năm?</div>
+    
+    <!-- Hiển thị trực tiếp formattedBody -->
+    <div class="post-body">Chật chiếc phao cũng nặng thêm hạt bụi
+
+Búng lửa đầu hè vịn chắc biểu ngoan
+
+Cơn thớ lớ đọc về người khôn dại
+
+Phận sương đêm rũ sạch phút ửng ngày
+
+Mây nịnh gió... ừ năm mười ngón đếm
+
+Cờ phướn rập rình loang lổ móng nền quê
+
+Se thắt bến của thời cổ tích
+
+Dọc quấn vào ngang tìm nết mở hàng
+
+Có cánh đồng gọi màu thương màu nhớ
+
+Có dòng sông chưa biết chảy ngược nguồn
+
+Từng cánh cổng vẫn khép hờ như thể...
+
+Ai đợi! Ai chờ! Ai lấp lửng rằng... 
+
+AI?Quầy lư tự chan cùng rèm tử tế?
+
+Rút lõi hò khoan bấm nút ảo mờ
+
+Hoa đã giữ một miền hương cũ
+
+Gương mặt người đâu thật ở trăm năm?</div>
     
     <div class="share-box">
       <span style="width:100%; font-weight:bold; margin-bottom: 0.3rem;">Chia sẻ tác phẩm:</span>

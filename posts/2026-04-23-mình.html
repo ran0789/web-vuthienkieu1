@@ -27,13 +27,13 @@
     h1 { font-family: 'Merriweather', serif; color: #2d5a27; margin-bottom: 0.5rem; font-size: 2rem; }
     .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
     
-    /* Cấu hình hiển thị thơ chống nhảy dòng */
+    /* Cấu hình hiển thị thơ: giữ đúng tuyệt đối khoảng cách khổ thơ và xuống dòng */
     .post-body { 
       font-size: 1.1rem; 
       line-height: 1.9; 
       color: #2c3e50; 
       margin-top: 1.5rem; 
-      white-space: pre-wrap;
+      white-space: pre-wrap; /* Tự động nhận diện dòng trống và xuống dòng từ Markdown */
       word-break: keep-all;
       overflow-wrap: normal;
     }
@@ -63,7 +63,41 @@
     <h1>Mình</h1>
     <div class="meta">Tác giả: Vũ Thiên Kiều | Sáng tác: 24/03/2026</div>
     <img src="https://vuthienkieu.vn/images/mình2.jpg" class="post-img" onerror="this.style.display='none'" />
-    <div class="post-body">mình là mình vẫn mình thôi?<br><br>như con chim chích trên đồi hót vang<br><br>dưới kia biển có miền vàng<br><br>thì cua vẫn kiểu bò ngang ứ ừ<br><br>cháo thơm mấy bận lửa nhừ<br><br>lời ngon rót mật... lời từ tạ ai...<br><br>mặt trời mọc buổi oan sai<br><br>chặng sương lỡ hẹn hoa nhài về đâu<br><br>ví dầu... ai nữa ví dầu<br><br>đồng xanh bẫy sóng... nhánh cầu í a...<br><br>chuyện làng, hỏi ở gốc đa?<br><br>trăm năm thêm bớt... cũng là... bớt thêm<br><br>mình là mình với từng đêm!<br><br>xòe tay xem đã nết mềm mại yêu?<br><br>ngày mai nắng sớm rung chiều<br><br>một lần mưa. có trao Kiều!<br><br>lần mưa?</div>
+    
+    <!-- Hiển thị trực tiếp formattedBody -->
+    <div class="post-body">mình là mình vẫn mình thôi?
+
+như con chim chích trên đồi hót vang
+
+dưới kia biển có miền vàng
+
+thì cua vẫn kiểu bò ngang ứ ừ
+
+cháo thơm mấy bận lửa nhừ
+
+lời ngon rót mật... lời từ tạ ai...
+
+mặt trời mọc buổi oan sai
+
+chặng sương lỡ hẹn hoa nhài về đâu
+
+ví dầu... ai nữa ví dầu
+
+đồng xanh bẫy sóng... nhánh cầu í a...
+
+chuyện làng, hỏi ở gốc đa?
+
+trăm năm thêm bớt... cũng là... bớt thêm
+
+mình là mình với từng đêm!
+
+xòe tay xem đã nết mềm mại yêu?
+
+ngày mai nắng sớm rung chiều
+
+một lần mưa. có trao Kiều!
+
+lần mưa?</div>
     
     <div class="share-box">
       <span style="width:100%; font-weight:bold; margin-bottom: 0.3rem;">Chia sẻ tác phẩm:</span>
