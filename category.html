@@ -115,6 +115,15 @@
       }
     }
 
+    function parseDate(dateStr) {
+      if (!dateStr) return 0;
+      const parts = dateStr.trim().split(/[\/\-]/);
+      if (parts.length === 3) {
+        return new Date(parts[2], parts[1] - 1, parts[0]).getTime();
+      }
+      return new Date(dateStr).getTime() || 0;
+    }
+
     async function loadCategoryPosts() {
       try {
         const response = await fetch('https://api.github.com/repos/ran0789/web-vuthienkieu1/contents/content/posts');
@@ -124,7 +133,7 @@
         const container = document.getElementById('category-posts-container');
         container.innerHTML = '';
 
-        let count = 0;
+        const matchedPosts = [];
 
         for (let file of files) {
           if (file.name.endsWith('.md')) {
@@ -140,31 +149,41 @@
               const bodyParts = text.split('---');
               const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
               const category = categoryMatch ? categoryMatch[1].trim() : '';
+              const dateRaw = dateMatch ? dateMatch[1].replace(/"/g, '').trim() : '';
 
               if (category === targetCategoryName) {
-                count++;
-                const postId = file.name.replace('.md', '');
-                const title = titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Không tiêu đề';
-                const author = authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều';
-                const date = dateMatch ? dateMatch[1].replace(/"/g, '').trim() : '';
-
-                const item = document.createElement('article');
-                item.className = 'post-item';
-                item.innerHTML = `
-                  <h2><a href="/posts/${postId}.html">${title}</a></h2>
-                  <span class="meta">Tác giả: ${author} ${date ? '| Sáng tác: ' + date : ''}</span>
-                  <div class="body-preview">${getSnippet(body, targetCategoryName)}</div>
-                  <a href="/posts/${postId}.html" class="read-more">Đọc toàn bộ tác phẩm ➔</a>
-                `;
-                container.appendChild(item);
+                matchedPosts.push({
+                  postId: file.name.replace('.md', ''),
+                  title: titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Không tiêu đề',
+                  author: authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều',
+                  date: dateRaw,
+                  timestamp: parseDate(dateRaw),
+                  body: body
+                });
               }
             } catch (e) {}
           }
         }
 
-        if (count === 0) {
+        if (matchedPosts.length === 0) {
           container.innerHTML = '<p style="font-style: italic; color: #718096; text-align: center;">Chưa có bài viết nào trong danh mục này.</p>';
+          return;
         }
+
+        // SẮP XẾP BÀI MỚI NHẤT LÊN ĐẦU
+        matchedPosts.sort((a, b) => b.timestamp - a.timestamp);
+
+        matchedPosts.forEach(post => {
+          const item = document.createElement('article');
+          item.className = 'post-item';
+          item.innerHTML = `
+            <h2><a href="/posts/${post.postId}.html">${post.title}</a></h2>
+            <span class="meta">Tác giả: ${post.author} ${post.date ? '| Sáng tác: ' + post.date : ''}</span>
+            <div class="body-preview">${getSnippet(post.body, targetCategoryName)}</div>
+            <a href="/posts/${post.postId}.html" class="read-more">Đọc toàn bộ tác phẩm ➔</a>
+          `;
+          container.appendChild(item);
+        });
 
       } catch (err) {
         console.error("Lỗi tải bài viết danh mục:", err);
