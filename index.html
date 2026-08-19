@@ -23,7 +23,7 @@
       --border-color: #e2e8f0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.6; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.5; }
     h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
     
     header { background: var(--bg-card); text-align: center; padding: 2.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border-color); }
@@ -44,7 +44,6 @@
       padding: 0 1rem;
     }
 
-    /* Tự động ẩn 2 cột bên khi xem bằng điện thoại & Thu gọn lề */
     @media (max-width: 1024px) {
       .main-wrapper {
         grid-template-columns: 1fr;
@@ -89,23 +88,26 @@
       font-weight: 600;
       margin-bottom: 0.8rem;
     }
-    .card h2 { margin-bottom: 0.5rem; font-size: 1.6rem; }
+    .card h2 { margin-bottom: 0.3rem; font-size: 1.6rem; }
     .card h2 a { color: var(--accent-green); text-decoration: none; }
     .card h2 a:hover { text-decoration: underline; }
-    .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 1rem; display: block; }
+    .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 0.8rem; display: block; }
     
-    /* Tối ưu hiển thị câu thơ không bị nhảy dòng */
+    /* ĐÃ ĐIỀU CHỈNH: Giảm giãn dòng giữa các câu thơ */
     .post-body { 
       white-space: pre-wrap; 
       word-break: keep-all;
       overflow-wrap: normal;
-      margin-top: 1rem; 
+      margin-top: 0.8rem; 
       font-size: 1rem; 
-      line-height: 1.8; 
+      line-height: 1.45; /* Chiều cao dòng chuẩn cho thơ, không bị rộng */
       color: #2c3e50; 
     }
 
-    /* Đỉnh chỉnh kích thước chữ thơ riêng cho Điện Thoại */
+    .post-body p {
+      margin-bottom: 0.5rem; /* Khoảng cách vừa phải giữa các đoạn */
+    }
+
     @media (max-width: 768px) {
       .card {
         padding: 1.2rem 0.8rem;
@@ -114,8 +116,9 @@
         font-size: 1.3rem;
       }
       .post-body {
-        font-size: clamp(0.78rem, 3.8vw, 0.92rem);
-        letter-spacing: -0.2px;
+        font-size: clamp(0.85rem, 3.8vw, 0.95rem);
+        line-height: 1.4; /* Giảm nhẹ thêm trên mobile để thơ gọn gàng */
+        letter-spacing: -0.1px;
       }
     }
     
@@ -128,8 +131,8 @@
     }
 
     .share-box {
-      margin-top: 1.5rem;
-      padding-top: 1rem;
+      margin-top: 1.2rem;
+      padding-top: 0.8rem;
       border-top: 1px dashed var(--border-color);
       display: flex;
       flex-wrap: wrap;
@@ -152,7 +155,7 @@
 
     .btn-readmore {
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
       color: var(--accent-green);
       font-weight: 600;
       font-size: 0.9rem;
@@ -197,7 +200,7 @@
 
   <div class="main-wrapper">
     
-    <!-- CỘT TRÁI (SIDEBAR LEFT) -->
+    <!-- CỘT TRÁI -->
     <aside class="sidebar-left">
       <div class="sidebar-widget">
         <h3 class="widget-title">Tác Giả</h3>
@@ -207,7 +210,6 @@
         </p>
       </div>
 
-      <!-- Khối Bán Sách -->
       <div class="sidebar-widget" style="text-align: center;">
         <h3 class="widget-title">Tập Thơ Mới</h3>
         <img id="sb_book_img" src="/images/uploads/anh-bia-share.jpg" alt="Tập thơ Vũ Thiên Kiều" style="width: 100%; border-radius: 6px; margin-bottom: 0.5rem;" onerror="this.style.display='none'">
@@ -217,7 +219,7 @@
       </div>
     </aside>
 
-    <!-- CỘT GIỮA (NỘI DUNG CHÍNH) -->
+    <!-- CỘT GIỮA -->
     <main class="content-center">
       <section id="tho-vu-thien-kieu">
         <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">THƠ SÁNG TÁC</div>
@@ -262,7 +264,7 @@
       </section>
     </main>
 
-    <!-- CỘT PHẢI (SIDEBAR RIGHT) -->
+    <!-- CỘT PHẢI -->
     <aside class="sidebar-right">
       <div class="sidebar-widget">
         <h3 class="widget-title">Theo Dõi Tác Giả</h3>
@@ -283,15 +285,12 @@
     const categoryData = {};
     const currentPageData = {};
 
-    // Cập nhật hàm getSnippet theo cấu trúc trong ảnh
     function getSnippet(body, category) {
       if (!body) return '';
       const isPoetry = category.includes("Thơ");
 
       if (isPoetry) {
-        // Tách các dòng thơ
         const lines = body.trim().split('\n');
-        // Lấy 6-8 dòng đầu tiên bao gồm cả dòng trống ngắt khổ để hiển thị đẹp mắt
         if (lines.length > 6) {
           return lines.slice(0, 6).join('\n') + '\n...';
         }
@@ -357,7 +356,6 @@
               const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
               const category = categoryMatch ? categoryMatch[1].trim() : 'Thơ Vũ Thiên Kiều';
               
-              // Làm sạch dữ liệu ngày và ảnh (loại bỏ dấu ngoặc kép thừa)
               let rawDate = dateMatch ? dateMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
               let rawImage = imageMatch ? imageMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
 
@@ -418,20 +416,18 @@
         h2.appendChild(titleLink);
         card.appendChild(h2);
 
-        // Đã sửa: Chỉ hiện phần ngày sáng tác khi biến date thực sự có dữ liệu
         const metaSpan = document.createElement('span');
         metaSpan.className = 'meta-info';
         metaSpan.textContent = `Tác giả: ${post.author}${post.date ? ' | Sáng tác: ' + post.date : ''}`;
         card.appendChild(metaSpan);
 
-        // Đã sửa: Kiểm tra kỹ chuỗi ảnh, loại bỏ ảnh rỗng hoàn toàn
         if (post.image && post.image.length > 0) {
           const imgLink = document.createElement('a');
           imgLink.href = postUrl;
           const img = document.createElement('img');
           img.src = post.image;
           img.className = 'post-image';
-          img.onerror = function() { this.style.display = 'none'; }; // Nếu ảnh hỏng thì ẩn luôn
+          img.onerror = function() { this.style.display = 'none'; };
           imgLink.appendChild(img);
           card.appendChild(imgLink);
         }
