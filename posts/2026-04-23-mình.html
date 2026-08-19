@@ -21,17 +21,40 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     body { font-family: 'Montserrat', sans-serif; background: #fdfbf7; color: #2c3e50; line-height: 1.8; margin: 0; padding: 2rem 1rem; }
     .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
     h1 { font-family: 'Merriweather', serif; color: #2d5a27; margin-bottom: 0.5rem; font-size: 2rem; }
     .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
-    .post-body { font-size: 1.1rem; line-height: 2; color: #2c3e50; margin-top: 1.5rem; }
+    
+    /* Cấu hình hiển thị thơ chống nhảy dòng */
+    .post-body { 
+      font-size: 1.1rem; 
+      line-height: 1.9; 
+      color: #2c3e50; 
+      margin-top: 1.5rem; 
+      white-space: pre-wrap;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+    
     .post-img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; display: block; }
     .share-box { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px dashed #e2e8f0; display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
     .btn { border: none; padding: 0.5rem 1rem; border-radius: 6px; color: #fff; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
     .btn-fb { background: #1877f2; }
     .btn-zalo { background: #0068ff; }
     .btn-back { background: #4a5568; display: inline-block; margin-bottom: 1.5rem; }
+
+    /* Điều chỉnh riêng cho màn hình điện thoại */
+    @media (max-width: 768px) {
+      body { padding: 1rem 0.5rem; }
+      .container { padding: 1.2rem 0.8rem; }
+      h1 { font-size: 1.5rem; }
+      .post-body {
+        font-size: clamp(0.78rem, 3.8vw, 0.95rem);
+        letter-spacing: -0.2px;
+      }
+    }
   </style>
 </head>
 <body>
