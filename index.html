@@ -54,7 +54,9 @@
       font-weight: 600;
       margin-bottom: 0.8rem;
     }
-    .card h2 { color: var(--accent-green); margin-bottom: 0.5rem; font-size: 1.6rem; }
+    .card h2 { margin-bottom: 0.5rem; font-size: 1.6rem; }
+    .card h2 a { color: var(--accent-green); text-decoration: none; }
+    .card h2 a:hover { text-decoration: underline; }
     .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 1rem; display: block; }
     .post-body { white-space: pre-wrap; margin-top: 1rem; font-size: 1rem; line-height: 1.8; color: #2c3e50; }
     
@@ -66,7 +68,6 @@
       height: auto;
     }
 
-    /* Khối nút chia sẻ trực tiếp ở mỗi bài viết */
     .share-box {
       margin-top: 1.5rem;
       padding-top: 1rem;
@@ -118,8 +119,8 @@
       margin-top: 1rem;
       color: var(--accent-green);
       font-weight: 600;
-      cursor: pointer;
       font-size: 0.9rem;
+      text-decoration: none;
     }
     .btn-readmore:hover { text-decoration: underline; }
 
@@ -303,7 +304,7 @@
       currentPosts.forEach(post => {
         const card = document.createElement('article');
         card.className = 'card';
-        const postUrl = `https://vuthienkieu.vn/posts/${post.id}.html`;
+        const postUrl = `/posts/${post.id}.html`;
 
         // Tag
         const tagSpan = document.createElement('span');
@@ -311,9 +312,12 @@
         tagSpan.textContent = cat;
         card.appendChild(tagSpan);
 
-        // Tiêu đề
+        // Tiêu đề có link đến trang riêng
         const h2 = document.createElement('h2');
-        h2.textContent = post.title;
+        const titleLink = document.createElement('a');
+        titleLink.href = postUrl;
+        titleLink.textContent = post.title;
+        h2.appendChild(titleLink);
         card.appendChild(h2);
 
         // Meta info
@@ -324,10 +328,13 @@
 
         // Ảnh
         if (post.image) {
+          const imgLink = document.createElement('a');
+          imgLink.href = postUrl;
           const img = document.createElement('img');
           img.src = post.image;
           img.className = 'post-image';
-          card.appendChild(img);
+          imgLink.appendChild(img);
+          card.appendChild(imgLink);
         }
 
         // Nội dung tóm tắt
@@ -337,19 +344,14 @@
         bodyDiv.textContent = snippetText;
         card.appendChild(bodyDiv);
 
-        // Nút bấm "Mở rộng bài viết" ngay trên trang
-        if (post.body.trim() !== snippetText.trim()) {
-          const readMoreBtn = document.createElement('span');
-          readMoreBtn.className = 'btn-readmore';
-          readMoreBtn.textContent = 'Đọc tiếp tác phẩm ➔';
-          readMoreBtn.onclick = () => {
-            bodyDiv.textContent = post.body;
-            readMoreBtn.style.display = 'none';
-          };
-          card.appendChild(readMoreBtn);
-        }
+        // Nút chuyển hẳn sang trang riêng bài viết
+        const readMoreBtn = document.createElement('a');
+        readMoreBtn.className = 'btn-readmore';
+        readMoreBtn.href = postUrl;
+        readMoreBtn.textContent = 'Đọc tiếp tác phẩm ➔';
+        card.appendChild(readMoreBtn);
 
-        // Khối nút Chia sẻ gắn vào từng bài viết
+        // Khối nút Chia sẻ
         const shareBox = document.createElement('div');
         shareBox.className = 'share-box';
 
@@ -358,18 +360,20 @@
         shareTitle.textContent = 'Chia sẻ tác phẩm này:';
         shareBox.appendChild(shareTitle);
 
+        const fullPostUrl = `https://vuthienkieu.vn/posts/${post.id}.html`;
+
         // Nút FB
         const btnFb = document.createElement('button');
         btnFb.className = 'btn-share btn-fb';
         btnFb.textContent = 'Facebook';
-        btnFb.onclick = () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`, '_blank');
+        btnFb.onclick = () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullPostUrl)}`, '_blank');
         shareBox.appendChild(btnFb);
 
         // Nút Zalo
         const btnZalo = document.createElement('button');
         btnZalo.className = 'btn-share btn-zalo';
         btnZalo.textContent = 'Zalo';
-        btnZalo.onclick = () => window.open(`https://zalo.me/share?url=${encodeURIComponent(postUrl)}`, '_blank');
+        btnZalo.onclick = () => window.open(`https://zalo.me/share?url=${encodeURIComponent(fullPostUrl)}`, '_blank');
         shareBox.appendChild(btnZalo);
 
         // Nút Copy Link
@@ -377,7 +381,7 @@
         btnCopy.className = 'btn-share btn-copy';
         btnCopy.textContent = 'Chép Link';
         btnCopy.onclick = () => {
-          navigator.clipboard.writeText(postUrl);
+          navigator.clipboard.writeText(fullPostUrl);
           alert("Đã sao chép liên kết bài viết!");
         };
         shareBox.appendChild(btnCopy);
@@ -392,7 +396,7 @@
         
         const embedTextarea = document.createElement('textarea');
         embedTextarea.readOnly = true;
-        embedTextarea.value = `<iframe src="${postUrl}" width="100%" height="450" frameborder="0"></iframe>`;
+        embedTextarea.value = `<iframe src="${fullPostUrl}" width="100%" height="450" frameborder="0"></iframe>`;
 
         const btnCopyEmbed = document.createElement('button');
         btnCopyEmbed.className = 'btn-share btn-copy';
