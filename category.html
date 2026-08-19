@@ -117,11 +117,14 @@
 
     function parseDate(dateStr) {
       if (!dateStr) return 0;
-      const parts = dateStr.trim().split(/[\/\-]/);
+      const cleanDate = dateStr.replace(/"/g, '').trim();
+      if (!cleanDate) return 0;
+
+      const parts = cleanDate.split(/[\/\-]/);
       if (parts.length === 3) {
         return new Date(parts[2], parts[1] - 1, parts[0]).getTime();
       }
-      return new Date(dateStr).getTime() || 0;
+      return new Date(cleanDate).getTime() || 0;
     }
 
     async function loadCategoryPosts() {
@@ -144,22 +147,29 @@
               const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
               const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
               const authorMatch = text.match(/author:\s*"(.*?)"/) || text.match(/author:\s*(.*)/);
-              const dateMatch = text.match(/date:\s*"(.*?)"/) || text.match(/date:\s*(.*)/) || text.match(/created_date:\s*"(.*?)"/) || text.match(/created_date:\s*(.*)/);
+
+              // 1. Tách riêng Ngày Đăng Bài (date)
+              const pubDateMatch = text.match(/^date:\s*"(.*?)"/m) || text.match(/^date:\s*(.*)/m);
+              
+              // 2. Tách riêng Ngày Sáng Tác (created_date hoặc written_date)
+              const createDateMatch = text.match(/^created_date:\s*"(.*?)"/m) || text.match(/^created_date:\s*(.*)/m) || 
+                                      text.match(/^written_date:\s*"(.*?)"/m) || text.match(/^written_date:\s*(.*)/m);
 
               const bodyParts = text.split('---');
               const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
-              const category = categoryMatch ? categoryMatch[1].trim() : '';
-              
-              // Lấy ngày đăng bài (loại bỏ các dấu ngoặc kép thừa)
-              let dateRaw = dateMatch ? (dateMatch[1] || dateMatch[2] || '').replace(/"/g, '').trim() : '';
+              const category = categoryMatch ? categoryMatch[1].replace(/"/g, '').trim() : '';
+
+              let pubDate = pubDateMatch ? (pubDateMatch[1] || pubDateMatch[2] || '').replace(/"/g, '').trim() : '';
+              let createDate = createDateMatch ? (createDateMatch[1] || createDateMatch[2] || '').replace(/"/g, '').trim() : '';
 
               if (category === targetCategoryName) {
                 matchedPosts.push({
                   postId: file.name.replace('.md', ''),
                   title: titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Không tiêu đề',
                   author: authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều',
-                  date: dateRaw,
-                  timestamp: parseDate(dateRaw),
+                  pubDate: pubDate,
+                  createDate: createDate,
+                  timestamp: parseDate(pubDate), // Dùng Ngày Đăng để sắp xếp
                   body: body
                 });
               }
@@ -172,19 +182,21 @@
           return;
         }
 
-        // ƯU TIÊN SẮP XẾP THEO NGÀY ĐĂNG MỚI NHẤT LÊN ĐẦU
+        // SẮP XẾP BÀI ĐĂNG MỚI NHẤT LÊN ĐẦU (Dựa theo Timestamp Ngày Đăng)
         matchedPosts.sort((a, b) => b.timestamp - a.timestamp);
 
         matchedPosts.forEach(post => {
           const item = document.createElement('article');
           item.className = 'post-item';
           
-          // Kiểm tra chính xác: Chỉ hiển thị ngày đăng khi có dữ liệu ngày thực sự
-          const dateText = post.date ? ` | Ngày đăng: ${post.date}` : '';
+          // Xử lý nhãn thông tin
+          let metaText = `Tác giả: ${post.author}`;
+          if (post.pubDate) metaText += ` | Ngày đăng: ${post.pubDate}`;
+          if (post.createDate) metaText += ` | Sáng tác: ${post.createDate}`;
 
           item.innerHTML = `
             <h2><a href="/posts/${post.postId}.html">${post.title}</a></h2>
-            <span class="meta">Tác giả: ${post.author}${dateText}</span>
+            <span class="meta">${metaText}</span>
             <div class="body-preview">${getSnippet(post.body, targetCategoryName)}</div>
             <a href="/posts/${post.postId}.html" class="read-more">Đọc toàn bộ tác phẩm ➔</a>
           `;
