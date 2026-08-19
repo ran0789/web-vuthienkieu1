@@ -21,9 +21,10 @@ fs.readdir(postsDir, (err, files) => {
       const imageMatch = content.match(/featured_image:\s*"(.*?)"/) || content.match(/featured_image:\s*(.*)/);
       const dateMatch = content.match(/created_date:\s*"(.*?)"/) || content.match(/created_date:\s*(.*)/);
 
+      // Cắt lấy phần nội dung chính sau Frontmatter
       const parts = content.split('---');
-      const rawBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
-      const formattedBody = rawBody.replace(/\n/g, '<br>');
+      // Giữ nguyên văn bản gốc, chỉ dùng trim() để làm sạch khoảng trắng thừa đầu/cuối
+      const formattedBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
 
       const title = titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Tác phẩm';
       const author = authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều';
@@ -45,7 +46,7 @@ fs.readdir(postsDir, (err, files) => {
 
       const slug = file.replace('.md', '');
       const postUrl = `https://vuthienkieu.vn/posts/${slug}.html`;
-      const description = rawBody.replace(/[\r\n]+/g, ' ').substring(0, 150).replace(/"/g, "'");
+      const description = formattedBody.replace(/[\r\n]+/g, ' ').substring(0, 150).replace(/"/g, "'");
 
       const htmlContent = `<!DOCTYPE html>
 <html lang="vi">
@@ -76,13 +77,13 @@ fs.readdir(postsDir, (err, files) => {
     h1 { font-family: 'Merriweather', serif; color: #2d5a27; margin-bottom: 0.5rem; font-size: 2rem; }
     .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
     
-    /* Cấu hình hiển thị thơ chống nhảy dòng */
+    /* Cấu hình hiển thị thơ: giữ đúng tuyệt đối khoảng cách khổ thơ và xuống dòng */
     .post-body { 
       font-size: 1.1rem; 
       line-height: 1.9; 
       color: #2c3e50; 
       margin-top: 1.5rem; 
-      white-space: pre-wrap;
+      white-space: pre-wrap; /* Tự động nhận diện dòng trống và xuống dòng từ Markdown */
       word-break: keep-all;
       overflow-wrap: normal;
     }
@@ -112,6 +113,8 @@ fs.readdir(postsDir, (err, files) => {
     <h1>${title}</h1>
     <div class="meta">Tác giả: ${author} ${rawDate ? '| Sáng tác: ' + rawDate : ''}</div>
     ${hasImage ? `<img src="${image}" class="post-img" onerror="this.style.display='none'" />` : ''}
+    
+    <!-- Hiển thị trực tiếp formattedBody -->
     <div class="post-body">${formattedBody}</div>
     
     <div class="share-box">
