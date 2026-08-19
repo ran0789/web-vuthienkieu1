@@ -51,10 +51,13 @@ collections:
 
   - name: "author_info"
     label: "Giới Thiệu Tác Giả"
-    file: "content/about.md"
-    fields:
-      - { label: "TÊN TÁC GIẢ", name: "title", widget: "string", default: "Vũ Thiên Kiều" }
-      - { label: "ẢNH ĐẠI DIỆN TÁC GIẢ", name: "avatar", widget: "image", required: false }
-      - { label: "DANH HIỆU / CHỨC DANH", name: "subtitle", widget: "string", required: false }
-      - { label: "NĂM SINH / QUÊ QUÁN", name: "bio_info", widget: "string", required: false }
-      - { label: "NỘI DUNG TIỂU SỬ & SỰ NGHIỆP", name: "body", widget: "markdown" }
+    files:
+      - file: "content/about.md"
+        label: "Thông Tin Tác Giả"
+        name: "about"
+        fields:
+          - { label: "TÊN TÁC GIẢ", name: "title", widget: "string", default: "Vũ Thiên Kiều" }
+          - { label: "ẢNH ĐẠI DIỆN TÁC GIẢ", name: "avatar", widget: "image", required: false }
+          - { label: "DANH HIỆU / CHỨC DANH", name: "subtitle", widget: "string", required: false }
+          - { label: "NĂM SINH / QUÊ QUÁN", name: "bio_info", widget: "string", required: false }
+          - { label: "NỘI DUNG TIỂU SỬ & SỰ NGHIỆP", name: "body", widget: "markdown" }
