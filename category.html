@@ -100,7 +100,7 @@
       <li><a href="/category.html?tag=chum-tho">CHÙM THƠ</a></li>
       <li><a href="/category.html?tag=tan-van-va-ky">TẢN VĂN & KÝ</a></li>
       <li><a href="/category.html?tag=truyen-ngan">TRUYỆN NGẮN</a></li>
-      <li><a href="/category.html?tag=goc-ban-van">GÓC BẠN VĂN</a></li>
+      <li><a href="/category.html?tag=goc-ban-van">GÓC BẠN VÃN</a></li>
       <li><a href="/category.html?tag=bao-chi">BÁO CHÍ & TRUYỀN THÔNG</a></li>
       <li><a href="/category.html?tag=ly-luan-binh">LÝ LUẬN & BÌNH</a></li>
     </ul>
@@ -218,6 +218,7 @@
 
         document.getElementById('category-count').innerText = `Tổng số: ${posts.length} tác phẩm`;
 
+        // SẮP XẾP: Bài viết MỚI NHẤT (timestamp lớn nhất) lên ĐẦU
         posts.sort((a, b) => b.timestamp - a.timestamp);
 
         const container = document.getElementById('posts-container');
