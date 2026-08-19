@@ -16,6 +16,17 @@ collections:
     fields:
       - { label: "TIÊU ĐỀ BÀI VIẾT / BÀI BÁO", name: "title", widget: "string" }
       - { 
+          label: "TRẠNG THÁI BÀI VIẾT", 
+          name: "status", 
+          widget: "select", 
+          default: "published",
+          options: [
+            { label: "🟢 Xuất bản (Hiển thị trên trang chủ)", value: "published" },
+            { label: "🟡 Bản nháp (Đang soạn thảo)", value: "draft" },
+            { label: "🔴 Tạm ẩn (Ẩn khỏi trang chủ)", value: "hidden" }
+          ]
+        }
+      - { 
           label: "THỂ LOẠI", 
           name: "category", 
           widget: "select", 
