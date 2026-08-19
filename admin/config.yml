@@ -2,8 +2,6 @@ backend:
   name: github
   repo: ran0789/web-vuthienkieu1
   branch: main
-  base_url: https://decap-cms-oauth-provider.vercel.app
-  auth_endpoint: /auth
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
