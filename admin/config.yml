@@ -2,6 +2,8 @@ backend:
   name: github
   repo: ran0789/web-vuthienkieu1
   branch: main
+  base_url: https://decap-cms-oauth-provider.vercel.app
+  auth_endpoint: /auth
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -28,8 +30,8 @@ collections:
             "Lý Luận & Bình Tác Phẩm"
           ] 
         }
-      - { label: "TÁC GIẢ / NGUỒN BÁO (ví dụ: VŨ THIÊN KIỀU / BÁO VĂN NGHỆ)", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
-      - { label: "ẢNH MINH HỌA (TÙY CHỌN - KÍCH THƯỚC KHUYÊN DÙNG: 1200 X 675PX, TỶ LỆ 16:9, DUNG LƯỢNG < 500KB, ĐỊNH DẠNG JPG/.WEBP) (OPTIONAL)", name: "featured_image", widget: "image", required: false }
+      - { label: "TÁC GIẢ / NGUỒN BÁO", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
+      - { label: "ẢNH MINH HỌA", name: "featured_image", widget: "image", required: false }
       - { 
           label: "KÍCH THƯỚC HIỂN THỊ ẢNH MINH HỌA", 
           name: "image_size", 
@@ -44,7 +46,7 @@ collections:
           ],
           required: false 
         }
-      - { label: "ĐƯỜNG LINK BÀI BÁO GỐC (CHỈ DÙNG KHI ĐĂNG BÀI THUỘC THỂ LOẠI BÁO CHÍ & TRUYỀN THÔNG) (OPTIONAL)", name: "source_url", widget: "string", required: false }
-      - { label: "NGÀY / ĐỊA ĐIỂM SÁNG TÁC (TÙY CHỌN - VÍ DỤ: SƠN KIÊN, 2024) (OPTIONAL)", name: "created_date", widget: "string", required: false }
+      - { label: "ĐƯỜNG LINK BÀI BÁO GỐC", name: "source_url", widget: "string", required: false }
+      - { label: "NGÀY / ĐỊA ĐIỂM SÁNG TÁC", name: "created_date", widget: "string", required: false }
       - { label: "NGÀY ĐĂNG BÀI", name: "date", widget: "datetime", required: false }
       - { label: "NỘI DUNG TRÍCH DẪN / VĂN THƠ", name: "body", widget: "markdown" }
