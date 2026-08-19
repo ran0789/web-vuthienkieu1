@@ -22,7 +22,15 @@ fs.readdir(postsDir, (err, files) => {
       const dateMatch = content.match(/created_date:\s*"(.*?)"/) || content.match(/created_date:\s*(.*)/);
 
       const parts = content.split('---');
-      const formattedBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
+      let rawBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
+
+      // --- SỬA TẬN GỐC TẠI ĐÂY ---
+      // 1. Gom nhiều dòng trống liên tiếp thành đúng 1 dòng trống (ngắt khổ thơ)
+      // 2. Xóa các khoảng trắng thừa ở cuối mỗi dòng thơ
+      const formattedBody = rawBody
+        .replace(/\r\n/g, '\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
 
       const title = titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Tác phẩm';
       const author = authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều';
@@ -63,23 +71,15 @@ fs.readdir(postsDir, (err, files) => {
     h1 { font-family: 'Merriweather', serif; color: #2d5a27; margin-bottom: 0.5rem; font-size: 2rem; }
     .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
     
-    /* SỬA KHOẢNG CÁCH DÒNG THƠ */
+    /* CSS HIỂN THỊ THƠ SÁT NHAU CHUẨN ĐẸP */
     .post-body { 
       font-size: 1.05rem; 
-      line-height: 1.15; /* Thu hẹp tối đa khoảng cách dòng thơ */
+      line-height: 1.4; /* Độ cao dòng thơ tự nhiên, khít đẹp */
       color: #2c3e50; 
       margin-top: 1.2rem; 
       white-space: pre-wrap; 
       word-break: keep-all;
       overflow-wrap: normal;
-    }
-
-    /* TRIỆT TIỆU KHOẢNG TRỐNG MẶC ĐỊNH CỦA CÁC THẺ ĐOẠN */
-    .post-body p, 
-    .post-body div {
-      margin: 0 0 0.3em 0 !important;
-      padding: 0 !important;
-      line-height: 1.15 !important;
     }
     
     .post-img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; display: block; }
@@ -95,11 +95,7 @@ fs.readdir(postsDir, (err, files) => {
       h1 { font-size: 1.5rem; }
       .post-body {
         font-size: clamp(0.85rem, 3.8vw, 0.95rem);
-        line-height: 1.1;
-      }
-      .post-body p,
-      .post-body div {
-        line-height: 1.1 !important;
+        line-height: 1.35;
       }
     }
   </style>
