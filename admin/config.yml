@@ -48,3 +48,13 @@ collections:
       - { label: "NGÀY / ĐỊA ĐIỂM SÁNG TÁC", name: "created_date", widget: "string", required: false }
       - { label: "NGÀY ĐĂNG BÀI", name: "date", widget: "datetime", required: false }
       - { label: "NỘI DUNG TRÍCH DẪN / VĂN THƠ", name: "body", widget: "markdown" }
+
+  - name: "author_info"
+    label: "Giới Thiệu Tác Giả"
+    file: "content/about.md"
+    fields:
+      - { label: "TÊN TÁC GIẢ", name: "title", widget: "string", default: "Vũ Thiên Kiều" }
+      - { label: "ẢNH ĐẠI DIỆN TÁC GIẢ", name: "avatar", widget: "image", required: false }
+      - { label: "DANH HIỆU / CHỨC DANH", name: "subtitle", widget: "string", required: false }
+      - { label: "NĂM SINH / QUÊ QUÁN", name: "bio_info", widget: "string", required: false }
+      - { label: "NỘI DUNG TIỂU SỬ & SỰ NGHIỆP", name: "body", widget: "markdown" }
