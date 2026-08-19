@@ -144,12 +144,14 @@
               const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
               const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
               const authorMatch = text.match(/author:\s*"(.*?)"/) || text.match(/author:\s*(.*)/);
-              const dateMatch = text.match(/created_date:\s*"(.*?)"/) || text.match(/created_date:\s*(.*)/);
+              const dateMatch = text.match(/date:\s*"(.*?)"/) || text.match(/date:\s*(.*)/) || text.match(/created_date:\s*"(.*?)"/) || text.match(/created_date:\s*(.*)/);
 
               const bodyParts = text.split('---');
               const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
               const category = categoryMatch ? categoryMatch[1].trim() : '';
-              const dateRaw = dateMatch ? dateMatch[1].replace(/"/g, '').trim() : '';
+              
+              // Lấy ngày đăng bài (loại bỏ các dấu ngoặc kép thừa)
+              let dateRaw = dateMatch ? (dateMatch[1] || dateMatch[2] || '').replace(/"/g, '').trim() : '';
 
               if (category === targetCategoryName) {
                 matchedPosts.push({
@@ -170,15 +172,19 @@
           return;
         }
 
-        // SẮP XẾP BÀI MỚI NHẤT LÊN ĐẦU
+        // ƯU TIÊN SẮP XẾP THEO NGÀY ĐĂNG MỚI NHẤT LÊN ĐẦU
         matchedPosts.sort((a, b) => b.timestamp - a.timestamp);
 
         matchedPosts.forEach(post => {
           const item = document.createElement('article');
           item.className = 'post-item';
+          
+          // Kiểm tra chính xác: Chỉ hiển thị ngày đăng khi có dữ liệu ngày thực sự
+          const dateText = post.date ? ` | Ngày đăng: ${post.date}` : '';
+
           item.innerHTML = `
             <h2><a href="/posts/${post.postId}.html">${post.title}</a></h2>
-            <span class="meta">Tác giả: ${post.author} ${post.date ? '| Sáng tác: ' + post.date : ''}</span>
+            <span class="meta">Tác giả: ${post.author}${dateText}</span>
             <div class="body-preview">${getSnippet(post.body, targetCategoryName)}</div>
             <a href="/posts/${post.postId}.html" class="read-more">Đọc toàn bộ tác phẩm ➔</a>
           `;
