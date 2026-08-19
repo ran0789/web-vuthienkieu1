@@ -25,15 +25,24 @@ fs.readdir(postsDir, (err, files) => {
       const rawBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
       const formattedBody = rawBody.replace(/\n/g, '<br>');
 
-      const title = titleMatch ? titleMatch[1].trim() : 'Tác phẩm';
-      const author = authorMatch ? authorMatch[1].trim() : 'Vũ Thiên Kiều';
-      let image = imageMatch ? imageMatch[1].trim() : '';
+      const title = titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Tác phẩm';
+      const author = authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều';
       
-      // Tự động tối ưu đường dẫn ảnh tuyệt đối cho Facebook/Zalo
-      if (image && !image.startsWith('http')) {
-        image = 'https://vuthienkieu.vn' + (image.startsWith('/') ? '' : '/') + image;
+      // Xử lý và làm sạch dữ liệu Ngày sáng tác
+      let rawDate = dateMatch ? dateMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
+
+      // Xử lý và làm sạch đường dẫn Ảnh đại diện
+      let image = imageMatch ? imageMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
+      let hasImage = false;
+
+      if (image && image.length > 0) {
+        hasImage = true;
+        // Tự động tối ưu đường dẫn ảnh tuyệt đối cho Facebook/Zalo
+        if (!image.startsWith('http')) {
+          image = 'https://vuthienkieu.vn' + (image.startsWith('/') ? '' : '/') + image;
+        }
       }
-      
+
       const slug = file.replace('.md', '');
       const postUrl = `https://vuthienkieu.vn/posts/${slug}.html`;
       const description = rawBody.replace(/[\r\n]+/g, ' ').substring(0, 150).replace(/"/g, "'");
@@ -50,14 +59,14 @@ fs.readdir(postsDir, (err, files) => {
   <meta property="og:url" content="${postUrl}" />
   <meta property="og:title" content="${title} - Vũ Thiên Kiều" />
   <meta property="og:description" content="${description}" />
-  ${image ? `<meta property="og:image" content="${image}" />` : ''}
-  ${image ? `<meta property="og:image:secure_url" content="${image}" />` : ''}
+  ${hasImage ? `<meta property="og:image" content="${image}" />` : ''}
+  ${hasImage ? `<meta property="og:image:secure_url" content="${image}" />` : ''}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title} - Vũ Thiên Kiều" />
   <meta name="twitter:description" content="${description}" />
-  ${image ? `<meta name="twitter:image" content="${image}" />` : ''}
+  ${hasImage ? `<meta name="twitter:image" content="${image}" />` : ''}
 
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -101,8 +110,8 @@ fs.readdir(postsDir, (err, files) => {
   <div class="container">
     <a href="/" class="btn btn-back">← Trở về trang chủ</a>
     <h1>${title}</h1>
-    <div class="meta">Tác giả: ${author} ${dateMatch ? '| Sáng tác: ' + dateMatch[1].trim() : ''}</div>
-    ${image ? `<img src="${image}" class="post-img" />` : ''}
+    <div class="meta">Tác giả: ${author} ${rawDate ? '| Sáng tác: ' + rawDate : ''}</div>
+    ${hasImage ? `<img src="${image}" class="post-img" onerror="this.style.display='none'" />` : ''}
     <div class="post-body">${formattedBody}</div>
     
     <div class="share-box">
