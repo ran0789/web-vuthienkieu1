@@ -18,6 +18,8 @@ sớm mai ấy người chạm người như thể
 
 hành tinh xanh mời núi lửa rượu ngày
 
+<br>
+
 người vác núi mềm đôi vai nhỏ
 
 lần cao thấp và tủi hờn trút bóng
@@ -25,6 +27,8 @@ lần cao thấp và tủi hờn trút bóng
 rộng sân một bề
 
 rào chắn kịp ngồi êm?
+
+<br>
 
 có nỗi đau hái trời làm gối
 
@@ -35,6 +39,8 @@ tìm hoa đỏ dẫn về thật bụng
 đuốc ở đồng tiền... 
 
 vá víu lập cập đôi?
+
+<br>
 
 có nỗi đau không thành nước mắt
 
