@@ -12,9 +12,7 @@
   <meta property="og:image" content="https://vuthienkieu.vn/images/uploads/anh-bia-share.jpg" />
 
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <style>
     :root {
@@ -29,7 +27,7 @@
     body { font-family: 'Montserrat', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.5; }
     h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
     
-    /* TOP HEADER & NÚT MỞ MENU */
+    /* TOP HEADER */
     .top-header { 
       background: var(--bg-card); 
       border-bottom: 1px solid var(--border-color); 
@@ -44,7 +42,7 @@
     .menu-toggle-btn { background: none; border: none; font-size: 1.4rem; color: var(--accent-green); cursor: pointer; }
     .site-title { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.1rem; color: var(--accent-green); text-decoration: none; }
 
-    /* OFF-CANVAS MOBILE MENU (TRƯỢT BÊN TRÁI) */
+    /* OFF-CANVAS MOBILE MENU */
     .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 998; }
     .menu-drawer { position: fixed; top: 0; left: -320px; width: 300px; height: 100%; background: var(--bg-main); z-index: 999; transition: all 0.3s ease; display: flex; flex-direction: column; overflow-y: auto; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
     
@@ -54,34 +52,29 @@
     .menu-header { padding: 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); }
     .close-btn { background: #c53030; color: #fff; border: none; width: 32px; height: 32px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
 
-    /* Ô TÌM KIẾM TRONG MENU */
     .search-box { padding: 1rem; border-bottom: 1px solid var(--border-color); }
     .search-wrapper { position: relative; }
     .search-input { width: 100%; padding: 0.6rem 2.2rem 0.6rem 0.8rem; border: 1px solid var(--border-color); border-radius: 20px; font-size: 0.85rem; outline: none; background: #fff; }
     .search-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #718096; }
 
-    /* DANH SÁCH DANH MỤC TRONG MENU TRƯỢT */
     .drawer-nav { list-style: none; padding: 0; margin: 0; flex: 1; }
     .drawer-nav li { border-bottom: 1px solid var(--border-color); }
     .drawer-nav a { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.2rem; color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
     .drawer-nav a:hover { color: var(--accent-green); background: #f7fafc; }
 
-    /* MẠNG XÃ HỘI CHÂN MENU TRƯỢT */
     .drawer-social { padding: 1.2rem; display: flex; gap: 1rem; border-top: 1px solid var(--border-color); }
     .drawer-social a { color: #718096; font-size: 1.1rem; text-decoration: none; }
-    .drawer-social a:hover { color: var(--accent-green); }
 
-    /* BANNER ĐẦU TRANG */
+    /* BANNER */
     .main-banner { background: var(--bg-card); text-align: center; padding: 2.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border-color); }
     .main-banner h1 { color: var(--accent-green); font-size: 2.2rem; margin-bottom: 0.4rem; }
     .main-banner p { color: var(--accent-gold); font-style: italic; font-size: 0.95rem; }
 
-    /* MENU NGANG CHO MÀN HÌNH MÁY TÍNH */
     .desktop-nav { display: flex; justify-content: center; gap: 1.2rem; margin-top: 1.5rem; flex-wrap: wrap; }
     .desktop-nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
     .desktop-nav a:hover { color: var(--accent-green); }
 
-    /* BỐ CỤC GRID 3 CỘT */
+    /* GRID 3 CỘT */
     .main-wrapper {
       display: grid;
       grid-template-columns: 260px 1fr 280px;
@@ -92,13 +85,12 @@
     }
 
     @media (max-width: 1024px) {
-      .main-wrapper {
-        grid-template-columns: 1fr;
-        padding: 0 0.5rem;
-      }
-      .sidebar-left, .sidebar-right {
-        display: none;
-      }
+      .main-wrapper { grid-template-columns: 1fr; padding: 0 0.5rem; }
+      .sidebar-left, .sidebar-right { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; }
     }
 
     .sidebar-widget {
@@ -117,102 +109,48 @@
       margin-bottom: 1rem;
     }
 
-    .card {
+    /* TAG SECTIONS */
+    .tag-block {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 2rem;
+      padding: 1.5rem;
       margin-bottom: 2rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
-    .card-tag {
-      display: inline-block;
-      background: rgba(197, 160, 89, 0.15);
-      color: var(--accent-gold);
-      padding: 0.2rem 0.8rem;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-    }
-    .card h2 { margin-bottom: 0.3rem; font-size: 1.6rem; }
-    .card h2 a { color: var(--accent-green); text-decoration: none; }
-    .card h2 a:hover { text-decoration: underline; }
-    .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 0.8rem; display: block; }
-    
-    .post-body { 
-      white-space: pre-wrap; 
-      word-break: keep-all;
-      overflow-wrap: normal;
-      margin-top: 0.8rem; 
-      font-size: 1rem; 
-      line-height: 1.45;
-      color: #2c3e50; 
-    }
-
-    .post-body p {
-      margin-bottom: 0.5rem;
-    }
-
-    /* BỐ CỤC RESPONSIVE CHO ĐIỆN THOẠI MOBILE */
-    @media (max-width: 768px) {
-      /* Ẩn menu ngang trên điện thoại vì đã có menu trượt */
-      .desktop-nav {
-        display: none;
-      }
-      .card {
-        padding: 1.2rem 0.8rem;
-      }
-      .card h2 {
-        font-size: 1.3rem;
-      }
-      .post-body {
-        font-size: clamp(0.85rem, 3.8vw, 0.95rem);
-        line-height: 1.4;
-        letter-spacing: -0.1px;
-      }
-    }
-    
-    .post-image { 
-      border-radius: 8px; 
-      margin: 1.2rem auto; 
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    .share-box {
-      margin-top: 1.2rem;
-      padding-top: 0.8rem;
-      border-top: 1px dashed var(--border-color);
+    .tag-header {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      justify-content: space-between;
       align-items: center;
+      border-bottom: 2px solid var(--accent-gold);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    .share-title { font-size: 0.85rem; font-weight: 600; color: #4a5568; width: 100%; margin-bottom: 0.3rem; }
-    .btn-share {
-      border: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      color: #fff;
-    }
-    .btn-fb { background-color: #1877f2; }
-    .btn-zalo { background-color: #0068ff; }
-    .btn-copy { background-color: #4a5568; }
-
-    .btn-readmore {
-      display: inline-block;
-      margin-top: 0.8rem;
+    .tag-title {
+      font-size: 1.2rem;
       color: var(--accent-green);
-      font-weight: 600;
-      font-size: 0.9rem;
+      font-weight: bold;
       text-decoration: none;
     }
-    .btn-readmore:hover { text-decoration: underline; }
+    .tag-title:hover { text-decoration: underline; }
+    .btn-see-more {
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .btn-see-more:hover { text-decoration: underline; }
+
+    .post-card-mini {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    .post-card-mini:last-child { border-bottom: none; }
+    .post-card-mini h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .post-card-mini h3 a { color: var(--text-main); text-decoration: none; }
+    .post-card-mini h3 a:hover { color: var(--accent-green); }
+    .post-card-mini .meta { font-style: italic; color: #718096; font-size: 0.8rem; margin-bottom: 0.4rem; display: block; }
+    .post-card-mini .snippet { font-size: 0.9rem; color: #4a5568; white-space: pre-wrap; line-height: 1.4; }
 
     .btn-buy {
       display: block;
@@ -226,33 +164,25 @@
       font-size: 0.85rem;
       margin-top: 0.8rem;
     }
-
-    .pagination { display: flex; justify-content: center; gap: 0.5rem; margin: 1.5rem 0 3rem; flex-wrap: wrap; }
-    .pagination button { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; }
-    .pagination button.active { background: var(--accent-green); color: #fff; border-color: var(--accent-green); }
     footer { text-align: center; padding: 2rem; color: #888; font-size: 0.85rem; border-top: 1px solid var(--border-color); }
   </style>
 </head>
 <body>
 
-  <!-- TOP HEADER ĐĨNH KÈM NÚT BẤM MENU -->
   <header class="top-header">
     <button class="menu-toggle-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
     <a href="/" class="site-title">VŨ THIÊN KIỀU</a>
     <div style="width: 24px;"></div>
   </header>
 
-  <!-- OVERLAY LỚP NỀN MỜ -->
   <div class="menu-overlay" onclick="toggleMenu()"></div>
 
-  <!-- OFF-CANVAS DRAWER MENU -->
   <aside class="menu-drawer">
     <div class="menu-header">
       <span style="font-weight: 700; color: var(--accent-green); font-family: 'Merriweather', serif;">VŨ THIÊN KIỀU</span>
       <button class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <!-- Ô TÌM KIẾM -->
     <div class="search-box">
       <div class="search-wrapper">
         <input type="text" class="search-input" placeholder="Bạn cần tìm gì...">
@@ -260,19 +190,17 @@
       </div>
     </div>
 
-    <!-- DANH MỤC TRONG MENU TRƯỢT -->
     <ul class="drawer-nav">
       <li><a href="/" onclick="toggleMenu()"><i class="fa-solid fa-house" style="color:var(--accent-green); margin-right:8px;"></i> TRANG CHỦ</a></li>
-      <li><a href="#tho-vu-thien-kieu" onclick="toggleMenu()">THƠ SÁNG TÁC</a></li>
-      <li><a href="#chum-tho" onclick="toggleMenu()">CHÙM THƠ</a></li>
-      <li><a href="#tan-van" onclick="toggleMenu()">TẢN VĂN & KÝ</a></li>
-      <li><a href="#truyen-ngan" onclick="toggleMenu()">TRUYỆN NGẮN</a></li>
-      <li><a href="#goc-ban-van" onclick="toggleMenu()">GÓC BẠN VĂN</a></li>
-      <li><a href="#bao-chi" onclick="toggleMenu()">BÁO CHÍ & TRUYỀN THÔNG</a></li>
-      <li><a href="#ly-luan" onclick="toggleMenu()">LÝ LUẬN & BÌNH</a></li>
+      <li><a href="/category.html?tag=tho-vu-thien-kieu">THƠ SÁNG TÁC</a></li>
+      <li><a href="/category.html?tag=chum-tho">CHÙM THƠ</a></li>
+      <li><a href="/category.html?tag=tan-van-va-ky">TẢN VĂN & KÝ</a></li>
+      <li><a href="/category.html?tag=truyen-ngan">TRUYỆN NGẮN</a></li>
+      <li><a href="/category.html?tag=goc-ban-van">GÓC BẠN VĂN</a></li>
+      <li><a href="/category.html?tag=bao-chi">BÁO CHÍ & TRUYỀN THÔNG</a></li>
+      <li><a href="/category.html?tag=ly-luan-binh">LÝ LUẬN & BÌNH</a></li>
     </ul>
 
-    <!-- BIỂU TƯỢNG MẠNG XÃ HỘI CHÂN MENU -->
     <div class="drawer-social">
       <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
       <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
@@ -280,18 +208,17 @@
     </div>
   </aside>
 
-  <!-- BANNER TÊN TÁC GIẢ BÊN DƯỚI HEADER -->
   <div class="main-banner">
     <h1>Vũ Thiên Kiều</h1>
     <p>Không Gian Sáng Tác Văn Học & Góc Bạn Văn</p>
     <nav class="desktop-nav">
-      <a href="#tho-vu-thien-kieu">Thơ Sáng Tác</a>
-      <a href="#chum-tho">Chùm Thơ</a>
-      <a href="#tan-van">Tản Văn & Ký</a>
-      <a href="#truyen-ngan">Truyện Ngắn</a>
-      <a href="#goc-ban-van">Góc Bạn Văn</a>
-      <a href="#bao-chi">Báo Chí</a>
-      <a href="#ly-luan">Lý Luận & Bình</a>
+      <a href="/category.html?tag=tho-vu-thien-kieu">Thơ Sáng Tác</a>
+      <a href="/category.html?tag=chum-tho">Chùm Thơ</a>
+      <a href="/category.html?tag=tan-van-va-ky">Tản Văn & Ký</a>
+      <a href="/category.html?tag=truyen-ngan">Truyện Ngắn</a>
+      <a href="/category.html?tag=goc-ban-van">Góc Bạn Văn</a>
+      <a href="/category.html?tag=bao-chi">Báo Chí</a>
+      <a href="/category.html?tag=ly-luan-binh">Lý Luận & Bình</a>
     </nav>
   </div>
 
@@ -316,50 +243,8 @@
       </div>
     </aside>
 
-    <!-- CỘT GIỮA -->
-    <main class="content-center">
-      <section id="tho-vu-thien-kieu">
-        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">THƠ SÁNG TÁC</div>
-        <div id="container-Thơ Vũ Thiên Kiều"></div>
-        <div id="pagination-Thơ Vũ Thiên Kiều" class="pagination"></div>
-      </section>
-
-      <section id="chum-tho">
-        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">CHÙM THƠ</div>
-        <div id="container-Chùm Thơ"></div>
-        <div id="pagination-Chùm Thơ" class="pagination"></div>
-      </section>
-
-      <section id="tan-van">
-        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">TẢN VĂN & KÝ</div>
-        <div id="container-Tản Văn & Ký"></div>
-        <div id="pagination-Tản Văn & Ký" class="pagination"></div>
-      </section>
-
-      <section id="truyen-ngan">
-        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">TRUYỆN NGẮN</div>
-        <div id="container-Truyện Ngắn"></div>
-        <div id="pagination-Truyện Ngắn" class="pagination"></div>
-      </section>
-
-      <section id="goc-ban-van">
-        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">GÓC BẠN VĂN</div>
-        <div id="container-Góc Bạn Văn"></div>
-        <div id="pagination-Góc Bạn Văn" class="pagination"></div>
-      </section>
-
-      <section id="bao-chi">
-        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">BÁO CHÍ & TRUYỀN THÔNG</div>
-        <div id="container-Báo Chí & Truyền Thông"></div>
-        <div id="pagination-Báo Chí & Truyền Thông" class="pagination"></div>
-      </section>
-
-      <section id="ly-luan">
-        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">LÝ LUẬN & BÌNH TÁC PHẨM</div>
-        <div id="container-Lý Luận & Bình Tác Phẩm"></div>
-        <div id="pagination-Lý Luận & Bình Tác Phẩm" class="pagination"></div>
-      </section>
-    </main>
+    <!-- CỘT GIỮA: NƠI HIỂN THỊ MỖI TAG 3 BÀI -->
+    <main class="content-center" id="tags-main-container"></main>
 
     <!-- CỘT PHẢI -->
     <aside class="sidebar-right">
@@ -382,220 +267,106 @@
       document.body.classList.toggle('menu-open');
     }
 
-    const POSTS_PER_PAGE = 5;
-    const categoryData = {};
-    const currentPageData = {};
+    const categoriesConfig = [
+      { name: "Thơ Vũ Thiên Kiều", slug: "tho-vu-thien-kieu" },
+      { name: "Chùm Thơ", slug: "chum-tho" },
+      { name: "Tản Văn & Ký", slug: "tan-van-va-ky" },
+      { name: "Truyện Ngắn", slug: "truyen-ngan" },
+      { name: "Góc Bạn Văn", slug: "goc-ban-van" },
+      { name: "Báo Chí & Truyền Thông", slug: "bao-chi" },
+      { name: "Lý Luận & Bình Tác Phẩm", slug: "ly-luan-binh" }
+    ];
 
     function getSnippet(body, category) {
       if (!body) return '';
       const isPoetry = category.includes("Thơ");
-
       if (isPoetry) {
         const lines = body.trim().split('\n');
-        if (lines.length > 6) {
-          return lines.slice(0, 6).join('\n') + '\n...';
-        }
-        return body;
+        return lines.slice(0, 4).join('\n') + (lines.length > 4 ? '\n...' : '');
       } else {
         const cleanText = body.trim();
-        if (cleanText.length > 200) {
-          return cleanText.substring(0, 200) + '...';
-        }
-        return cleanText;
+        return cleanText.length > 160 ? cleanText.substring(0, 160) + '...' : cleanText;
       }
     }
 
-    async function loadSidebarSettings() {
-      try {
-        const res = await fetch('https://raw.githubusercontent.com/ran0789/web-vuthienkieu1/main/content/settings/sidebar.json');
-        if (!res.ok) return; 
-        const data = await res.json();
-
-        if(data.author_name) document.getElementById('sb_author_name').textContent = data.author_name;
-        if(data.author_desc) document.getElementById('sb_author_desc').textContent = data.author_desc;
-        
-        if(data.book_title) document.getElementById('sb_book_title').textContent = data.book_title;
-        if(data.book_link) document.getElementById('sb_book_link').href = data.book_link;
-        if(data.book_image) document.getElementById('sb_book_img').src = data.book_image;
-
-        if(data.fb_link) document.getElementById('sb_fb_link').href = data.fb_link;
-        if(data.yt_link) document.getElementById('sb_yt_link').href = data.yt_link;
-      } catch (e) {
-        console.log("Sử dụng thông tin Sidebar mặc định của HTML.");
-      }
-    }
-
-    async function loadPosts() {
+    async function loadHomePage() {
       try {
         const response = await fetch('https://api.github.com/repos/ran0789/web-vuthienkieu1/contents/content/posts');
         if (!response.ok) return;
         const files = await response.json();
 
-        const categories = [
-          "Thơ Vũ Thiên Kiều", "Chùm Thơ", "Tản Văn & Ký", 
-          "Truyện Ngắn", "Góc Bạn Văn", "Báo Chí & Truyền Thông", "Lý Luận & Bình Tác Phẩm"
-        ];
-        
-        categories.forEach(cat => {
-          categoryData[cat] = [];
-          currentPageData[cat] = 1;
-        });
+        const categoryData = {};
+        categoriesConfig.forEach(c => categoryData[c.name] = []);
 
         for (let file of files) {
           if (file.name.endsWith('.md')) {
             try {
               const res = await fetch(file.download_url);
               const text = await res.text();
-              
+
               const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
               const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
-              const authorMatch = text.match(/author:\s*"(.*?)"/) || text.match(/author:\s*(.*)/);
-              const imageMatch = text.match(/featured_image:\s*"(.*?)"/) || text.match(/featured_image:\s*(.*)/);
               const dateMatch = text.match(/created_date:\s*"(.*?)"/) || text.match(/created_date:\s*(.*)/);
 
               const bodyParts = text.split('---');
               const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
               const category = categoryMatch ? categoryMatch[1].trim() : 'Thơ Vũ Thiên Kiều';
-              
-              let rawDate = dateMatch ? dateMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
-              let rawImage = imageMatch ? imageMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
 
               if (categoryData[category]) {
                 categoryData[category].push({
                   id: file.name.replace('.md', ''),
                   title: titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Không tiêu đề',
-                  author: authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều',
-                  image: rawImage,
-                  date: rawDate,
-                  body: body
+                  date: dateMatch ? dateMatch[1].replace(/"/g, '').trim() : '',
+                  body: body,
+                  category: category
                 });
               }
-            } catch (e) {
-              console.error("Lỗi đọc file:", file.name, e);
-            }
+            } catch (e) {}
           }
         }
 
-        categories.forEach(cat => renderCategory(cat));
+        const container = document.getElementById('tags-main-container');
+        container.innerHTML = '';
+
+        categoriesConfig.forEach(cat => {
+          const posts = categoryData[cat.name] || [];
+          if (posts.length === 0) return;
+
+          // LẤY ĐÚNG 3 BÀI MỚI NHẤT
+          const top3Posts = posts.slice(0, 3);
+
+          const block = document.createElement('section');
+          block.className = 'tag-block';
+
+          block.innerHTML = `
+            <div class="tag-header">
+              <a href="/category.html?tag=${cat.slug}" class="tag-title">${cat.name}</a>
+              <a href="/category.html?tag=${cat.slug}" class="btn-see-more">Xem tất cả (${posts.length}) ➔</a>
+            </div>
+            <div class="posts-list"></div>
+          `;
+
+          const listDiv = block.querySelector('.posts-list');
+          top3Posts.forEach(post => {
+            const item = document.createElement('article');
+            item.className = 'post-card-mini';
+            item.innerHTML = `
+              <h3><a href="/posts/${post.id}.html">${post.title}</a></h3>
+              <span class="meta">${post.date ? 'Sáng tác: ' + post.date : ''}</span>
+              <div class="snippet">${getSnippet(post.body, cat.name)}</div>
+            `;
+            listDiv.appendChild(item);
+          });
+
+          container.appendChild(block);
+        });
+
       } catch (err) {
-        console.error("Lỗi tải bài:", err);
+        console.error("Lỗi tải trang chủ:", err);
       }
     }
 
-    function renderCategory(cat) {
-      const container = document.getElementById(`container-${cat}`);
-      const paginationContainer = document.getElementById(`pagination-${cat}`);
-      if (!container || !paginationContainer) return;
-
-      const posts = categoryData[cat] || [];
-      container.innerHTML = '';
-      paginationContainer.innerHTML = '';
-
-      if (posts.length === 0) {
-        container.innerHTML = '<p style="text-align:center; color:#888; font-style:italic;">Chưa có bài viết trong mục này.</p>';
-        return;
-      }
-
-      const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
-      const page = currentPageData[cat] || 1;
-      const currentPosts = posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
-
-      currentPosts.forEach(post => {
-        const card = document.createElement('article');
-        card.className = 'card';
-        const postUrl = `/posts/${post.id}.html`;
-
-        const tagSpan = document.createElement('span');
-        tagSpan.className = 'card-tag';
-        tagSpan.textContent = cat;
-        card.appendChild(tagSpan);
-
-        const h2 = document.createElement('h2');
-        const titleLink = document.createElement('a');
-        titleLink.href = postUrl;
-        titleLink.textContent = post.title;
-        h2.appendChild(titleLink);
-        card.appendChild(h2);
-
-        const metaSpan = document.createElement('span');
-        metaSpan.className = 'meta-info';
-        metaSpan.textContent = `Tác giả: ${post.author}${post.date ? ' | Sáng tác: ' + post.date : ''}`;
-        card.appendChild(metaSpan);
-
-        if (post.image && post.image.length > 0) {
-          const imgLink = document.createElement('a');
-          imgLink.href = postUrl;
-          const img = document.createElement('img');
-          img.src = post.image;
-          img.className = 'post-image';
-          img.onerror = function() { this.style.display = 'none'; };
-          imgLink.appendChild(img);
-          card.appendChild(imgLink);
-        }
-
-        const bodyDiv = document.createElement('div');
-        bodyDiv.className = 'post-body';
-        const snippetText = getSnippet(post.body, cat);
-        bodyDiv.textContent = snippetText;
-        card.appendChild(bodyDiv);
-
-        const readMoreBtn = document.createElement('a');
-        readMoreBtn.className = 'btn-readmore';
-        readMoreBtn.href = postUrl;
-        readMoreBtn.textContent = 'Đọc tiếp tác phẩm ➔';
-        card.appendChild(readMoreBtn);
-
-        const shareBox = document.createElement('div');
-        shareBox.className = 'share-box';
-
-        const shareTitle = document.createElement('span');
-        shareTitle.className = 'share-title';
-        shareTitle.textContent = 'Chia sẻ tác phẩm này:';
-        shareBox.appendChild(shareTitle);
-
-        const fullPostUrl = `https://vuthienkieu.vn/posts/${post.id}.html`;
-
-        const btnFb = document.createElement('button');
-        btnFb.className = 'btn-share btn-fb';
-        btnFb.textContent = 'Facebook';
-        btnFb.onclick = () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullPostUrl)}`, '_blank');
-        shareBox.appendChild(btnFb);
-
-        const btnZalo = document.createElement('button');
-        btnZalo.className = 'btn-share btn-zalo';
-        btnZalo.textContent = 'Zalo';
-        btnZalo.onclick = () => window.open(`https://zalo.me/share?url=${encodeURIComponent(fullPostUrl)}`, '_blank');
-        shareBox.appendChild(btnZalo);
-
-        const btnCopy = document.createElement('button');
-        btnCopy.className = 'btn-share btn-copy';
-        btnCopy.textContent = 'Chép Link';
-        btnCopy.onclick = () => {
-          navigator.clipboard.writeText(fullPostUrl);
-          alert("Đã sao chép liên kết bài viết!");
-        };
-        shareBox.appendChild(btnCopy);
-
-        card.appendChild(shareBox);
-        container.appendChild(card);
-      });
-
-      if (totalPages > 1) {
-        for (let i = 1; i <= totalPages; i++) {
-          const btn = document.createElement('button');
-          btn.textContent = i;
-          if (i === page) btn.className = 'active';
-          btn.onclick = () => {
-            currentPageData[cat] = i;
-            renderCategory(cat);
-          };
-          paginationContainer.appendChild(btn);
-        }
-      }
-    }
-
-    loadSidebarSettings();
-    loadPosts();
+    loadHomePage();
   </script>
 </body>
 </html>
