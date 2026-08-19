@@ -34,8 +34,42 @@
     nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
     nav a:hover { color: var(--accent-green); }
 
-    .container { max-width: 850px; margin: 2rem auto; padding: 0 1rem; }
-    
+    /* Bố cục Grid 3 Cột */
+    .main-wrapper {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 1.5rem;
+      max-width: 1350px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Tự động ẩn 2 cột bên khi xem bằng điện thoại */
+    @media (max-width: 1024px) {
+      .main-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-left, .sidebar-right {
+        display: none;
+      }
+    }
+
+    .sidebar-widget {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    .widget-title {
+      font-size: 1rem;
+      color: var(--accent-green);
+      border-bottom: 2px solid var(--accent-gold);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -86,33 +120,10 @@
       font-weight: 600;
       cursor: pointer;
       color: #fff;
-      transition: opacity 0.2s;
     }
-    .btn-share:hover { opacity: 0.85; }
     .btn-fb { background-color: #1877f2; }
     .btn-zalo { background-color: #0068ff; }
     .btn-copy { background-color: #4a5568; }
-    .btn-embed { background-color: var(--accent-green); }
-
-    .embed-container {
-      display: none;
-      width: 100%;
-      margin-top: 0.8rem;
-      background: #f7fafc;
-      padding: 0.8rem;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-    }
-    .embed-container textarea {
-      width: 100%;
-      height: 60px;
-      resize: none;
-      border: 1px solid #cbd5e0;
-      border-radius: 4px;
-      padding: 0.4rem;
-      font-family: monospace;
-      font-size: 0.75rem;
-    }
 
     .btn-readmore {
       display: inline-block;
@@ -123,6 +134,19 @@
       text-decoration: none;
     }
     .btn-readmore:hover { text-decoration: underline; }
+
+    .btn-buy {
+      display: block;
+      text-align: center;
+      background: var(--accent-green);
+      color: #fff;
+      padding: 0.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-top: 0.8rem;
+    }
 
     .pagination { display: flex; justify-content: center; gap: 0.5rem; margin: 1.5rem 0 3rem; flex-wrap: wrap; }
     .pagination button { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; }
@@ -136,7 +160,6 @@
     <h1>Vũ Thiên Kiều</h1>
     <p>Không Gian Sáng Tác Văn Học & Góc Bạn Văn</p>
     <nav>
-      <a href="#tac-gia">Tác Giả</a>
       <a href="#tho-vu-thien-kieu">Thơ Sáng Tác</a>
       <a href="#chum-tho">Chùm Thơ</a>
       <a href="#tan-van">Tản Văn & Ký</a>
@@ -147,57 +170,88 @@
     </nav>
   </header>
 
-  <div class="container">
+  <div class="main-wrapper">
     
-    <section id="tac-gia" class="card" style="margin-bottom: 2rem;">
-      <span class="card-tag">Giới Thiệu Tác Giả</span>
-      <h2>Nhà Thơ Vũ Thiên Kiều</h2>
-      <div id="author-info-content" style="margin-top: 1rem; font-size: 0.95rem; color: #4a5568;">
-        <em>Hội viên Hội Nhà văn Việt Nam. Tác giả nhiều tập thơ và tác phẩm văn học xuất sắc.</em>
+    <!-- CỘT TRÁI (SIDEBAR LEFT) -->
+    <aside class="sidebar-left">
+      <div class="sidebar-widget">
+        <h3 class="widget-title">Tác Giả</h3>
+        <p style="font-size: 0.88rem; color: #4a5568;">
+          <strong id="sb_author_name">Vũ Thiên Kiều</strong><br>
+          <span id="sb_author_desc">Hội viên Hội Nhà văn Việt Nam.</span>
+        </p>
       </div>
-    </section>
 
-    <section id="tho-vu-thien-kieu">
-      <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">THƠ SÁNG TÁC</div>
-      <div id="container-Thơ Vũ Thiên Kiều"></div>
-      <div id="pagination-Thơ Vũ Thiên Kiều" class="pagination"></div>
-    </section>
+      <!-- Khối Bán Sách -->
+      <div class="sidebar-widget" style="text-align: center;">
+        <h3 class="widget-title">Tập Thơ Mới</h3>
+        <img id="sb_book_img" src="/images/uploads/anh-bia-share.jpg" alt="Tập thơ Vũ Thiên Kiều" style="width: 100%; border-radius: 6px; margin-bottom: 0.5rem;" onerror="this.style.display='none'">
+        <p id="sb_book_title" style="font-size: 0.85rem; font-weight: bold; color: var(--accent-green);">Tuyển Tập Thơ Vũ Thiên Kiều</p>
+        <p style="font-size: 0.78rem; color: #718096; margin-top: 0.2rem;">Sách in bìa cứng, có chữ ký tặng của tác giả.</p>
+        <a id="sb_book_link" href="https://zalo.me/" target="_blank" class="btn-buy">Đặt Mua Sách</a>
+      </div>
+    </aside>
 
-    <section id="chum-tho">
-      <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">CHÙM THƠ</div>
-      <div id="container-Chùm Thơ"></div>
-      <div id="pagination-Chùm Thơ" class="pagination"></div>
-    </section>
+    <!-- CỘT GIỮA (NỘI DUNG CHÍNH) -->
+    <main class="content-center">
+      <section id="tho-vu-thien-kieu">
+        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">THƠ SÁNG TÁC</div>
+        <div id="container-Thơ Vũ Thiên Kiều"></div>
+        <div id="pagination-Thơ Vũ Thiên Kiều" class="pagination"></div>
+      </section>
 
-    <section id="tan-van">
-      <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">TẢN VĂN & KÝ</div>
-      <div id="container-Tản Văn & Ký"></div>
-      <div id="pagination-Tản Văn & Ký" class="pagination"></div>
-    </section>
+      <section id="chum-tho">
+        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">CHÙM THƠ</div>
+        <div id="container-Chùm Thơ"></div>
+        <div id="pagination-Chùm Thơ" class="pagination"></div>
+      </section>
 
-    <section id="truyen-ngan">
-      <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">TRUYỆN NGẮN</div>
-      <div id="container-Truyện Ngắn"></div>
-      <div id="pagination-Truyện Ngắn" class="pagination"></div>
-    </section>
+      <section id="tan-van">
+        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">TẢN VĂN & KÝ</div>
+        <div id="container-Tản Văn & Ký"></div>
+        <div id="pagination-Tản Văn & Ký" class="pagination"></div>
+      </section>
 
-    <section id="goc-ban-van">
-      <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">GÓC BẠN VĂN</div>
-      <div id="container-Góc Bạn Văn"></div>
-      <div id="pagination-Góc Bạn Văn" class="pagination"></div>
-    </section>
+      <section id="truyen-ngan">
+        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">TRUYỆN NGẮN</div>
+        <div id="container-Truyện Ngắn"></div>
+        <div id="pagination-Truyện Ngắn" class="pagination"></div>
+      </section>
 
-    <section id="bao-chi">
-      <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">BÁO CHÍ & TRUYỀN THÔNG</div>
-      <div id="container-Báo Chí & Truyền Thông"></div>
-      <div id="pagination-Báo Chí & Truyền Thông" class="pagination"></div>
-    </section>
+      <section id="goc-ban-van">
+        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">GÓC BẠN VĂN</div>
+        <div id="container-Góc Bạn Văn"></div>
+        <div id="pagination-Góc Bạn Văn" class="pagination"></div>
+      </section>
 
-    <section id="ly-luan">
-      <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">LÝ LUẬN & BÌNH TÁC PHẨM</div>
-      <div id="container-Lý Luận & Bình Tác Phẩm"></div>
-      <div id="pagination-Lý Luận & Bình Tác Phẩm" class="pagination"></div>
-    </section>
+      <section id="bao-chi">
+        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">BÁO CHÍ & TRUYỀN THÔNG</div>
+        <div id="container-Báo Chí & Truyền Thông"></div>
+        <div id="pagination-Báo Chí & Truyền Thông" class="pagination"></div>
+      </section>
+
+      <section id="ly-luan">
+        <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">LÝ LUẬN & BÌNH TÁC PHẨM</div>
+        <div id="container-Lý Luận & Bình Tác Phẩm"></div>
+        <div id="pagination-Lý Luận & Bình Tác Phẩm" class="pagination"></div>
+      </section>
+    </main>
+
+    <!-- CỘT PHẢI (SIDEBAR RIGHT) -->
+    <aside class="sidebar-right">
+      <!-- Khối Quảng Cáo Google AdSense / Banner -->
+      <div class="sidebar-widget" style="text-align: center; min-height: 250px; display: flex; flex-direction: column; justify-content: center; background: #f8fafc; border: 1px dashed #cbd5e0;">
+        <span style="font-size: 0.75rem; color: #a0aec0; font-weight: bold;">KHOẢNG TRỐNG QUẢNG CÁO</span>
+        <p style="font-size: 0.75rem; color: #718096; margin-top: 0.4rem;">Đặt Mã Google AdSense hoặc Banner Đối Tác Tại Đây</p>
+      </div>
+
+      <div class="sidebar-widget">
+        <h3 class="widget-title">Theo Dõi Tác Giả</h3>
+        <p style="font-size: 0.85rem; color: #4a5568; margin-bottom: 0.6rem;">Kết nối trên Mạng xã hội:</p>
+        <a id="sb_fb_link" href="https://facebook.com" target="_blank" style="display: block; color: #1877f2; text-decoration: none; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.4rem;">➔ Trang Facebook Cá Nhân</a>
+        <a id="sb_yt_link" href="https://youtube.com" target="_blank" style="display: block; color: #ff0000; text-decoration: none; font-weight: 600; font-size: 0.85rem;">➔ Kênh YouTube Ngâm Thơ</a>
+      </div>
+    </aside>
 
   </div>
 
@@ -226,6 +280,26 @@
           return cleanText.substring(0, 200) + '...';
         }
         return cleanText;
+      }
+    }
+
+    async function loadSidebarSettings() {
+      try {
+        const res = await fetch('https://raw.githubusercontent.com/ran0789/web-vuthienkieu1/main/content/settings/sidebar.json');
+        if (!res.ok) return; 
+        const data = await res.json();
+
+        if(data.author_name) document.getElementById('sb_author_name').textContent = data.author_name;
+        if(data.author_desc) document.getElementById('sb_author_desc').textContent = data.author_desc;
+        
+        if(data.book_title) document.getElementById('sb_book_title').textContent = data.book_title;
+        if(data.book_link) document.getElementById('sb_book_link').href = data.book_link;
+        if(data.book_image) document.getElementById('sb_book_img').src = data.book_image;
+
+        if(data.fb_link) document.getElementById('sb_fb_link').href = data.fb_link;
+        if(data.yt_link) document.getElementById('sb_yt_link').href = data.yt_link;
+      } catch (e) {
+        console.log("Sử dụng thông tin Sidebar mặc định của HTML.");
       }
     }
 
@@ -306,13 +380,11 @@
         card.className = 'card';
         const postUrl = `/posts/${post.id}.html`;
 
-        // Tag
         const tagSpan = document.createElement('span');
         tagSpan.className = 'card-tag';
         tagSpan.textContent = cat;
         card.appendChild(tagSpan);
 
-        // Tiêu đề có link đến trang riêng
         const h2 = document.createElement('h2');
         const titleLink = document.createElement('a');
         titleLink.href = postUrl;
@@ -320,13 +392,11 @@
         h2.appendChild(titleLink);
         card.appendChild(h2);
 
-        // Meta info
         const metaSpan = document.createElement('span');
         metaSpan.className = 'meta-info';
         metaSpan.textContent = `Tác giả: ${post.author}${post.date ? ' | Sáng tác ' + post.date : ''}`;
         card.appendChild(metaSpan);
 
-        // Ảnh
         if (post.image) {
           const imgLink = document.createElement('a');
           imgLink.href = postUrl;
@@ -337,21 +407,18 @@
           card.appendChild(imgLink);
         }
 
-        // Nội dung tóm tắt
         const bodyDiv = document.createElement('div');
         bodyDiv.className = 'post-body';
         const snippetText = getSnippet(post.body, cat);
         bodyDiv.textContent = snippetText;
         card.appendChild(bodyDiv);
 
-        // Nút chuyển hẳn sang trang riêng bài viết
         const readMoreBtn = document.createElement('a');
         readMoreBtn.className = 'btn-readmore';
         readMoreBtn.href = postUrl;
         readMoreBtn.textContent = 'Đọc tiếp tác phẩm ➔';
         card.appendChild(readMoreBtn);
 
-        // Khối nút Chia sẻ
         const shareBox = document.createElement('div');
         shareBox.className = 'share-box';
 
@@ -362,21 +429,18 @@
 
         const fullPostUrl = `https://vuthienkieu.vn/posts/${post.id}.html`;
 
-        // Nút FB
         const btnFb = document.createElement('button');
         btnFb.className = 'btn-share btn-fb';
         btnFb.textContent = 'Facebook';
         btnFb.onclick = () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullPostUrl)}`, '_blank');
         shareBox.appendChild(btnFb);
 
-        // Nút Zalo
         const btnZalo = document.createElement('button');
         btnZalo.className = 'btn-share btn-zalo';
         btnZalo.textContent = 'Zalo';
         btnZalo.onclick = () => window.open(`https://zalo.me/share?url=${encodeURIComponent(fullPostUrl)}`, '_blank');
         shareBox.appendChild(btnZalo);
 
-        // Nút Copy Link
         const btnCopy = document.createElement('button');
         btnCopy.className = 'btn-share btn-copy';
         btnCopy.textContent = 'Chép Link';
@@ -386,42 +450,10 @@
         };
         shareBox.appendChild(btnCopy);
 
-        // Nút Mã nhúng
-        const btnEmbed = document.createElement('button');
-        btnEmbed.className = 'btn-share btn-embed';
-        btnEmbed.textContent = 'Lấy mã nhúng';
-        
-        const embedBox = document.createElement('div');
-        embedBox.className = 'embed-container';
-        
-        const embedTextarea = document.createElement('textarea');
-        embedTextarea.readOnly = true;
-        embedTextarea.value = `<iframe src="${fullPostUrl}" width="100%" height="450" frameborder="0"></iframe>`;
-
-        const btnCopyEmbed = document.createElement('button');
-        btnCopyEmbed.className = 'btn-share btn-copy';
-        btnCopyEmbed.style.marginTop = '5px';
-        btnCopyEmbed.textContent = 'Sao chép mã nhúng';
-        btnCopyEmbed.onclick = () => {
-          navigator.clipboard.writeText(embedTextarea.value);
-          alert("Đã sao chép mã nhúng!");
-        };
-
-        embedBox.appendChild(embedTextarea);
-        embedBox.appendChild(btnCopyEmbed);
-
-        btnEmbed.onclick = () => {
-          embedBox.style.display = (embedBox.style.display === 'block') ? 'none' : 'block';
-        };
-
-        shareBox.appendChild(btnEmbed);
-        shareBox.appendChild(embedBox);
-
         card.appendChild(shareBox);
         container.appendChild(card);
       });
 
-      // Phân trang
       if (totalPages > 1) {
         for (let i = 1; i <= totalPages; i++) {
           const btn = document.createElement('button');
@@ -436,6 +468,7 @@
       }
     }
 
+    loadSidebarSettings();
     loadPosts();
   </script>
 </body>
