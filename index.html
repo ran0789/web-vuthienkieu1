@@ -12,7 +12,10 @@
   <meta property="og:image" content="https://vuthienkieu.vn/images/uploads/anh-bia-share.jpg" />
 
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <style>
     :root {
       --bg-main: #fdfbf7;
@@ -26,15 +29,59 @@
     body { font-family: 'Montserrat', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.5; }
     h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
     
-    header { background: var(--bg-card); text-align: center; padding: 2.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border-color); }
-    header h1 { color: var(--accent-green); font-size: 2.2rem; margin-bottom: 0.4rem; }
-    header p { color: var(--accent-gold); font-style: italic; font-size: 0.95rem; }
+    /* TOP HEADER & NÚT MỞ MENU */
+    .top-header { 
+      background: var(--bg-card); 
+      border-bottom: 1px solid var(--border-color); 
+      padding: 0.8rem 1rem; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+    }
+    .menu-toggle-btn { background: none; border: none; font-size: 1.4rem; color: var(--accent-green); cursor: pointer; }
+    .site-title { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.1rem; color: var(--accent-green); text-decoration: none; }
 
-    nav { display: flex; justify-content: center; gap: 1.2rem; margin-top: 1.5rem; flex-wrap: wrap; }
-    nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-    nav a:hover { color: var(--accent-green); }
+    /* OFF-CANVAS MOBILE MENU (TRƯỢT BÊN TRÁI) */
+    .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 998; }
+    .menu-drawer { position: fixed; top: 0; left: -320px; width: 300px; height: 100%; background: var(--bg-main); z-index: 999; transition: all 0.3s ease; display: flex; flex-direction: column; overflow-y: auto; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+    
+    body.menu-open .menu-drawer { left: 0; }
+    body.menu-open .menu-overlay { opacity: 1; visibility: visible; }
 
-    /* Bố cục Grid 3 Cột */
+    .menu-header { padding: 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); }
+    .close-btn { background: #c53030; color: #fff; border: none; width: 32px; height: 32px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+
+    /* Ô TÌM KIẾM TRONG MENU */
+    .search-box { padding: 1rem; border-bottom: 1px solid var(--border-color); }
+    .search-wrapper { position: relative; }
+    .search-input { width: 100%; padding: 0.6rem 2.2rem 0.6rem 0.8rem; border: 1px solid var(--border-color); border-radius: 20px; font-size: 0.85rem; outline: none; background: #fff; }
+    .search-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #718096; }
+
+    /* DANH SÁCH DANH MỤC TRONG MENU TRƯỢT */
+    .drawer-nav { list-style: none; padding: 0; margin: 0; flex: 1; }
+    .drawer-nav li { border-bottom: 1px solid var(--border-color); }
+    .drawer-nav a { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.2rem; color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .drawer-nav a:hover { color: var(--accent-green); background: #f7fafc; }
+
+    /* MẠNG XÃ HỘI CHÂN MENU TRƯỢT */
+    .drawer-social { padding: 1.2rem; display: flex; gap: 1rem; border-top: 1px solid var(--border-color); }
+    .drawer-social a { color: #718096; font-size: 1.1rem; text-decoration: none; }
+    .drawer-social a:hover { color: var(--accent-green); }
+
+    /* BANNER ĐẦU TRANG */
+    .main-banner { background: var(--bg-card); text-align: center; padding: 2.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border-color); }
+    .main-banner h1 { color: var(--accent-green); font-size: 2.2rem; margin-bottom: 0.4rem; }
+    .main-banner p { color: var(--accent-gold); font-style: italic; font-size: 0.95rem; }
+
+    /* MENU NGANG CHO MÀN HÌNH MÁY TÍNH */
+    .desktop-nav { display: flex; justify-content: center; gap: 1.2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .desktop-nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .desktop-nav a:hover { color: var(--accent-green); }
+
+    /* BỐ CỤC GRID 3 CỘT */
     .main-wrapper {
       display: grid;
       grid-template-columns: 260px 1fr 280px;
@@ -93,19 +140,18 @@
     .card h2 a:hover { text-decoration: underline; }
     .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 0.8rem; display: block; }
     
-    /* ĐÃ ĐIỀU CHỈNH: Giảm giãn dòng giữa các câu thơ */
     .post-body { 
       white-space: pre-wrap; 
       word-break: keep-all;
       overflow-wrap: normal;
       margin-top: 0.8rem; 
       font-size: 1rem; 
-      line-height: 1.45; /* Chiều cao dòng chuẩn cho thơ, không bị rộng */
+      line-height: 1.45;
       color: #2c3e50; 
     }
 
     .post-body p {
-      margin-bottom: 0.5rem; /* Khoảng cách vừa phải giữa các đoạn */
+      margin-bottom: 0.5rem;
     }
 
     @media (max-width: 768px) {
@@ -117,7 +163,7 @@
       }
       .post-body {
         font-size: clamp(0.85rem, 3.8vw, 0.95rem);
-        line-height: 1.4; /* Giảm nhẹ thêm trên mobile để thơ gọn gàng */
+        line-height: 1.4;
         letter-spacing: -0.1px;
       }
     }
@@ -184,10 +230,56 @@
 </head>
 <body>
 
-  <header>
+  <!-- TOP HEADER ĐĨNH KÈM NÚT BẤM MENU -->
+  <header class="top-header">
+    <button class="menu-toggle-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+    <a href="/" class="site-title">VŨ THIÊN KIỀU</a>
+    <div style="width: 24px;"></div>
+  </header>
+
+  <!-- OVERLAY LỚP NỀN MỜ -->
+  <div class="menu-overlay" onclick="toggleMenu()"></div>
+
+  <!-- OFF-CANVAS DRAWER MENU (GIỐNG DUONGVAN.COM) -->
+  <aside class="menu-drawer">
+    <div class="menu-header">
+      <span style="font-weight: 700; color: var(--accent-green); font-family: 'Merriweather', serif;">VŨ THIÊN KIỀU</span>
+      <button class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- Ô TÌM KIẾM -->
+    <div class="search-box">
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Bạn cần tìm gì...">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+    </div>
+
+    <!-- DANH MỤC TRONG MENU TRƯỢT -->
+    <ul class="drawer-nav">
+      <li><a href="/" onclick="toggleMenu()"><i class="fa-solid fa-house" style="color:var(--accent-green); margin-right:8px;"></i> TRANG CHỦ</a></li>
+      <li><a href="#tho-vu-thien-kieu" onclick="toggleMenu()">THƠ SÁNG TÁC</a></li>
+      <li><a href="#chum-tho" onclick="toggleMenu()">CHÙM THƠ</a></li>
+      <li><a href="#tan-van" onclick="toggleMenu()">TẢN VĂN & KÝ</a></li>
+      <li><a href="#truyen-ngan" onclick="toggleMenu()">TRUYỆN NGẮN</a></li>
+      <li><a href="#goc-ban-van" onclick="toggleMenu()">GÓC BẠN VĂN</a></li>
+      <li><a href="#bao-chi" onclick="toggleMenu()">BÁO CHÍ & TRUYỀN THÔNG</a></li>
+      <li><a href="#ly-luan" onclick="toggleMenu()">LÝ LUẬN & BÌNH</a></li>
+    </ul>
+
+    <!-- BIỂU TƯỢNG MẠNG XÃ HỘI CHÂN MENU -->
+    <div class="drawer-social">
+      <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      <a href="mailto:contact@vuthienkieu.vn"><i class="fa-regular fa-envelope"></i></a>
+    </div>
+  </aside>
+
+  <!-- BANNER TÊN TÁC GIẢ BÊN DƯỚI HEADER -->
+  <div class="main-banner">
     <h1>Vũ Thiên Kiều</h1>
     <p>Không Gian Sáng Tác Văn Học & Góc Bạn Văn</p>
-    <nav>
+    <nav class="desktop-nav">
       <a href="#tho-vu-thien-kieu">Thơ Sáng Tác</a>
       <a href="#chum-tho">Chùm Thơ</a>
       <a href="#tan-van">Tản Văn & Ký</a>
@@ -196,7 +288,7 @@
       <a href="#bao-chi">Báo Chí</a>
       <a href="#ly-luan">Lý Luận & Bình</a>
     </nav>
-  </header>
+  </div>
 
   <div class="main-wrapper">
     
@@ -281,6 +373,10 @@
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+
     const POSTS_PER_PAGE = 5;
     const categoryData = {};
     const currentPageData = {};
