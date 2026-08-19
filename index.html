@@ -44,10 +44,11 @@
       padding: 0 1rem;
     }
 
-    /* Tự động ẩn 2 cột bên khi xem bằng điện thoại */
+    /* Tự động ẩn 2 cột bên khi xem bằng điện thoại & Thu gọn lề */
     @media (max-width: 1024px) {
       .main-wrapper {
         grid-template-columns: 1fr;
+        padding: 0 0.5rem;
       }
       .sidebar-left, .sidebar-right {
         display: none;
@@ -92,7 +93,31 @@
     .card h2 a { color: var(--accent-green); text-decoration: none; }
     .card h2 a:hover { text-decoration: underline; }
     .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 1rem; display: block; }
-    .post-body { white-space: pre-wrap; margin-top: 1rem; font-size: 1rem; line-height: 1.8; color: #2c3e50; }
+    
+    /* Tối ưu hiển thị câu thơ không bị nhảy dòng */
+    .post-body { 
+      white-space: pre-wrap; 
+      word-break: keep-all;
+      overflow-wrap: normal;
+      margin-top: 1rem; 
+      font-size: 1rem; 
+      line-height: 1.8; 
+      color: #2c3e50; 
+    }
+
+    /* Đỉnh chỉnh kích thước chữ thơ riêng cho Điện Thoại */
+    @media (max-width: 768px) {
+      .card {
+        padding: 1.2rem 0.8rem;
+      }
+      .card h2 {
+        font-size: 1.3rem;
+      }
+      .post-body {
+        font-size: clamp(0.78rem, 3.8vw, 0.92rem);
+        letter-spacing: -0.2px;
+      }
+    }
     
     .post-image { 
       border-radius: 8px; 
