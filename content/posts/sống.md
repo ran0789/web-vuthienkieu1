@@ -56,9 +56,13 @@ Anh đừng đeo găng tay khi nhìn em nữa nhé
 
 những mật hoa và trăng 
 
+<br>
+
 Ai bảo mặt trời lăn
 
 ai dội bom dấu hỏi...
+
+<br>
 
 cãi làm gì
 
