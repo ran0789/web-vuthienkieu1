@@ -154,7 +154,12 @@
       margin-bottom: 0.5rem;
     }
 
+    /* BỐ CỤC RESPONSIVE CHO ĐIỆN THOẠI MOBILE */
     @media (max-width: 768px) {
+      /* Ẩn menu ngang trên điện thoại vì đã có menu trượt */
+      .desktop-nav {
+        display: none;
+      }
       .card {
         padding: 1.2rem 0.8rem;
       }
@@ -240,7 +245,7 @@
   <!-- OVERLAY LỚP NỀN MỜ -->
   <div class="menu-overlay" onclick="toggleMenu()"></div>
 
-  <!-- OFF-CANVAS DRAWER MENU (GIỐNG DUONGVAN.COM) -->
+  <!-- OFF-CANVAS DRAWER MENU -->
   <aside class="menu-drawer">
     <div class="menu-header">
       <span style="font-weight: 700; color: var(--accent-green); font-family: 'Merriweather', serif;">VŨ THIÊN KIỀU</span>
