@@ -283,12 +283,14 @@
 
     function parseDate(dateStr) {
       if (!dateStr) return 0;
-      const parts = dateStr.trim().split(/[\/\-]/);
+      const cleanDate = dateStr.replace(/"/g, '').trim();
+      if (!cleanDate) return 0;
+
+      const parts = cleanDate.split(/[\/\-]/);
       if (parts.length === 3) {
-        // ĐỊnh dạng DD/MM/YYYY
         return new Date(parts[2], parts[1] - 1, parts[0]).getTime();
       }
-      return new Date(dateStr).getTime() || 0;
+      return new Date(cleanDate).getTime() || 0;
     }
 
     async function loadHomePage() {
@@ -308,12 +310,19 @@
 
               const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
               const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
-              const dateMatch = text.match(/created_date:\s*"(.*?)"/) || text.match(/created_date:\s*(.*)/);
+              
+              // Đọc ngày đăng bài (date)
+              const dateMatch = text.match(/^date:\s*"(.*?)"/m) || text.match(/^date:\s*(.*)/m) || 
+                                text.match(/^created_date:\s*"(.*?)"/m) || text.match(/^created_date:\s*(.*)/m);
 
               const bodyParts = text.split('---');
               const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
-              const category = categoryMatch ? categoryMatch[1].trim() : 'Thơ Vũ Thiên Kiều';
-              const dateRaw = dateMatch ? dateMatch[1].replace(/"/g, '').trim() : '';
+              const category = categoryMatch ? categoryMatch[1].replace(/"/g, '').trim() : 'Thơ Vũ Thiên Kiều';
+              
+              let dateRaw = '';
+              if (dateMatch) {
+                dateRaw = (dateMatch[1] || dateMatch[2] || '').replace(/"/g, '').trim();
+              }
 
               if (categoryData[category]) {
                 categoryData[category].push({
@@ -336,10 +345,10 @@
           let posts = categoryData[cat.name] || [];
           if (posts.length === 0) return;
 
-          // SẮP XẾP BÀI MỚI NHẤT LÊN ĐẦU
+          // Sắp xếp bài mới nhất lên đầu theo Timestamp ngày đăng
           posts.sort((a, b) => b.timestamp - a.timestamp);
 
-          // LẤY TỐI ĐA 3 BÀI MỚI NHẤT DÀNH CHO TRANG CHỦ
+          // Lấy tối đa 3 bài mới nhất cho mỗi chuyên mục ở trang chủ
           const top3Posts = posts.slice(0, 3);
 
           const block = document.createElement('section');
@@ -357,9 +366,13 @@
           top3Posts.forEach(post => {
             const item = document.createElement('article');
             item.className = 'post-card-mini';
+            
+            // Chỉ hiển thị nhãn "Ngày đăng:" nếu tồn tại dữ liệu ngày thực sự
+            const dateSpan = (post.date && post.date.length > 0) ? `<span class="meta">Ngày đăng: ${post.date}</span>` : '';
+
             item.innerHTML = `
               <h3><a href="/posts/${post.id}.html">${post.title}</a></h3>
-              <span class="meta">${post.date ? 'Sáng tác: ' + post.date : ''}</span>
+              ${dateSpan}
               <div class="snippet">${getSnippet(post.body, cat.name)}</div>
             `;
             listDiv.appendChild(item);
