@@ -4,7 +4,10 @@ on:
   push:
     paths:
       - 'content/posts/**'
-  workflow_dispatch: # Thêm dòng này để xuất hiện nút bấm chạy tay
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -12,6 +15,8 @@ jobs:
     steps:
       - name: Kiểm tra mã nguồn
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Cài đặt Node.js
         uses: actions/setup-node@v3
@@ -26,5 +31,4 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add posts/
-          git commit -m "Auto-generate HTML pages for posts" || exit 0
-          git push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate HTML pages for posts" && git pull --rebase origin main && git push)
