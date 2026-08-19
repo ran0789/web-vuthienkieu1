@@ -24,13 +24,25 @@ fs.readdir(postsDir, (err, files) => {
       const parts = content.split('---');
       let rawBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
 
-      // --- SỬA TẬN GỐC TẠI ĐÂY ---
-      // 1. Gom nhiều dòng trống liên tiếp thành đúng 1 dòng trống (ngắt khổ thơ)
-      // 2. Xóa các khoảng trắng thừa ở cuối mỗi dòng thơ
-      const formattedBody = rawBody
-        .replace(/\r\n/g, '\n')
-        .replace(/\n{3,}/g, '\n\n')
-        .trim();
+      // --- SỬA TRIỆT ĐỂ KÝ TỰ XUỐNG DÒNG ẨN TẠI ĐÂY ---
+      // Chuẩn hóa \r\n thành \n, loại bỏ dòng trắng thừa ở cả 2 đầu từng dòng
+      const lines = rawBody.replace(/\r/g, '').split('\n').map(line => line.trim());
+      
+      // Ghép lại: Dòng thơ liên tiếp giữ 1 \n, giữa các khổ thơ tối đa 2 \n
+      let cleanedLines = [];
+      let emptyCount = 0;
+
+      for (let line of lines) {
+        if (line === '') {
+          emptyCount++;
+          if (emptyCount === 1) cleanedLines.push(''); // Giữ đúng 1 dòng trống làm ngắt khổ
+        } else {
+          emptyCount = 0;
+          cleanedLines.push(line);
+        }
+      }
+
+      const formattedBody = cleanedLines.join('\n');
 
       const title = titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Tác phẩm';
       const author = authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều';
@@ -71,10 +83,10 @@ fs.readdir(postsDir, (err, files) => {
     h1 { font-family: 'Merriweather', serif; color: #2d5a27; margin-bottom: 0.5rem; font-size: 2rem; }
     .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
     
-    /* CSS HIỂN THỊ THƠ SÁT NHAU CHUẨN ĐẸP */
+    /* CẤU HÌNH DÒNG THƠ SÁT VÀ ĐẸP */
     .post-body { 
       font-size: 1.05rem; 
-      line-height: 1.4; /* Độ cao dòng thơ tự nhiên, khít đẹp */
+      line-height: 1.35; 
       color: #2c3e50; 
       margin-top: 1.2rem; 
       white-space: pre-wrap; 
@@ -95,7 +107,7 @@ fs.readdir(postsDir, (err, files) => {
       h1 { font-size: 1.5rem; }
       .post-body {
         font-size: clamp(0.85rem, 3.8vw, 0.95rem);
-        line-height: 1.35;
+        line-height: 1.3;
       }
     }
   </style>
