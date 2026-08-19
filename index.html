@@ -29,7 +29,7 @@
     header p { color: var(--accent-gold); font-style: italic; font-size: 0.95rem; }
 
     nav { display: flex; justify-content: center; gap: 1.2rem; margin-top: 1.5rem; flex-wrap: wrap; }
-    nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
     nav a:hover { color: var(--accent-green); }
 
     .container { max-width: 850px; margin: 2rem auto; padding: 0 1rem; }
@@ -48,22 +48,23 @@
       color: var(--accent-gold);
       padding: 0.2rem 0.8rem;
       border-radius: 12px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
     .card h2 { color: var(--accent-green); margin-bottom: 0.5rem; font-size: 1.6rem; }
     .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 1rem; display: block; }
-    .post-body { white-space: pre-wrap; margin-top: 1rem; font-size: 1rem; line-height: 1.8; }
+    .post-body { white-space: pre-wrap; margin-top: 1rem; font-size: 1rem; line-height: 1.8; color: #2c3e50; }
     
     .post-image { 
       border-radius: 8px; 
       margin: 1.2rem auto; 
-      border: 1px solid var(--border-color);
-      background-color: #f8fafc;
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
 
-    /* Thanh chia sẻ tác phẩm */
+    /* Khối nút chia sẻ tác phẩm */
     .share-box {
       margin-top: 1.5rem;
       padding-top: 1rem;
@@ -82,7 +83,9 @@
       font-weight: 600;
       cursor: pointer;
       color: #fff;
+      transition: opacity 0.2s;
     }
+    .btn-share:hover { opacity: 0.85; }
     .btn-fb { background-color: #1877f2; }
     .btn-zalo { background-color: #0068ff; }
     .btn-copy { background-color: #4a5568; }
@@ -120,6 +123,7 @@
     <h1>Vũ Thiên Kiều</h1>
     <p>Không Gian Sáng Tác Văn Học & Góc Bạn Văn</p>
     <nav>
+      <a href="#tac-gia">Tác Giả</a>
       <a href="#tho-vu-thien-kieu">Thơ Sáng Tác</a>
       <a href="#chum-tho">Chùm Thơ</a>
       <a href="#tan-van">Tản Văn & Ký</a>
@@ -131,6 +135,17 @@
   </header>
 
   <div class="container">
+    
+    <!-- Khối Giới Thiệu Tác Giả (Đã bảo vệ bằng Try-Catch tránh treo code) -->
+    <section id="tac-gia" class="card" style="margin-bottom: 2rem;">
+      <span class="card-tag">Giới Thiệu Tác Giả</span>
+      <h2>Nhà Thơ Vũ Thiên Kiều</h2>
+      <div id="author-info-content" style="margin-top: 1rem; font-size: 0.95rem; color: #4a5568;">
+        <em>Hội viên Hội Nhà văn Việt Nam. Tác giả nhiều tập thơ và tác phẩm văn học xuất sắc.</em>
+      </div>
+    </section>
+
+    <!-- Các Chuyên Mục Tác Phẩm -->
     <section id="tho-vu-thien-kieu">
       <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">THƠ SÁNG TÁC</div>
       <div id="container-Thơ Vũ Thiên Kiều"></div>
@@ -172,6 +187,7 @@
       <div id="container-Lý Luận & Bình Tác Phẩm"></div>
       <div id="pagination-Lý Luận & Bình Tác Phẩm" class="pagination"></div>
     </section>
+
   </div>
 
   <footer>
@@ -201,28 +217,32 @@
 
         for (let file of files) {
           if (file.name.endsWith('.md')) {
-            const res = await fetch(file.download_url);
-            const text = await res.text();
-            
-            const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
-            const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
-            const authorMatch = text.match(/author:\s*"(.*?)"/) || text.match(/author:\s*(.*)/);
-            const imageMatch = text.match(/featured_image:\s*"(.*?)"/) || text.match(/featured_image:\s*(.*)/);
-            const dateMatch = text.match(/created_date:\s*"(.*?)"/) || text.match(/created_date:\s*(.*)/);
+            try {
+              const res = await fetch(file.download_url);
+              const text = await res.text();
+              
+              const titleMatch = text.match(/title:\s*"(.*?)"/) || text.match(/title:\s*(.*)/);
+              const categoryMatch = text.match(/category:\s*"(.*?)"/) || text.match(/category:\s*(.*)/);
+              const authorMatch = text.match(/author:\s*"(.*?)"/) || text.match(/author:\s*(.*)/);
+              const imageMatch = text.match(/featured_image:\s*"(.*?)"/) || text.match(/featured_image:\s*(.*)/);
+              const dateMatch = text.match(/created_date:\s*"(.*?)"/) || text.match(/created_date:\s*(.*)/);
 
-            const bodyParts = text.split('---');
-            const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
-            const category = categoryMatch ? categoryMatch[1].trim() : 'Thơ Vũ Thiên Kiều';
-            
-            if (categoryData[category]) {
-              categoryData[category].push({
-                id: file.name.replace('.md', ''),
-                title: titleMatch ? titleMatch[1].trim() : 'Không tiêu đề',
-                author: authorMatch ? authorMatch[1].trim() : 'Vũ Thiên Kiều',
-                image: imageMatch ? imageMatch[1].trim() : '',
-                date: dateMatch ? dateMatch[1].trim() : '',
-                body: body
-              });
+              const bodyParts = text.split('---');
+              const body = bodyParts.length > 2 ? bodyParts.slice(2).join('---').trim() : '';
+              const category = categoryMatch ? categoryMatch[1].trim() : 'Thơ Vũ Thiên Kiều';
+              
+              if (categoryData[category]) {
+                categoryData[category].push({
+                  id: file.name.replace('.md', ''),
+                  title: titleMatch ? titleMatch[1].trim() : 'Không tiêu đề',
+                  author: authorMatch ? authorMatch[1].trim() : 'Vũ Thiên Kiều',
+                  image: imageMatch ? imageMatch[1].trim() : '',
+                  date: dateMatch ? dateMatch[1].trim() : '',
+                  body: body
+                });
+              }
+            } catch (e) {
+              console.error("Lỗi đọc file:", file.name, e);
             }
           }
         }
@@ -243,7 +263,7 @@
       paginationContainer.innerHTML = '';
 
       if (posts.length === 0) {
-        container.innerHTML = '<p style="text-align:center; color:#888; font-style:italic;">Chưa có bài viết.</p>';
+        container.innerHTML = '<p style="text-align:center; color:#888; font-style:italic;">Chưa có bài viết trong mục này.</p>';
         return;
       }
 
@@ -255,39 +275,38 @@
         const card = document.createElement('article');
         card.className = 'card';
 
-        // 1. Tag chuyên mục
+        // Tag
         const tagSpan = document.createElement('span');
         tagSpan.className = 'card-tag';
         tagSpan.textContent = cat;
         card.appendChild(tagSpan);
 
-        // 2. Tiêu đề bài viết
+        // Tiêu đề
         const h2 = document.createElement('h2');
         h2.textContent = post.title;
         card.appendChild(h2);
 
-        // 3. Thông tin tác giả / ngày
+        // Meta info
         const metaSpan = document.createElement('span');
         metaSpan.className = 'meta-info';
-        metaSpan.textContent = `Tác giả: ${post.author}${post.date ? ' | ' + post.date : ''}`;
+        metaSpan.textContent = `Tác giả: ${post.author}${post.date ? ' | Sáng tác ' + post.date : ''}`;
         card.appendChild(metaSpan);
 
-        // 4. Ảnh minh họa (nếu có)
+        // Ảnh bài viết
         if (post.image) {
           const img = document.createElement('img');
           img.src = post.image;
           img.className = 'post-image';
-          img.style.maxWidth = '100%';
           card.appendChild(img);
         }
 
-        // 5. Nội dung bài viết
+        // Nội dung
         const bodyDiv = document.createElement('div');
         bodyDiv.className = 'post-body';
         bodyDiv.textContent = post.body;
         card.appendChild(bodyDiv);
 
-        // 6. KHỐI NÚT CHIA SẺ (Bắt buộc chèn vào cuối bài)
+        // BẮT BUỘC DỰNG KHỐI CHIA SẺ VÀO CUỐI BÀI
         const shareBox = document.createElement('div');
         shareBox.className = 'share-box';
 
@@ -296,7 +315,7 @@
         shareTitle.textContent = 'Chia sẻ tác phẩm:';
         shareBox.appendChild(shareTitle);
 
-        // Nút Facebook
+        // Nút FB
         const btnFb = document.createElement('button');
         btnFb.className = 'btn-share btn-fb';
         btnFb.textContent = 'Facebook';
@@ -310,7 +329,7 @@
         btnZalo.onclick = () => window.open(`https://zalo.me/share?url=${encodeURIComponent('https://vuthienkieu.vn/#' + post.id)}`, '_blank');
         shareBox.appendChild(btnZalo);
 
-        // Nút Chép Link
+        // Nút Copy Link
         const btnCopy = document.createElement('button');
         btnCopy.className = 'btn-share btn-copy';
         btnCopy.textContent = 'Chép Link';
@@ -320,7 +339,7 @@
         };
         shareBox.appendChild(btnCopy);
 
-        // Nút Mã Nhúng
+        // Nút Mã nhúng
         const btnEmbed = document.createElement('button');
         btnEmbed.className = 'btn-share btn-embed';
         btnEmbed.textContent = 'Lấy mã nhúng';
@@ -351,7 +370,6 @@
         shareBox.appendChild(btnEmbed);
         shareBox.appendChild(embedBox);
 
-        // Chèn khối chia sẻ vào thẻ Card
         card.appendChild(shareBox);
         container.appendChild(card);
       });
