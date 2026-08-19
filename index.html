@@ -5,21 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vũ Thiên Kiều - Sáng Tác Văn Học & Góc Bạn Văn</title>
   
-  <!-- Cấu hình thẻ Open Graph hiển thị ảnh minh họa khi chia sẻ Facebook, Zalo -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vuthienkieu.vn/" />
   <meta property="og:title" content="Vũ Thiên Kiều - Sáng Tác Văn Học & Góc Bạn Văn" />
   <meta property="og:description" content="Trang web tổng hợp thơ, tản văn, truyện ngắn và tác phẩm văn học của nhà thơ Vũ Thiên Kiều." />
   <meta property="og:image" content="https://vuthienkieu.vn/images/uploads/anh-bia-share.jpg" />
-  <meta property="og:image:secure_url" content="https://vuthienkieu.vn/images/uploads/anh-bia-share.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <!-- Dành riêng cho Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vũ Thiên Kiều - Sáng Tác Văn Học & Góc Bạn Văn" />
-  <meta name="twitter:description" content="Trang web tổng hợp thơ, tản văn, truyện ngắn và tác phẩm văn học của nhà thơ Vũ Thiên Kiều." />
-  <meta name="twitter:image" content="https://vuthienkieu.vn/images/uploads/anh-bia-share.jpg" />
 
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -65,8 +55,6 @@
       margin-bottom: 0.8rem;
     }
     .card h2 { color: var(--accent-green); margin-bottom: 0.5rem; font-size: 1.6rem; }
-    .card h2 a { text-decoration: none; color: inherit; }
-    .card h2 a:hover { text-decoration: underline; }
     .meta-info { font-style: italic; color: #718096; font-size: 0.85rem; margin-bottom: 1rem; display: block; }
     .post-body { white-space: pre-wrap; margin-top: 1rem; font-size: 1rem; line-height: 1.8; color: #2c3e50; }
     
@@ -78,17 +66,62 @@
       height: auto;
     }
 
+    /* Khối nút chia sẻ trực tiếp ở mỗi bài viết */
+    .share-box {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .share-title { font-size: 0.85rem; font-weight: 600; color: #4a5568; width: 100%; margin-bottom: 0.3rem; }
+    .btn-share {
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #fff;
+      transition: opacity 0.2s;
+    }
+    .btn-share:hover { opacity: 0.85; }
+    .btn-fb { background-color: #1877f2; }
+    .btn-zalo { background-color: #0068ff; }
+    .btn-copy { background-color: #4a5568; }
+    .btn-embed { background-color: var(--accent-green); }
+
+    .embed-container {
+      display: none;
+      width: 100%;
+      margin-top: 0.8rem;
+      background: #f7fafc;
+      padding: 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+    }
+    .embed-container textarea {
+      width: 100%;
+      height: 60px;
+      resize: none;
+      border: 1px solid #cbd5e0;
+      border-radius: 4px;
+      padding: 0.4rem;
+      font-family: monospace;
+      font-size: 0.75rem;
+    }
+
     .btn-readmore {
       display: inline-block;
       margin-top: 1rem;
       color: var(--accent-green);
       font-weight: 600;
-      text-decoration: none;
+      cursor: pointer;
       font-size: 0.9rem;
     }
-    .btn-readmore:hover {
-      text-decoration: underline;
-    }
+    .btn-readmore:hover { text-decoration: underline; }
 
     .pagination { display: flex; justify-content: center; gap: 0.5rem; margin: 1.5rem 0 3rem; flex-wrap: wrap; }
     .pagination button { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; }
@@ -115,7 +148,6 @@
 
   <div class="container">
     
-    <!-- Khối Giới Thiệu Tác Giả -->
     <section id="tac-gia" class="card" style="margin-bottom: 2rem;">
       <span class="card-tag">Giới Thiệu Tác Giả</span>
       <h2>Nhà Thơ Vũ Thiên Kiều</h2>
@@ -124,7 +156,6 @@
       </div>
     </section>
 
-    <!-- Các Chuyên Mục Tác Phẩm -->
     <section id="tho-vu-thien-kieu">
       <div style="margin-bottom: 1rem; font-weight: bold; color: var(--accent-green);">THƠ SÁNG TÁC</div>
       <div id="container-Thơ Vũ Thiên Kiều"></div>
@@ -178,20 +209,17 @@
     const categoryData = {};
     const currentPageData = {};
 
-    // Cắt bớt nội dung bài viết hiển thị ở trang chủ
     function getSnippet(body, category) {
       if (!body) return '';
       const isPoetry = category.includes("Thơ");
       
       if (isPoetry) {
-        // Lấy đúng 4 dòng đầu đối với Thơ
         const lines = body.trim().split('\n');
         if (lines.length > 4) {
           return lines.slice(0, 4).join('\n') + '\n...';
         }
         return body;
       } else {
-        // Lấy đoạn đầu (~200 ký tự) đối với văn xuôi/truyện/ký
         const cleanText = body.trim();
         if (cleanText.length > 200) {
           return cleanText.substring(0, 200) + '...';
@@ -275,7 +303,7 @@
       currentPosts.forEach(post => {
         const card = document.createElement('article');
         card.className = 'card';
-        const postUrl = `/posts/${post.id}.html`;
+        const postUrl = `https://vuthienkieu.vn/posts/${post.id}.html`;
 
         // Tag
         const tagSpan = document.createElement('span');
@@ -283,12 +311,9 @@
         tagSpan.textContent = cat;
         card.appendChild(tagSpan);
 
-        // Tiêu đề (Có link chuyển trang)
+        // Tiêu đề
         const h2 = document.createElement('h2');
-        const titleLink = document.createElement('a');
-        titleLink.href = postUrl;
-        titleLink.textContent = post.title;
-        h2.appendChild(titleLink);
+        h2.textContent = post.title;
         card.appendChild(h2);
 
         // Meta info
@@ -297,7 +322,7 @@
         metaSpan.textContent = `Tác giả: ${post.author}${post.date ? ' | Sáng tác ' + post.date : ''}`;
         card.appendChild(metaSpan);
 
-        // Ảnh bài viết (nếu có)
+        // Ảnh
         if (post.image) {
           const img = document.createElement('img');
           img.src = post.image;
@@ -305,19 +330,90 @@
           card.appendChild(img);
         }
 
-        // Nội dung tóm tắt (4 câu đầu hoặc 1 đoạn ngắn)
+        // Nội dung tóm tắt
         const bodyDiv = document.createElement('div');
         bodyDiv.className = 'post-body';
-        bodyDiv.textContent = getSnippet(post.body, cat);
+        const snippetText = getSnippet(post.body, cat);
+        bodyDiv.textContent = snippetText;
         card.appendChild(bodyDiv);
 
-        // Nút bấm chuyển sang đọc toàn bộ bài viết
-        const readMoreBtn = document.createElement('a');
-        readMoreBtn.className = 'btn-readmore';
-        readMoreBtn.href = postUrl;
-        readMoreBtn.textContent = 'Đọc tiếp tác phẩm ➔';
-        card.appendChild(readMoreBtn);
+        // Nút bấm "Mở rộng bài viết" ngay trên trang
+        if (post.body.trim() !== snippetText.trim()) {
+          const readMoreBtn = document.createElement('span');
+          readMoreBtn.className = 'btn-readmore';
+          readMoreBtn.textContent = 'Đọc tiếp tác phẩm ➔';
+          readMoreBtn.onclick = () => {
+            bodyDiv.textContent = post.body;
+            readMoreBtn.style.display = 'none';
+          };
+          card.appendChild(readMoreBtn);
+        }
 
+        // Khối nút Chia sẻ gắn vào từng bài viết
+        const shareBox = document.createElement('div');
+        shareBox.className = 'share-box';
+
+        const shareTitle = document.createElement('span');
+        shareTitle.className = 'share-title';
+        shareTitle.textContent = 'Chia sẻ tác phẩm này:';
+        shareBox.appendChild(shareTitle);
+
+        // Nút FB
+        const btnFb = document.createElement('button');
+        btnFb.className = 'btn-share btn-fb';
+        btnFb.textContent = 'Facebook';
+        btnFb.onclick = () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`, '_blank');
+        shareBox.appendChild(btnFb);
+
+        // Nút Zalo
+        const btnZalo = document.createElement('button');
+        btnZalo.className = 'btn-share btn-zalo';
+        btnZalo.textContent = 'Zalo';
+        btnZalo.onclick = () => window.open(`https://zalo.me/share?url=${encodeURIComponent(postUrl)}`, '_blank');
+        shareBox.appendChild(btnZalo);
+
+        // Nút Copy Link
+        const btnCopy = document.createElement('button');
+        btnCopy.className = 'btn-share btn-copy';
+        btnCopy.textContent = 'Chép Link';
+        btnCopy.onclick = () => {
+          navigator.clipboard.writeText(postUrl);
+          alert("Đã sao chép liên kết bài viết!");
+        };
+        shareBox.appendChild(btnCopy);
+
+        // Nút Mã nhúng
+        const btnEmbed = document.createElement('button');
+        btnEmbed.className = 'btn-share btn-embed';
+        btnEmbed.textContent = 'Lấy mã nhúng';
+        
+        const embedBox = document.createElement('div');
+        embedBox.className = 'embed-container';
+        
+        const embedTextarea = document.createElement('textarea');
+        embedTextarea.readOnly = true;
+        embedTextarea.value = `<iframe src="${postUrl}" width="100%" height="450" frameborder="0"></iframe>`;
+
+        const btnCopyEmbed = document.createElement('button');
+        btnCopyEmbed.className = 'btn-share btn-copy';
+        btnCopyEmbed.style.marginTop = '5px';
+        btnCopyEmbed.textContent = 'Sao chép mã nhúng';
+        btnCopyEmbed.onclick = () => {
+          navigator.clipboard.writeText(embedTextarea.value);
+          alert("Đã sao chép mã nhúng!");
+        };
+
+        embedBox.appendChild(embedTextarea);
+        embedBox.appendChild(btnCopyEmbed);
+
+        btnEmbed.onclick = () => {
+          embedBox.style.display = (embedBox.style.display === 'block') ? 'none' : 'block';
+        };
+
+        shareBox.appendChild(btnEmbed);
+        shareBox.appendChild(embedBox);
+
+        card.appendChild(shareBox);
         container.appendChild(card);
       });
 
