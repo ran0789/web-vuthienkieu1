@@ -1,6 +1,6 @@
 ---
 title: CHÙM LỊCH CŨ
-status: hidden
+status: published
 category: Thơ Vũ Thiên Kiều
 author: Vũ Thiên Kiều
 featured_image: ''
@@ -31,7 +31,7 @@ Lã mặt
 Gầy vai gầy
 
 Sương trắng sương
- 
+
 Kìa giọt tuyết nhếch màu môi cười khóc
 
 Vụn khúc nhạc đời lễnh loãng tan xa
@@ -41,7 +41,7 @@ Cầm ca
 Mía non xơ giắng mùa sùng ái
 
 Hỉ nộ bức rèm ghẹo muối mặn làm thân
- 
+
 Rét nàng Bân
 
 Sa hoàng tím mộ vùi sâu lòng đất
@@ -53,7 +53,7 @@ Thời gian
 Xô lệch vào mái tóc
 
 Suối chảy ngược nguồn mầm đắng ngóng hạ lưu?
- 
+
 Cắm cơn khát giao thời
 
 Ngân nga chùm lịch cũ
