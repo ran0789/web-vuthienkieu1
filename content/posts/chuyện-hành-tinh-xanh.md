@@ -4,10 +4,11 @@ status: published
 category: Thơ Vũ Thiên Kiều
 author: Vũ Thiên Kiều
 featured_image: ''
+image_caption: ''
 image_size: medium
 source_url: ''
 created_date: ''
-date: ''
+date: 2026-08-20T12:39
 ---
 
 có nỗi đau không thành nước mắt
