@@ -43,7 +43,7 @@ collections:
       - { label: "TÁC GIẢ / NGUỒN BÁO", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
       - { label: "ẢNH MINH HỌA", name: "featured_image", widget: "image", required: false }
       
-      # --- ĐÃ THÊM: Ô nhập tên ảnh / tranh / họa sĩ minh họa ---
+      # Ô nhập tên ảnh / tranh / họa sĩ minh họa
       - { label: "TÊN ẢNH / TRANH MINH HỌA (CỦA AI)", name: "image_caption", widget: "string", required: false }
       
       - { 
@@ -87,14 +87,11 @@ collections:
         name: "sidebar"
         file: "content/settings/sidebar.json"
         fields:
-          - { label: "--- CÀI ĐẶT CỘT BÊN (SIDEBAR) ---", name: "heading_sidebar", widget: "hidden", required: false }
           - { label: "Tên Tác Giả", name: "author_name", widget: "string", default: "Vũ Thiên Kiều" }
           - { label: "Mô Tả Ngắn Tác Giả", name: "author_desc", widget: "string", default: "Hội viên Hội Nhà văn Việt Nam." }
           - { label: "Tên Tập Thơ Mới", name: "book_title", widget: "string", default: "Tuyển Tập Thơ Vũ Thiên Kiều" }
           - { label: "Ảnh Bìa Sách", name: "book_image", widget: "image", required: false }
           - { label: "Link Đặt Mua Sách (Zalo/SĐT)", name: "book_link", widget: "string", default: "https://zalo.me/" }
-
-          - { label: "--- THÔNG TIN LIÊN HỆ & MENU TRƯỢT (MOBILE) ---", name: "heading_mobile", widget: "hidden", required: false }
           - { label: "Link Zalo (Menu Mobile)", name: "mobile_zalo_link", widget: "string", default: "https://zalo.me/" }
           - { label: "Link Facebook (Menu Mobile & Sidebar)", name: "fb_link", widget: "string", default: "https://facebook.com/" }
           - { label: "Link Kênh YouTube (Menu Mobile & Sidebar)", name: "yt_link", widget: "string", default: "https://youtube.com/" }
