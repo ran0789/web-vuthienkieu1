@@ -22,7 +22,7 @@ fs.readdir(postsDir, (err, files) => {
       const dateMatch = content.match(/created_date:\s*"(.*?)"/) || content.match(/created_date:\s*(.*)/);
       const captionMatch = content.match(/image_caption:\s*"(.*?)"/) || content.match(/image_caption:\s*(.*)/);
       
-      // BỔ SUNG: Đọc đường link bài báo gốc
+      // Đọc đường link bài báo gốc
       const sourceMatch = content.match(/source_url:\s*"(.*?)"/) || content.match(/source_url:\s*(.*)/);
 
       const parts = content.split('---');
@@ -51,7 +51,7 @@ fs.readdir(postsDir, (err, files) => {
       let rawDate = dateMatch ? dateMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
       let imageCaption = captionMatch ? captionMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
       
-      // BỔ SUNG: Xử lý link bài báo gốc & lấy tên Tên miền (Domain)
+      // Xử lý link bài báo gốc & lấy tên Tên miền (Domain)
       let sourceUrl = sourceMatch ? sourceMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
       let sourceDomain = '';
       if (sourceUrl && sourceUrl.length > 0) {
@@ -194,7 +194,7 @@ fs.readdir(postsDir, (err, files) => {
       text-align: center;
     }
 
-    /* BỔ SUNG: KHUNG XEM TRƯỚC BÀI BÁO NGUỒN (FACEBOOK LINK CARD STYLE) */
+    /* KHUNG XEM TRƯỚC BÀI BÁO NGUỒN (FACEBOOK LINK CARD STYLE) */
     .source-card {
       margin-top: 2rem;
       background: #f8fafc;
@@ -287,13 +287,14 @@ fs.readdir(postsDir, (err, files) => {
     <!-- DANH SÁCH DANH MỤC TRONG MENU TRƯỢT -->
     <ul class="drawer-nav">
       <li><a href="/"><i class="fa-solid fa-house" style="color:var(--accent-green); margin-right:8px;"></i> TRANG CHỦ</a></li>
-      <li><a href="/#tho-vu-thien-kieu">THƠ SÁNG TÁC</a></li>
-      <li><a href="/#chum-tho">CHÙM THƠ</a></li>
-      <li><a href="/#tan-van">TẢN VĂN & KÝ</a></li>
-      <li><a href="/#truyen-ngan">TRUYỆN NGẮN</a></li>
-      <li><a href="/#goc-ban-van">GÓC BẠN VĂN</a></li>
-      <li><a href="/#bao-chi">BÁO CHÍ & TRUYỀN THÔNG</a></li>
-      <li><a href="/#ly-luan">LÝ LUẬN & BÌNH</a></li>
+      <li><a href="/category.html?tag=tho-vu-thien-kieu">THƠ SÁNG TÁC</a></li>
+      <li><a href="/category.html?tag=chum-tho">CHÙM THƠ</a></li>
+      <li><a href="/category.html?tag=tho-van-xuoi">THƠ VĂN XUÔI</a></li>
+      <li><a href="/category.html?tag=tan-van-va-ky">TẢN VĂN & KÝ</a></li>
+      <li><a href="/category.html?tag=truyen-ngan">TRUYỆN NGẮN</a></li>
+      <li><a href="/category.html?tag=goc-ban-van">GÓC BẠN VÃN</a></li>
+      <li><a href="/category.html?tag=bao-chi">BÁO CHÍ & TRUYỀN THÔNG</a></li>
+      <li><a href="/category.html?tag=ly-luan-binh">LÝ LUẬN & BÌNH</a></li>
     </ul>
 
     <!-- BIỂU TƯỢNG MẠNG XÃ HỘI CHÂN MENU -->
@@ -321,7 +322,7 @@ fs.readdir(postsDir, (err, files) => {
       
       <div class="post-body">${formattedBody}</div>
       
-      <!-- BỔ SUNG: NẾU CÓ LINK NGUỒN BÀI BÁO THÌ HIỂN THỊ DẠNG FACEBOOK LINK CARD -->
+      <!-- NẾU CÓ LINK NGUỒN BÀI BÁO THÌ HIỂN THỊ DẠNG FACEBOOK LINK CARD -->
       ${sourceUrl ? `
       <a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" class="source-card">
         <div class="source-card-body">
