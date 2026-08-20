@@ -4,9 +4,10 @@ status: published
 category: Thơ Vũ Thiên Kiều
 author: Vũ Thiên Kiều
 featured_image: ''
+image_caption: ''
 image_size: medium
 source_url: ''
-created_date: 9/11/2025
+created_date: ''
 date: 2026-08-19T23:05
 ---
 
