@@ -20,6 +20,9 @@ fs.readdir(postsDir, (err, files) => {
       const authorMatch = content.match(/author:\s*"(.*?)"/) || content.match(/author:\s*(.*)/);
       const imageMatch = content.match(/featured_image:\s*"(.*?)"/) || content.match(/featured_image:\s*(.*)/);
       const dateMatch = content.match(/created_date:\s*"(.*?)"/) || content.match(/created_date:\s*(.*)/);
+      
+      // BỔ SUNG: Đọc tên tác giả/chú thích ảnh minh họa
+      const captionMatch = content.match(/image_caption:\s*"(.*?)"/) || content.match(/image_caption:\s*(.*)/);
 
       const parts = content.split('---');
       let rawBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
@@ -45,6 +48,9 @@ fs.readdir(postsDir, (err, files) => {
       const title = titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Tác phẩm';
       const author = authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều';
       let rawDate = dateMatch ? dateMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
+      
+      // BỔ SUNG: Xử lý chuỗi chú thích ảnh
+      let imageCaption = captionMatch ? captionMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
 
       let image = imageMatch ? imageMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
       let hasImage = false;
@@ -158,7 +164,26 @@ fs.readdir(postsDir, (err, files) => {
       margin-bottom: 0.5rem;
     }
     
-    .post-img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; display: block; }
+    /* BỔ SUNG: CSS CHO KHUNG ẢNH & CHÚ THÍCH TRANH/ẢNH */
+    .post-figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .post-img { 
+      max-width: 100%; 
+      height: auto; 
+      border-radius: 8px; 
+      display: block; 
+      margin: 0 auto;
+    }
+    .post-caption {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #718096;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
     .share-box { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border-color); display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
     
     .btn { border: none; padding: 0.5rem 1rem; border-radius: 6px; color: #fff; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
@@ -225,7 +250,14 @@ fs.readdir(postsDir, (err, files) => {
       <a href="/" class="btn btn-back"><i class="fa-solid fa-arrow-left"></i> Trở về trang chủ</a>
       <h1>${title}</h1>
       <div class="meta">Tác giả: ${author} ${rawDate ? '| Sáng tác: ' + rawDate : ''}</div>
-      ${hasImage ? `<img src="${image}" class="post-img" onerror="this.style.display='none'" />` : ''}
+      
+      <!-- BỔ SUNG: HIỂN THỊ ẢNH VÀ TÊN TÁC GIẢ TRANH/ẢNH MINH HỌA -->
+      ${hasImage ? `
+      <figure class="post-figure">
+        <img src="${image}" class="post-img" onerror="this.parentElement.style.display='none'" />
+        ${imageCaption ? `<figcaption class="post-caption">${imageCaption}</figcaption>` : ''}
+      </figure>
+      ` : ''}
       
       <div class="post-body">${formattedBody}</div>
       
