@@ -57,9 +57,43 @@ collections:
           required: false 
         }
       - { label: "ĐƯỜNG LINK BÀI BÁO GỐC", name: "source_url", widget: "string", required: false }
-
-      # --- ĐÃ SỬA CHUẨN SVELTIA CMS: Chọn ngày từ lịch (chỉ hiển thị ngày/tháng/năm) ---
       - { label: "NGÀY SÁNG TÁC", name: "created_date", widget: "datetime", date_only: true, required: false }
-      
       - { label: "NGÀY ĐĂNG BÀI", name: "date", widget: "datetime", required: false }
       - { label: "NỘI DUNG TRÍCH DẪN / VĂN THƠ", name: "body", widget: "markdown" }
+
+  # 2. GIỚI THIỆU TÁC GIẢ
+  - name: "author_info"
+    label: "Giới Thiệu Tác Giả"
+    files:
+      - file: "content/about.md"
+        label: "Thông Tin Tác Giả"
+        name: "about"
+        fields:
+          - { label: "TÊN TÁC GIẢ", name: "title", widget: "string", default: "Vũ Thiên Kiều" }
+          - { label: "ẢNH ĐẠI DIỆN TÁC GIẢ", name: "avatar", widget: "image", required: false }
+          - { label: "DANH HIỆU / CHỨC DANH", name: "subtitle", widget: "string", required: false }
+          - { label: "NĂM SINH / QUÊ QUÁN", name: "bio_info", widget: "string", required: false }
+          - { label: "NỘI DUNG TIỂU SỬ & SỰ NGHIỆP", name: "body", widget: "markdown" }
+
+  # 3. CÀI ĐẶT CỘT BÊN (SIDEBAR) & LIÊN HỆ MENU MOBILE
+  - name: "settings"
+    label: "Cài Đặt Cột Bên & Menu Mobile"
+    files:
+      - label: "Thông tin Sidebar & Liên Hệ Mobile"
+        name: "sidebar"
+        file: "content/settings/sidebar.json"
+        fields:
+          # --- THÔNG TIN TÁC GIẢ SÁCH Ở SIDEBAR ---
+          - { label: "--- CÀI ĐẶT CỘT BÊN (SIDEBAR) ---", name: "heading_sidebar", widget: "hidden", required: false }
+          - { label: "Tên Tác Giả", name: "author_name", widget: "string", default: "Vũ Thiên Kiều" }
+          - { label: "Mô Tả Ngắn Tác Giả", name: "author_desc", widget: "string", default: "Hội viên Hội Nhà văn Việt Nam." }
+          - { label: "Tên Tập Thơ Mới", name: "book_title", widget: "string", default: "Tuyển Tập Thơ Vũ Thiên Kiều" }
+          - { label: "Ảnh Bìa Sách", name: "book_image", widget: "image", required: false }
+          - { label: "Link Đặt Mua Sách (Zalo/SĐT)", name: "book_link", widget: "string", default: "https://zalo.me/" }
+
+          # --- THÔNG TIN MẠNG XÃ HỘI VÀ MENU TRƯỢT MOBILE ---
+          - { label: "--- THÔNG TIN LIÊN HỆ & MENU TRƯỢT (MOBILE) ---", name: "heading_mobile", widget: "hidden", required: false }
+          - { label: "Link Zalo (Menu Mobile)", name: "mobile_zalo_link", widget: "string", default: "https://zalo.me/" }
+          - { label: "Link Facebook (Menu Mobile & Sidebar)", name: "fb_link", widget: "string", default: "https://facebook.com/" }
+          - { label: "Link Kênh YouTube (Menu Mobile & Sidebar)", name: "yt_link", widget: "string", default: "https://youtube.com/" }
+          - { label: "Địa chỉ Email Liên Hệ", name: "email_link", widget: "string", default: "contact@vuthienkieu.vn" }
