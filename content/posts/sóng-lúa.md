@@ -1,0 +1,110 @@
+---
+title: SÓNG LÚA
+status: published
+category: Truyện Ngắn
+author: Vũ Thiên Kiều
+featured_image: ''
+image_caption: ''
+image_size: medium
+source_url: ''
+created_date: ''
+date: ''
+---
+
+1.
+
+Cái bụi tre dưới mé sông nhốn nháo những người là người. Những đôi chân nhón lên. Những cái đầu đội nón lá có, nón bảo hiểm có và cả đầu trần cũng có chen chúc nhau vào xem. Hình như tâm điểm ấy có gì thú vị ngạc nhiên lắm. Tai nạn giao thông thì không phải rồi. Vốn là người ghét thói tò mò tọc mạch, nhưng thấy đám đông quá nhốn nháo ấy ông Mười cũng đâu thể làm thinh được. Ông dừng xe bền lề đường hỏi người quen:
+
+- Chuyện gì vậy Sul. Sao nhiều người coi quá vậy.
+
+- Dạ. Chuyện… chuyện… kỳ cục lắm chú Mười ơi. Chú xuống coi đi.
+
+Cái thằng Sul bữa nào không đánh cờ tướng dưới gốc cây sanh cùng ông Mười. Chuyện gì nó cũng có thể kể với ông, sao bữa nay lấp lửng kỳ cục vậy. Thấy kiểu cười cười bí hiểm và như ngần ngại của Sul ông càng chột dạ. Chuyện gì vậy cà. Ông gạt chân chống xe và đi xuống mé sông.
+
+Trời ạ. Hai người khùng họ đang cười với nhau. Cái cười tình tứ của con người sau một niềm hưng phấn thích thú tột độ… Thấy ông Mười, đám đông có vài người gật đầu chào ông rồi giãn dần. Ông quay ra và lấy điện thoại bấm số cho thằng Sía. Chuông reo không người bắt máy. Chắc nó lại đang lặn lội dưới mương. Cái thằng lúc nào cũng ham mần. Vừa lúc, con vợ thằng Bỏng từ trên lộ xuống rẽ đám đông. Ông nghe tiếng nó bải hải: “Má kỳ quá. Má bận đồ vô đi”.  Rồi nó kéo tay bà Sững xềnh xệch ra phía sau bụi tre, tay kia thoắt lượm cái quần và cái áo của bà. Bà Sững thấy nó, mặt bà nghệt ra như đứa trẻ bị người lớn bắt tội ăn vụng. Bà luống cuống nhấc chân xỏ vào cái quần con vợ Bỏng banh sẵn dây thun. Cái chân bà run nên bà vấp, xíu nữa bà té ra phía sau. Con vợ Bỏng thấy thế vo cái quần gọn lại chỉ chừa hai cái lỗ hai bên ống cho bà xỏ chân vào. Nó lầm bầm lúc cài núc áo cho bà: “Má hư quá. Ổng hay được là ổng oánh chết. Về chuyến này má biết tay ổng”. Rồi nó quày quả lôi bà lên xe nổ máy. Bà ngoan ngoãn bám chặt vào hai bên eo đứa con dâu. Chiếc xe vút đi, mắt bà còn ngoái lại như dáo dác tìm thằng Thẹp. Ờ mà. Đám đông hiếu kỳ kia đâu có xi nhê gì trong mắt bà. Chỉ có Thẹp. Thằng cha Thẹp mà thiên hạ gọi là Thẹp khùng mới là người làm cho bà phải chúm chím e lệ và thích thú thôi.<br>
+
+2.
+
+Ở cái xứ hốc bò tó này, những năm tám mươi của thế kỷ trước không ai lạ một bà điên cứ mờ trời là một tay nách con, một tay xách giỏ. Hai mẹ con bà đi chợ. Đứa nhỏ có khi mới được hai ba ngày tuổi bà cũng xốc đi. Mẹ mặc quần áo vá chằng vá chụp, đầu đội nón lá. Con thì chỉ có cái áo tong hong tơ hơ. Mưa cũng đi, gió cũng đi. Sáng nào như sáng nấy bà đi bộ mười ba cây số tới chợ. Mờ sáng, các chủ hàng thịt hàng cá hàng rau quả lo bưng bày buôn bán. Bà lòn phía sau, bà lủi phía trước đủ kiểu. Sau chừng một giờ giỏ xách bà cũng đủ thịt cá, rau quả dùng cho một ngày. Bà “mua” nhanh thế phải chăng người ta không biết. Biết chứ. Dân buôn bán mà, họ từng bán non mua già hỏi thứ gì có thể qua mắt họ được. Nhưng họ không chấp. Bởi bà là bà điên. Là kiếp phụ nữ với nhau, họ lành lặn về tinh thần hơn bà.  Ai trong thời gian ở cữ mà lại ẵm con lội ngang lội dọc thế kia. Như thế cũng đủ thương rồi. Nghe bảo có bữa bà còn nách con bơi qua sông. Nước sông cuồn cuộn, thằng nhỏ sặc nước ngụp lên ngụp xuống, vậy mà bà cũng qua được sông. Có bữa bà đi cuốc khoai, bà bỏ thằng nhỏ vùng vẫy trong nước giữa hai vồng khoai, trên đầu thì nắng gay nắng gắt. Lại có bữa bà ẵm thằng nhỏ đi về ngang tiệm café, ông khách vừa quay mặt chỗ khác bà bưng ly café ông chưa kịp uống làm một hơi cạn đáy, chỉ còn lại nước đá trắng phớ. Ông kia vừa bực vừa thương.
+
+Rồi có bận đang đi thì trời mưa, bà cũng ẵm con trú mưa như mấy người khác. Bỗng đít con bà te re tét rét một tràng. Thằng nhỏ tướt, bà giơ thằng nhỏ ra dòng nước mưa nơi mái nhà đang ào ào bà rửa. Nước tuôn trên đầu thằng nhỏ tuôn xuống mà nó cười sằng sặc, bà cũng cười sằng sặc. Nụ cười của bà làm cho những người cùng trú mưa khó cầm được nước mắt. Nhưng biết giúp bà sao giờ. Chồng bà còn không giành được con ra khỏi tay bà lúc sớm lạnh thì lấy ai làm được chuyện đó. Thử động vào bà thử xem, bà chửi, bà ném đá cho tắt mặt luôn.
+
+Bà thân với thằng Thẹp. Thằng Thẹp điên từ dạo nó lấy búa giáng vào đầu má nó. Má nó chết. Nó không bị tù nhưng nó bị điên. Người ta bảo nó giả điên để thoát tội. Không biết thực hư như thế nào nhưng chỉ thấy nó sống  vất vưởng, ai cho thì ăn, không cho thì xin thì giật. Rồi đàn bà con gái đi đường mà không ngó trước ngó sau là bị nó xồ tới tay ôm tay bóp. Dường như người điên có ngôn ngữ riêng của họ vậy. Có bữa, đã thấy thằng Thẹp đợi sẵn với một bọc thịt cá đưa cho bà Sững. Có bữa bà Sững cho thằng Mở đòn bánh tét, mấy cái bánh ít. Bà lẩm bẩm: “Thằng Thẹp nó lười lắm. Nó không biết nấu cơm đâu”. Lúc loanh quanh trên chợ, bà Sững muốn lủi đâu một chút thì đưa con cho thằng Thẹp giữ giùm. Thằng Thẹp khùng nhưng ẵm con nít có vẻ cẩn thận. Thẹp cũng biết bẻ bánh đút cho thằng nhỏ ăn, rồi thọc lét cho nó cười sặc sụa. Biết bà thân với thằng Thẹp, mấy người buôn bán ở chợ bàn nhau, thôi đành thí cô hồn cho bà Sững mỗi ngày miếng thịt, ký cá, bó rau… Xếp lịch hẳn hòi, hôm nay bà Ba thì mai tới lượt bà Tám, mười lăm thớt thịt, hai mươi sòng cá, hai mốt xề rau xoay vòng.  Bả lấy của ai thì chút người tới lượt cắt trả cho người bị mất. Chứ không cho bà lấy, bà méc thằng Thẹp thì biết đâu cái búa của nó lại bất ngờ giáng lén xuống đầu thì ai đỡ kịp. Má nó nó còn giáng thì nó tha ai. Ai bắt tội nó. Cũng đâu có ai nhốt mấy người điên lại, nên cứ của đi thay người cho chắc. Ăn tiền lời ít một chút nhưng giữ mạng sống để buôn bán nuôi con. Xứ này đã mọc lên bà Sững lại có sự phụ hợ của thằng Thẹp nữa thì đành vậy. Hai người đã gánh thay cái nạn điên khùng cho mọi người rồi. Họ cũng sống ngắc ngoải chứ sướng gì. Nếu cho rằng kiếp trước họ làm ác, kiếp này phải trả, thì kiếp này chị em ta cứ phải làm việc thiện, cần đâu đi xa cúng chùa cúng miếu, cứ ăn ngay làm thật, không nói thách không cân gian cũng là tu hành rồi.
+
+Nhờ quan niệm của bà con ở chợ thế, nên bà Sững cứ hành trình chợ sớm để nuôi bầy con bảy đứa từ lít nhít đến lớn bổng. Cứ thằng nhỏ nhoi nhoi biết đi thì cái bụng bà lại nhúm lên. Chừng bụng to kễnh thì bà bỏ nó ở nhà, chỉ tha bụng đi chợ. Bảy đứa con chỉ có thằng Bỏng đầu lòng là không biết mùi đi chợ. Còn tất tật đều nếm mùi sông nước nắng gió từ những ngày còn đỏ hỏn.
+
+Người ta nói bà bị điên khi sanh thằng Sệt, trong lúc ở cữ nằm trên lửa than nóng rức, tiếng bà chị dâu ra rả chõ sang hàng rào: “Tổ cha đứa nào nó cắt quầy chuối tiêu của tao. Muốn ăn thì xin chứ cớ đâu lại ăn cắp. Mày ăn đi rồi mày điên mày loạn cả dòng họ nhà mày lên”.
+
+Nước mắt bà ứa ra. Hai vợ chồng bà nghèo, ăn đong từng bữa, hai vợ chồng anh hai thì bồ lúa chật nhà. Cũng chị em bạn dâu mà người thì sung sướng tận răng, còn người thì đói khổ tẩm vào từng xớ ruột. Gần sanh, bà đâu chuẩn bị được đồng nào. Chồng bà phải bơi xuồng đi hỏi ba giạ lúa non của ông Năm Rết, tới mùa trả thành sáu giạ. Tô cơm chồng đem vào buồng với chảo kho quẹt và mấy trái chuối chín. Bà không ăn chuối, bà lấy tay bóp nát rồi hất tung về hướng tiếng chửi đang vọng sang. Tiếng chửi nghe mùi chuối chín càng bung già hơn. Nhức tai cả xóm suốt tuần mới im. Chừng tiếng chửi im thì bên này bà Sững sôi lên sùng sục. Bà cười. Bà khóc. Bà chửi. Rồi bà yên lặng. Bà tốc mùng ẵm thằng Sệt đi chợ. Chồng bà vuốt ve can ngăn bà vẫn đi. Bà không nói chuyện với ông nữa. Việc của bà là đi chợ. Là làm những gì bà thích.
+
+Bà mang tên bà Sững khùng từ đó. Hỏi khùng sao vẫn sanh con tì tì. Biết sao giờ. Chị gái bà mấy lần nịnh dẫn bà lên phòng khám phụ khoa của huyện, định đặt cho bà cái vòng. Lúc bà chị đang khai tên bốc số thì bà em lủi về mất. Chồng bà nói thôi kệ, đẻ được thì nuôi, đứa nào sống đặng đứa đấy. Thành ra, bà cứ bầu rồi đẻ, đẻ rồi nách con đi chợ, rồi lại bầu. Sau thằng Sệt, bà đẻ chính thức thêm mười một đứa, chưa kể những lần xẩy thai. Mười một đứa nhưng chỉ có năm đứa sống qua mười hai tuổi. Mỗi lần đẻ bà đều tự đẻ ở nhà với sự trợ giúp của chồng và bà chị gái. Nói tiếng trợ giúp là coi chừng xem bà có làm gì đứa nhỏ, hoặc đứa nhỏ có bị ngạt thì đem đi bệnh viện, chứ có ai đụng được vào mẹ con bà. Bà tự đẻ, tự cắt rốn cho con, rồi bà tự vệ sinh, tự nấu cơm ăn. Đẻ xong, bà ôm đứa nhỏ cho bú, chừng nhỏ được hai tháng thì bà nhai cơm đút cho nó. Khi có đứa nhỏ là bà buông đứa lớn. Chồng bà vẫn đi ruộng kiếm lúa kiếm khoai, những đứa nhỏ thì thằng lớn canh chừng thằng bé. Bà đi chợ về bà nấu cơm nấu đồ ăn, rồi bà đẩy thức ăn qua mấy đứa nhỏ biểu “Ăn đi”. Tụi nó đói, xì xụp ăn những thứ bà  nấu. Bà bị điên nhưng bà không quấy phá ai, nấu ăn xong, bà rửa chén chùi nồi. Chiếc nồi qua tay bà chùi luôn bóng hới. Rồi bà quét nhà, quét sân mần cỏ, trồng thêm bụi sả, bụi hành, chặt củi… Từ ngày bà Sững bị khùng, đố ai thấy một cọng cỏ cọng rác trên sân nhà bà. Rảnh nữa thì bà lôi quần áo ra, bà đắp bà vá. Bộ đồ chị gái may cho mới nguyên, bà cũng cắt lủng vài chỗ, rồi sau đó vá chụp lên.  
+
+Thấy gia cảnh em, người anh Hai nói với chồng bà: “Mày nuôi hết mấy đứa nhỏ à? Sao không đem cho người ta bớt đi. Mà biết tụi nó phải con mày không” Chồng bà nhổ nước miếng vào mặt người anh cái rột: “Tụi nó là con tôi, nghèo khổ tôi cũng nuôi con tôi. Đồ đạo đức giả”.
+
+Ông thương bà. Hẳn rồi. Hồi con gái bà đẹp ai bằng. Bao nhiêu chỗ giàu sang người ta nhắm nhe, nhưng bà đâu có ưng. Bà trốn nhà lên xuồng theo ông. Cực chẳng đã gia đình bà phải gọi về cho làm đám cú phạt. Ở với nhau bốn năm trời hạnh phúc ngần ngận, chỉ cái tội nghèo nên mới ra cơ sự này.
+
+Mấy đứa nhỏ lớn lên, ông cũng cho đi học. Một buổi đi học, một buổi theo ông ra ruộng. Nên đứa nào cũng lanh lẹ hoạt bát. Đứa nào cũng mần giỏi. Người ta nói công nhận ông Tư Sững hay thiệt. Vợ bị khùng mà vẫn ăn cơm nhà ngủ với vợ không hề ra ngoài tòm tem.  Lại biết nuôi biết dạy con nữa chứ. Nhà người ta cha mẹ khôn ngoan sạch sẽ giàu có đấy, nhưng những đứa con có ra gì đâu, đứa quậy phá hư hỏng, đứa mê cờ bạc cá độ, có đứa còn chích hút nữa. Mà nói đâu xa, là con của người anh Hai, cách nhà ông bằng cái tường rào cao vút cắm đầy mảnh chai phía trên đây chứ đâu. Nói ông khéo dạy con ư. Ông biết nói gì đâu. Lòng ông cũng câm nín theo bệnh tật của bà. Ông ít nói, ông chỉ biết làm. Nhưng chắc trời thương ông, những đứa con thương ông. Ông không nói gì nhưng con ông vẫn nhìn ông làm mà làm theo. Mà bầy con ông tụi nó cũng biết hoàn cảnh gia đình để vươn lên. Nỗi chọc ghẹo của chúng bạn khi còn nhỏ “Ê. Con bà Sững khùng tụi bây ơi”, rồi đất đá cứ thế ném vào tụi nó. Đất đá ném vào tụi nó thì còn đỡ đau. Chứ có lần, tụi nó chứng kiến má mình bị đám thanh niên châm chọc ném đá mới tủi và thương má hơn. Tụi nó đã biến những ê chề tủi nhục thành việc học, việc làm đâu ra đấy.
+
+ Đêm. Ông ôm bà. Trong giấc ngủ bà hiền đến lạ. Bà có thể quên hết, buông hết sự đời nhưng đêm vợ chồng với ông bà vẫn không quên. Bà vẫn cháy rực yêu thương những khắc ấy. Nhưng sáng ra thì bà quên hết. Ông không trách bà. Ông hiểu đó là lỗi ở ông. Lúc bà ở cữ đã đói khổ lại bị chửi bới thế người phụ nữ nào chả điên. Những đứa con thương ông, chúng động viên: “Ba để má cho tụi con lo, ba đi bước nữa đi”. Ông bặm môi quát: “Ba cấm tụi bay nói lần nữa. Thương ba thì học giỏi mần giỏi, nghe hông”. Vợ chồng người anh Hai kế bên vẫn không buông tha cho ông: “Con vợ mày nó ăn ở với thằng Thẹp khùng. Bộ mày khùng theo nó nên không biết ghen hả”. Ông hét lên: “Vợ tôi nó còn sống là được. Ông muốn tôi giết nó chết ông mới hả dạ chắc”. Rồi ông bưng mặt khóc. Bầy con quây vòng quanh ông líu ríu: “Ba nín đi, tụi con yêu ba, tụi con sẽ ngoan sẽ giỏi, sẽ mần nhiều tiền mua ruộng đất cho ba má”. Ông choàng tay ôm lấy bầy con. Bà ngồi trên võng ôm thằng út Sía lặc sặc cười, rồi bà buột miệng nói: “Trồng thêm nhiều chuối. Nhiều chuối nữa”.<br>
+
+3.
+
+Ông Mười có sáu đứa con gái và một thằng con trai. Năm đứa lớn ngành nghề cơ bản, gả chồng có con đề huề hết. Còn út Nhị lận đận hơn. Hồi nhỏ nó kém sức khỏe, ông bà cưng cho học hết lớp mười hai rồi đi học nghề may. Được cái đường kim mũi chỉ nó làm cũng khéo. Khách đến may đồ nườm nượp. Ông định bụng có đám nào hiền lành xứng sui thì gả, sẵn bù trì cho nó chừng hai chục công ruộng với cái nền nhà. Cái bụng ông tính thế nhưng trời lại bẻ lái theo hướng khác. Con út Nhị nó thương thằng Sía. Thằng Sía là con út của bà Sững khùng. Ông nghe tin mà như sét đánh ngang tai. Nuôi con ông hiểu, tánh út Nhị đằm, ít nói. Nó rất ngoan nhưng khi muốn gì là được nấy. Vợ ông hết mắng chửi lại dỗ dành, nó vẫn chỉ gọn lỏn một câu: “Con thương ảnh. Ba má đừng bứt duyên tụi con. Ba má không cho tụi con cưới, con trốn nhà đi Bình Dương với ảnh đó”.
+
+Trời! Nó hù ông ư. Không! Nó làm thiệt chứ đâu hù. Con ông nó cũng có lý chứ. Thằng Sía ngoài nhược điểm là có bà mẹ điên khùng, còn tất cả đều đầy đủ tư cách phẩm chất của một thằng rể tốt. Hơn năm năm qua, bốn chục công ruộng của ông bà đều nhờ một tay thằng Sía chăm lo đấy thôi. Tiếng làm thuê nhưng nó làm như ruộng của nó vậy. Nó không hề nệ công. Ban đêm nó ngủ luôn ngoài ruộng để canh nước và giữ máy bơm cho ông. Cỏ bờ nó làm sạch trơn. Ông đi ruộng mọi thứ bưng vác nó giành hết, ông chỉ lội loanh quanh ngó nghiêng cho có lệ. Tới cữ phân, cữ thuốc cho lúa nó đều tự làm, ông chỉ cần alô cho cửa hàng bán phân bón dặn người ta giao cho thằng Sít năm bao phân, bốn chai thuốc… là họ tin tưởng giao cái rụp.
+
+Lúa xanh ngời ngời. Dáng thằng Sía cao dong dỏng, gương mặt hiền lành thật thà và cũng khá đẹp trai. Đã mần thì chăm chú chu đáo. Thiệt khó nết thằng con trai nào qua được nó. Mà ngộ. Bà Sững có sáu thằng con trai và một đứa con gái thì đứa nào cũng lam làm siêng năng hệt như thằng Sía này. Mấy thằng anh nó, đứa nào cũng có nghề, đứa sửa xe máy, đứa làm chủ tiệm bán đồ điện tử, đứa có trang trại chăn nuôi… nhỏ con gái thì có nghề xay hàng sáo, nghe đâu cũng sắm được xe tải để giao hàng rồi.<br>
+
+4.
+
+Ông Tư Sững đã khuyên thằng Sía, mượn cả dì Năm là chị bà Sững lên thẽ thọt với nó. Rằng con người ta là cành vàng lá ngọc. Người ta có chức vị xã hội. Gia đình người ta lại giàu có. Nó vặc lại: “Thì con cũng có năm chục công ruộng. Nền nhà ở khu thương mại con cũng có thì không  giàu á”. Nó nói phải, cầm tuổi hai mươi lăm ở quê mà nó có tài sản chừng ấy thì cũng khá giả rồi. Điều quý hơn là ruộng ấy đất ấy do nó tự mua bằng chính sức lao động của nó. Nhưng đâu phải có đồng tiền thì mua gì cũng được. Người ta giàu, thì người ta phải xem trước ngó sau, phải môn đăng hộ đối. Con thấy mấy người sui trước của ông Mười không, toàn là gia đình bác sĩ, chủ cây xăng, chủ tiệm vàng, chủ tiệm tạp hóa lớn... Con có thấy mấy người anh con đã cưới vợ không, toàn những gia đình nghèo nhưng hiểu chuyện, biết thông cảm, chứ đâu như bà Mười khó ưa đó. Mà mấy anh con cũng ăn nên làm ra. Bây giờ đứa nào cũng đủ sức đọ mặt với thiên hạ. Đâu cứ nhất nhất phải cưới con bà Mười.
+
+Nhắc đến bà Mười, thằng Sía sụm mặt xuống. Nó nhớ chứ. Bữa trưa đó ông Mười biểu ở lại ăn cơm rồi đi ruộng với ông luôn. Sức trai và đói, nó ăn đến chén thứ ba thì mồ hôi mồ kê túa ra như tắm. Bà Mười thấy thế nói: “Cái thứ ăn cơm chảy mồi hôi sẽ nghèo suốt đời”. Ông trừng mắt với bà, bà ngoe nguẩy đứng dậy bỏ ra sau bếp. Ông xí xóa: “Ăn đi con, bả đàn bà nói bậy nói bạ, con đừng để bụng”. Ánh mắt Út Nhị nhìn Sía như yêu thương như khẩn khoản rằng anh đừng trách má. Nhiêu đó là đủ, Sía đưa chén cho Út Nhị bới cơm mà tự nhủ, cỡ nào cũng vượt qua ải này. Sía phải cưới được út Nhị làm vợ. Nghĩ thế, nhưng khi về nhà lòng Sía cũng nghẹn thắt. Tủi thân quá.
+
+Nhìn con trai, lòng ông Tư Sững đau như cắt. Mấy bữa nay nó ăn uống thất thường, tối ngày ở ngoài ruộng. Ông đem cơm ra chòi cho nó, sáng đem, chiều ra thăm vẫn còn nguyên, nó không đụng đũa. Nghe đâu cũng hơn chục bữa nay nó không qua tiếp bên ông Mười.
+
+Bên nhà ông Mười cũng đâu hơn gì, sau bữa bà Mười nói câu rủa thằng Sía, út Nhị nằm trong buồng khóc và tuyệt thực luôn. Ông mắng bà, cái gì cũng từ từ. Bà nói: “Từ từ sao được. Gả con cho nhà khùng khịu, chừng nữa cháu ngoại ông nó cũng khùng thì ông vui chắc”. “Vậy để cho con Nhị nó chết thì bà vui hơn?”. Bà nguýt ông: “Ông chỉ lý sự. Thôi mặc kệ cha con ông. Tính sao thì tính”.<br>
+
+5.
+
+Thằng Sía vẫn miết trên ruộng lúa. Lúa đã kết đòng mà lòng nó vẫn chưa nguôi. Ông Sững đi tới đi lui trên bờ kênh. Bờ kênh giờ nhà nước tráng xi măng bề ngang ba mét sạch trơn láng o. Lại có thêm cây cầu bê tông bắc ngang kênh hai trăm thật chắc chắn. Bà con đi ruộng toàn chạy xe máy. Mọi thứ đều xênh xang. Nhà đã có của ăn của để, vậy mà thằng Sía nó làm khó ông. Ông biết rõ bà Mười đời nào gả con làm dâu nhà ông. Lụy tình thì thiệt khổ. Mà đã yêu thì vật đổi sao dời cũng không tách tình của tụi nhỏ ra được. Nói đâu xa. Như lòng ông đây. Đã lúc nào ông nguôi thương yêu bà. Đi ruộng về cực khổ, nhìn thấy bà quét nhà quét sân, hoặc chỉ cười sặc cùng đứa con nhỏ là ông thấy vui thấy ấm lòng rồi. Ông thương bà đến nỗi không hề ghen tuông. Số bà đủ khổ rồi. Đừng làm cho bà đau thêm nữa. Có những hôm cô Bảy bán vải bằng xe đẩy ghé nhà xin tép xả. Bà nguýt rồi bà chửi: “Mẹ mày. Mày nhìn gì. Cút đi”. Ông hiểu bà ghen. Bà u mê nhưng bà vẫn nhận rõ đó là đàn bà người dưng. Mà để đàn bà người dưng đến nhà chẳng khác nào như lửa vùi vào rơm. Mới cầm mấy nhánh xả ông đưa, cô Bảy đã tiếp tục lãnh tiếng chửi cộng hưởng với đất đá ào ào bay tới. Cô Bảy hết hồn buông xả, xách dép chạy. Mấy nhánh xả nằm sõng soài trên sân. Bà Sững lượm hết lại, rồi bà cứ thế quất vào gốc cây me, miệng lẩm nhẩm: “Xả này. Xả này. Xả này…” đến khi những củ xả tã nát mới ngưng.
+
+Thôi. Chiều nay thể nào ông cũng qua gặp ông Mười. Chỗ đàn ông đàn ang với nhau dễ thông cảm hơn. Vì con, ông nhún mình chút cũng đâu có sao. Quyết định xong ông thấy nhẹ nhàng, ông bắc loa tay kêu thằng Sía đang ở cuối ruộng: “Sía ơi. Về sớm con ơi”.
+
+- Chào anh Tư!
+
+Ông Tư Sững ngạc nhiên quay lại. Là ông Mười:
+
+- Ủa. Anh Mười đi đâu vậy?
+
+- Đi kiếm anh chớ đâu.
+
+- Vậy hả. Chuyện gì vậy anh.
+
+- Chuyện của thằng Sía nhà anh và con Nhị nhà tui thôi.
+
+- Là sao anh.
+
+- Thì tính cho tụi nó chứ sao.
+
+Chiều buông. Hoàng hôn hôm nay đẹp lạ. Lúa cũng sóng sa sóng sánh như quyến luyến những ánh sáng cuối cùng. Trên bờ ruộng có hai ông già đầu tóc bạc, mắt họ nhìn vào thẫm xanh triền lúa nhưng lòng họ đã cùng một hướng. Có ai bàn chuyện hạnh phúc trăm năm cho con trẻ trên bờ ruộng, nơi không trà, không rượu, không bàn ghế và nắng thì sắp tắt không nhỉ?.<br>
+
+6.
+
+Bữa ông Mười gả út Nhị cho thằng Sía, trời mưa như mắc cửi. Ông đã biểu tụi nhỏ che rạp hết hai bên sân hàng xóm vậy mà khách khứa vẫn líu bíu ướt át đến tội. Từng là cán bộ đầu ngành của huyện, anh em bạn bè thân hữu của ông đâu ít. Lúc còn đương chức, ông sống tốt với anh em nên ai cũng thương cũng quý. Người ta về hưu thì quạnh quẽ buồn tẻ ngắm trời ngắm đất, còn ông thì tiếp khách miết, nhất là dịp cuối tuần và lễ tết. Đứa này gởi chú Mười bịch khô cá chạch, đứa biếu chai nước mắm, đứa nọ thang thuốc bổ ngâm rượu. Những món quà dân dã thôi nhưng đầy đặn tình người. Đời người sống được lòng thiên hạ đâu dễ xíu nào. Nhưng có phần có phước như ông xem ra cũng mãn nguyện làm người rồi.
+
+Nhìn kìa! Những chiếc xe hơi bóng lộn sắp cả hàng dài theo lộ, biển số xanh đỏ trắng đều có. Lính tráng của ông giờ nhiều người làm to tận trên tỉnh. Làm to nhưng họ vẫn tranh thủ về dự đám cưới con gái ông. Quý quá chứ.
+
+7.
+
+Bà Sững là bà khùng. Thì đã sao. Thằng Bỏng, thằng Sệt, thằng Sậm, thằng Sụt, thằng Sút, con Bun và thằng út Sía là con bà Sững khùng thì đã sao. Má chúng là bà khùng, chúng đâu có chối.  Sáu thằng con trai, bảy căn nhà xây kiên cố dựa vách tường vào nhau. Bảy mảnh sân y chang, không có một vết bợn ngăn cách làm thành cái sân lớn bằng phẳng. Là cái sân chung cho tụi cháu nội ngoại bà Sững khùng đá banh đánh cầu mỗi chiều. Xung quanh cái sân lớn ông Sững trồng chuối. Những bụi chuối mập mạp cho quầy no căng. Có những quầy chín bói chim đến ăn hót rả rích. Bà Sững đã thôi lẩm bẩm: “Trồng chuối. Trồng nhiều chuối.”. Giờ bà nói hẳn thành tiếng: “Nhà nhiều chuối chín. Chim hót”. Đôi khi bà còn nói: “bà Bun sao không thấy về”. Đó là bà nhắc đứa con gái duy nhất của bà.  Cái tường rào có chi chít mảnh chai vẫn còn nhưng cái nhà bên ấy nghe đâu đã đổi chủ. Không đổi chủ sao được khi có ba đứa trai hai đứa gái đẹp như tranh ngon như chuối ngày xưa giờ tàn tạ vì nợ nần rồi mắc bệnh xã hội. Tuần rồi anh em thằng Bỏng chở nhau vào tận Rạch Cùng thăm bác Hai. Nghe tụi nó bàn mùng chín này sẽ động thổ xây nhà cho bác Hai ở. Mỗi đứa góp ba chục triệu. Ông Tư Sững giận bảo: “Ổng đâu phải anh của ba”. Thằng Sía vuốt: “Thôi mà ba. Dầu gì cũng ruột thịt. Tới khó tánh như má Mười còn gả em Nhị cho con thì ba giận dai làm gì”.  
+
+Ờ. Thì tụi nhỏ nó thoáng. Phải thoáng mới bớt sân si ở đời chớ. Vợ thằng Bỏng nói: “Ba đừng cho má đi chợ nữa”. “Đâu được con, má còn lội được thì cứ để má đi. Ý trời rồi”.
+
+Bà Sững khùng vẫn đi chợ. Nhưng giờ bà không nách con, cũng không bưng bụng bầu nữa, bà ôm theo con chó con, bà đút bánh cho nó ăn.
+
+Thằng Thẹp. Giờ người ta gọi là ông Thẹp. Ông Thẹp vẫn đợi bánh tét bánh ít bà Sững đưa và giữ dùm con chó con cho bà Sững.
+
+Vài tháng, vợ thằng Bỏng lại nhận cuộc điện thoại người ta gọi, biểu tới chỗ đó… chỗ đó… rước má chồng về.
+ 
+                                          **Vũ Thiên Kiều**
