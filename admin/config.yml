@@ -1,4 +1,4 @@
-backend:
+Backend:
   name: github
   repo: ran0789/web-vuthienkieu1
   branch: main
@@ -75,18 +75,25 @@ collections:
           - { label: "NĂM SINH / QUÊ QUÁN", name: "bio_info", widget: "string", required: false }
           - { label: "NỘI DUNG TIỂU SỬ & SỰ NGHIỆP", name: "body", widget: "markdown" }
 
-  # 3. CÀI ĐẶT CỘT BÊN (SIDEBAR)
+  # 3. CÀI ĐẶT CỘT BÊN (SIDEBAR) & LIÊN HỆ MENU MOBILE
   - name: "settings"
-    label: "Cài Đặt Cột Bên"
+    label: "Cài Đặt Cột Bên & Menu Mobile"
     files:
-      - label: "Thông tin Sidebar"
+      - label: "Thông tin Sidebar & Liên Hệ Mobile"
         name: "sidebar"
         file: "content/settings/sidebar.json"
         fields:
+          # --- THÔNG TIN TÁC GIẢ SÁCH Ở SIDEBAR ---
+          - { label: "--- CÀI ĐẶT CỘT BÊN (SIDEBAR) ---", name: "heading_sidebar", widget: "hidden", required: false }
           - { label: "Tên Tác Giả", name: "author_name", widget: "string", default: "Vũ Thiên Kiều" }
           - { label: "Mô Tả Ngắn Tác Giả", name: "author_desc", widget: "string", default: "Hội viên Hội Nhà văn Việt Nam." }
           - { label: "Tên Tập Thơ Mới", name: "book_title", widget: "string", default: "Tuyển Tập Thơ Vũ Thiên Kiều" }
           - { label: "Ảnh Bìa Sách", name: "book_image", widget: "image", required: false }
           - { label: "Link Đặt Mua Sách (Zalo/SĐT)", name: "book_link", widget: "string", default: "https://zalo.me/" }
-          - { label: "Link Facebook Cá Nhân", name: "fb_link", widget: "string", default: "https://facebook.com/" }
-          - { label: "Link Kênh YouTube", name: "yt_link", widget: "string", default: "https://youtube.com/" }
+
+          # --- THÔNG TIN MẠNG XÃ HỘI VÀ MENU TRƯỢT MOBILE ---
+          - { label: "--- THÔNG TIN LIÊN HỆ & MENU TRƯỢT (MOBILE) ---", name: "heading_mobile", widget: "hidden", required: false }
+          - { label: "Link Zalo (Menu Mobile)", name: "mobile_zalo_link", widget: "string", default: "https://zalo.me/" }
+          - { label: "Link Facebook (Menu Mobile & Sidebar)", name: "fb_link", widget: "string", default: "https://facebook.com/" }
+          - { label: "Link Kênh YouTube (Menu Mobile & Sidebar)", name: "yt_link", widget: "string", default: "https://youtube.com/" }
+          - { label: "Địa chỉ Email Liên Hệ", name: "email_link", widget: "string", default: "contact@vuthienkieu.vn" }
