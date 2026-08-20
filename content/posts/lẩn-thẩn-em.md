@@ -29,8 +29,4 @@ Lẩn thẩn em bàn tay nâng chiều ngủ. Mặt mát lạy hừng đông. C�
 
 Lẩn thẩn em neo dòng kênh mắc cạn. Muông thì tím cả chùm hoa chùm trái. Ngọt ngọt thầm đen là bùa hay lưới nợ. Dành dành thơm lủi thủi nhuộm mép bờ.
 
-<br>
-
-Trời cõng đất chạy vòng quanh dán lịch. Mấy chục nghìn ngày mưa nắng đãi ầu ơ. Măng trút bẹ ngước lên trời đổ bóng. Lẩn thẩn em lại buộc tóc đuôi gà. 
-
-Vũ Thiên Kiều
+<br>Trời cõng đất chạy vòng quanh dán lịch. Mấy chục nghìn ngày mưa nắng đãi ầu ơ. Măng trút bẹ ngước lên trời đổ bóng. Lẩn thẩn em lại buộc tóc đuôi gà.
