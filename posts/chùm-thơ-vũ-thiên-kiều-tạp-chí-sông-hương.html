@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chùm thơ Vũ Thiên Kiều - Tạp chí Sông Hương - Vũ Thiên Kiều</title>
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://vuthienkieu.vn/posts/chùm-thơ-vũ-thiên-kiều-tạp-chí-sông-hương.html" />
+  <meta property="og:title" content="Chùm thơ Vũ Thiên Kiều - Tạp chí Sông Hương - Vũ Thiên Kiều" />
+  <meta property="og:description" content="Nhịp sống thơ Chùm thơ Vũ Thiên Kiều" />
+  
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-main: #fdfbf7;
+      --bg-card: #ffffff;
+      --text-main: #2c3e50;
+      --accent-green: #2d5a27;
+      --accent-gold: #c5a059;
+      --border-color: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.5; }
+    h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
+
+    /* TOP HEADER & NÚT MỞ MENU */
+    .top-header { 
+      background: var(--bg-card); 
+      border-bottom: 1px solid var(--border-color); 
+      padding: 0.8rem 1rem; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+    }
+    .menu-toggle-btn { background: none; border: none; font-size: 1.4rem; color: var(--accent-green); cursor: pointer; }
+    .site-title { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.1rem; color: var(--accent-green); text-decoration: none; }
+
+    /* OFF-CANVAS MOBILE MENU */
+    .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 998; }
+    .menu-drawer { position: fixed; top: 0; left: -320px; width: 300px; height: 100%; background: var(--bg-main); z-index: 999; transition: all 0.3s ease; display: flex; flex-direction: column; overflow-y: auto; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+    
+    body.menu-open .menu-drawer { left: 0; }
+    body.menu-open .menu-overlay { opacity: 1; visibility: visible; }
+
+    .menu-header { padding: 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); }
+    .close-btn { background: #c53030; color: #fff; border: none; width: 32px; height: 32px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+
+    /* DANH SÁCH DANH MỤC TRONG MENU TRƯỢT */
+    .drawer-nav { list-style: none; padding: 0; margin: 0; flex: 1; }
+    .drawer-nav li { border-bottom: 1px solid var(--border-color); }
+    .drawer-nav a { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.2rem; color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .drawer-nav a:hover { color: var(--accent-green); background: #f7fafc; }
+
+    /* MẠNG XÃ HỘI CHÂN MENU TRƯỢT */
+    .drawer-social { padding: 1.2rem; display: flex; gap: 1rem; border-top: 1px solid var(--border-color); }
+    .drawer-social a { color: #718096; font-size: 1.1rem; text-decoration: none; }
+    .drawer-social a:hover { color: var(--accent-green); }
+
+    /* BỐ CỤC NỘI DUNG CHÍNH */
+    .main-wrapper {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .container { 
+      background: var(--bg-card); 
+      padding: 2.5rem; 
+      border-radius: 12px; 
+      border: 1px solid var(--border-color); 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+    }
+
+    h1 { color: var(--accent-green); margin-bottom: 0.5rem; font-size: 2rem; }
+    .meta { font-style: italic; color: #718096; margin-bottom: 1.5rem; font-size: 0.9rem; }
+    
+    .post-body { 
+      font-size: 1.05rem; 
+      line-height: 1.45; 
+      color: #2c3e50; 
+      margin-top: 1.2rem; 
+      white-space: pre-wrap; 
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .post-body p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .post-figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .post-img { 
+      max-width: 100%; 
+      height: auto; 
+      border-radius: 8px; 
+      display: block; 
+      margin: 0 auto;
+    }
+    .post-caption {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #718096;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    /* KHUNG XEM TRƯỚC BÀI BÁO NGUỒN (FACEBOOK LINK CARD STYLE) */
+    .source-card {
+      margin-top: 2rem;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease-in-out;
+    }
+    .source-card:hover {
+      border-color: var(--accent-green);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      background: #ffffff;
+    }
+    .source-card-body {
+      padding: 1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .source-domain {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #718096;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .source-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+    .source-btn-label {
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      font-weight: 600;
+      margin-top: 0.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .share-box { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border-color); display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+    
+    .btn { border: none; padding: 0.5rem 1rem; border-radius: 6px; color: #fff; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
+    .btn-fb { background: #1877f2; }
+    .btn-zalo { background: #0068ff; }
+    .btn-back { background: #4a5568; display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 1.5rem; }
+
+    @media (max-width: 768px) {
+      .main-wrapper { padding: 1rem 0.5rem; }
+      .container { padding: 1.2rem 0.8rem; }
+      h1 { font-size: 1.5rem; }
+      .post-body {
+        font-size: clamp(0.85rem, 3.8vw, 0.95rem);
+        line-height: 1.4;
+        letter-spacing: -0.1px;
+      }
+    }
+
+    footer { text-align: center; padding: 2rem; color: #888; font-size: 0.85rem; border-top: 1px solid var(--border-color); margin-top: 3rem; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="top-header">
+    <button class="menu-toggle-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+    <a href="/" class="site-title">VŨ THIÊN KIỀU</a>
+    <div style="width: 24px;"></div>
+  </header>
+
+  <!-- OVERLAY MỜ -->
+  <div class="menu-overlay" onclick="toggleMenu()"></div>
+
+  <!-- OFF-CANVAS DRAWER MENU -->
+  <aside class="menu-drawer">
+    <div class="menu-header">
+      <span style="font-weight: 700; color: var(--accent-green); font-family: 'Merriweather', serif;">VŨ THIÊN KIỀU</span>
+      <button class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- DANH SÁCH DANH MỤC TRONG MENU TRƯỢT -->
+    <ul class="drawer-nav">
+      <li><a href="/"><i class="fa-solid fa-house" style="color:var(--accent-green); margin-right:8px;"></i> TRANG CHỦ</a></li>
+      <li><a href="/category.html?tag=tho-vu-thien-kieu">THƠ SÁNG TÁC</a></li>
+      <li><a href="/category.html?tag=chum-tho">CHÙM THƠ</a></li>
+      <li><a href="/category.html?tag=tho-van-xuoi">THƠ VĂN XUÔI</a></li>
+      <li><a href="/category.html?tag=tan-van-va-ky">TẢN VĂN & KÝ</a></li>
+      <li><a href="/category.html?tag=truyen-ngan">TRUYỆN NGẮN</a></li>
+      <li><a href="/category.html?tag=goc-ban-van">GÓC BẠN VÃN</a></li>
+      <li><a href="/category.html?tag=bao-chi">BÁO CHÍ & TRUYỀN THÔNG</a></li>
+      <li><a href="/category.html?tag=ly-luan-binh">LÝ LUẬN & BÌNH</a></li>
+    </ul>
+
+    <!-- BIỂU TƯỢNG MẠNG XÃ HỘI CHÂN MENU -->
+    <div class="drawer-social">
+      <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      <a href="mailto:contact@vuthienkieu.vn"><i class="fa-regular fa-envelope"></i></a>
+    </div>
+  </aside>
+
+  <!-- NỘI DUNG BÀI VIẾT -->
+  <div class="main-wrapper">
+    <div class="container">
+      <a href="/" class="btn btn-back"><i class="fa-solid fa-arrow-left"></i> Trở về trang chủ</a>
+      <h1>Chùm thơ Vũ Thiên Kiều - Tạp chí Sông Hương</h1>
+      <div class="meta">Tác giả: Tạp chí Sông Hương </div>
+      
+      <!-- HIỂN THỊ ẢNH VÀ TÊN TÁC GIẢ TRANH/ẢNH MINH HỌA -->
+      
+      
+      <div class="post-body">Nhịp sống thơ
+
+Chùm thơ Vũ Thiên Kiều</div>
+      
+      <!-- NẾU CÓ LINK NGUỒN BÀI BÁO THÌ HIỂN THỊ DẠNG FACEBOOK LINK CARD -->
+      
+      <a href="http://tapchisonghuong.com.vn/tin-tuc/p6/c24/n12955/Chum-tho-Vu-Thien-Kieu.html" target="_blank" rel="noopener noreferrer" class="source-card">
+        <div class="source-card-body">
+          <span class="source-domain"><i class="fa-solid fa-globe"></i> tapchisonghuong.com.vn</span>
+          <div class="source-title">Chùm thơ Vũ Thiên Kiều - Tạp chí Sông Hương</div>
+          <span class="source-btn-label">Đọc bài gốc trên tapchisonghuong.com.vn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </div>
+      </a>
+      
+      
+      <div class="share-box">
+        <span style="width:100%; font-weight:bold; margin-bottom: 0.3rem;">Chia sẻ tác phẩm:</span>
+        <button class="btn btn-fb" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank')">Facebook</button>
+        <button class="btn btn-zalo" onclick="window.open('https://zalo.me/share?url=' + encodeURIComponent(window.location.href), '_blank')">Zalo</button>
+        <button class="btn" style="background:var(--accent-green)" onclick="navigator.clipboard.writeText(window.location.href); alert('Đã chép liên kết!');">Chép Link</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© Trang web văn học cá nhân Nhà Thơ Vũ Thiên Kiều</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+  </script>
+</body>
+</html>
