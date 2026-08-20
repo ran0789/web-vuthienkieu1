@@ -1,4 +1,4 @@
-backend:
+Backend:
   name: github
   repo: ran0789/web-vuthienkieu1
   branch: main
@@ -13,6 +13,14 @@ collections:
     folder: "content/posts"
     create: true
     slug: "{{slug}}"
+
+    # ----------------------------------------------------
+    # BỔ SUNG: Hiển thị phân nhóm theo Thể loại & Trạng thái
+    # ----------------------------------------------------
+    summary: "{{title}} — [{{category}}] ({{status}})" # Hiển thị Tiêu đề + Thể loại ngay dòng danh sách
+    nested: { depth: 2 } # Cho phép CMS hiển thị bài viết dưới dạng phân cấp/thư mục
+    sortable_fields: ["category", "title", "created_date", "date"] # Cho phép lọc/sắp xếp theo Thể loại
+
     fields:
       - { label: "TIÊU ĐỀ BÀI VIẾT / BÀI BÁO", name: "title", widget: "string" }
       - { 
