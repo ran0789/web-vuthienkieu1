@@ -20,9 +20,10 @@ fs.readdir(postsDir, (err, files) => {
       const authorMatch = content.match(/author:\s*"(.*?)"/) || content.match(/author:\s*(.*)/);
       const imageMatch = content.match(/featured_image:\s*"(.*?)"/) || content.match(/featured_image:\s*(.*)/);
       const dateMatch = content.match(/created_date:\s*"(.*?)"/) || content.match(/created_date:\s*(.*)/);
-      
-      // BỔ SUNG: Đọc tên tác giả/chú thích ảnh minh họa
       const captionMatch = content.match(/image_caption:\s*"(.*?)"/) || content.match(/image_caption:\s*(.*)/);
+      
+      // BỔ SUNG: Đọc đường link bài báo gốc
+      const sourceMatch = content.match(/source_url:\s*"(.*?)"/) || content.match(/source_url:\s*(.*)/);
 
       const parts = content.split('---');
       let rawBody = parts.length > 2 ? parts.slice(2).join('---').trim() : '';
@@ -48,9 +49,19 @@ fs.readdir(postsDir, (err, files) => {
       const title = titleMatch ? titleMatch[1].replace(/"/g, '').trim() : 'Tác phẩm';
       const author = authorMatch ? authorMatch[1].replace(/"/g, '').trim() : 'Vũ Thiên Kiều';
       let rawDate = dateMatch ? dateMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
-      
-      // BỔ SUNG: Xử lý chuỗi chú thích ảnh
       let imageCaption = captionMatch ? captionMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
+      
+      // BỔ SUNG: Xử lý link bài báo gốc & lấy tên Tên miền (Domain)
+      let sourceUrl = sourceMatch ? sourceMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
+      let sourceDomain = '';
+      if (sourceUrl && sourceUrl.length > 0) {
+        try {
+          const parsedUrl = new URL(sourceUrl.startsWith('http') ? sourceUrl : 'https://' + sourceUrl);
+          sourceDomain = parsedUrl.hostname.replace('www.', '');
+        } catch (e) {
+          sourceDomain = sourceUrl;
+        }
+      }
 
       let image = imageMatch ? imageMatch[1].replace(/"/g, '').replace(/'/g, '').trim() : '';
       let hasImage = false;
@@ -164,7 +175,6 @@ fs.readdir(postsDir, (err, files) => {
       margin-bottom: 0.5rem;
     }
     
-    /* BỔ SUNG: CSS CHO KHUNG ẢNH & CHÚ THÍCH TRANH/ẢNH */
     .post-figure {
       margin: 1.5rem 0;
       text-align: center;
@@ -182,6 +192,56 @@ fs.readdir(postsDir, (err, files) => {
       color: #718096;
       margin-top: 0.5rem;
       text-align: center;
+    }
+
+    /* BỔ SUNG: KHUNG XEM TRƯỚC BÀI BÁO NGUỒN (FACEBOOK LINK CARD STYLE) */
+    .source-card {
+      margin-top: 2rem;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease-in-out;
+    }
+    .source-card:hover {
+      border-color: var(--accent-green);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      background: #ffffff;
+    }
+    .source-card-body {
+      padding: 1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .source-domain {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #718096;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .source-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+    .source-btn-label {
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      font-weight: 600;
+      margin-top: 0.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .share-box { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border-color); display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
@@ -224,7 +284,7 @@ fs.readdir(postsDir, (err, files) => {
       <button class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <!-- DANH MỤC TRONG MENU TRƯỢT -->
+    <!-- DANH SÁCH DANH MỤC TRONG MENU TRƯỢT -->
     <ul class="drawer-nav">
       <li><a href="/"><i class="fa-solid fa-house" style="color:var(--accent-green); margin-right:8px;"></i> TRANG CHỦ</a></li>
       <li><a href="/#tho-vu-thien-kieu">THƠ SÁNG TÁC</a></li>
@@ -251,7 +311,7 @@ fs.readdir(postsDir, (err, files) => {
       <h1>${title}</h1>
       <div class="meta">Tác giả: ${author} ${rawDate ? '| Sáng tác: ' + rawDate : ''}</div>
       
-      <!-- BỔ SUNG: HIỂN THỊ ẢNH VÀ TÊN TÁC GIẢ TRANH/ẢNH MINH HỌA -->
+      <!-- HIỂN THỊ ẢNH VÀ TÊN TÁC GIẢ TRANH/ẢNH MINH HỌA -->
       ${hasImage ? `
       <figure class="post-figure">
         <img src="${image}" class="post-img" onerror="this.parentElement.style.display='none'" />
@@ -260,6 +320,17 @@ fs.readdir(postsDir, (err, files) => {
       ` : ''}
       
       <div class="post-body">${formattedBody}</div>
+      
+      <!-- BỔ SUNG: NẾU CÓ LINK NGUỒN BÀI BÁO THÌ HIỂN THỊ DẠNG FACEBOOK LINK CARD -->
+      ${sourceUrl ? `
+      <a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" class="source-card">
+        <div class="source-card-body">
+          <span class="source-domain"><i class="fa-solid fa-globe"></i> ${sourceDomain}</span>
+          <div class="source-title">${title}</div>
+          <span class="source-btn-label">Đọc bài gốc trên ${sourceDomain} <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </div>
+      </a>
+      ` : ''}
       
       <div class="share-box">
         <span style="width:100%; font-weight:bold; margin-bottom: 0.3rem;">Chia sẻ tác phẩm:</span>
