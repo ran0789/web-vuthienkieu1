@@ -96,7 +96,6 @@
       margin-bottom: 0.5rem;
     }
     
-    /* BỔ SUNG: CSS CHO KHUNG ẢNH & CHÚ THÍCH TRANH/ẢNH */
     .post-figure {
       margin: 1.5rem 0;
       text-align: center;
@@ -114,6 +113,56 @@
       color: #718096;
       margin-top: 0.5rem;
       text-align: center;
+    }
+
+    /* BỔ SUNG: KHUNG XEM TRƯỚC BÀI BÁO NGUỒN (FACEBOOK LINK CARD STYLE) */
+    .source-card {
+      margin-top: 2rem;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease-in-out;
+    }
+    .source-card:hover {
+      border-color: var(--accent-green);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      background: #ffffff;
+    }
+    .source-card-body {
+      padding: 1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .source-domain {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #718096;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .source-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+    .source-btn-label {
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      font-weight: 600;
+      margin-top: 0.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .share-box { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border-color); display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
@@ -156,7 +205,7 @@
       <button class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <!-- DANH MỤC TRONG MENU TRƯỢT -->
+    <!-- DANH SÁCH DANH MỤC TRONG MENU TRƯỢT -->
     <ul class="drawer-nav">
       <li><a href="/"><i class="fa-solid fa-house" style="color:var(--accent-green); margin-right:8px;"></i> TRANG CHỦ</a></li>
       <li><a href="/#tho-vu-thien-kieu">THƠ SÁNG TÁC</a></li>
@@ -183,10 +232,21 @@
       <h1>Đại hội Chi hội Nhà văn Việt Nam tỉnh An Giang, nhiệm kỳ 2026-2031</h1>
       <div class="meta">Tác giả: 'Nguồn: vanvn.vn' </div>
       
-      <!-- BỔ SUNG: HIỂN THỊ ẢNH VÀ TÊN TÁC GIẢ TRANH/ẢNH MINH HỌA -->
+      <!-- HIỂN THỊ ẢNH VÀ TÊN TÁC GIẢ TRANH/ẢNH MINH HỌA -->
       
       
       <div class="post-body">Đại hội Chi hội Nhà văn Việt Nam tỉnh An Giang, nhiệm kỳ 2026-2031 đã thành công tốt đẹp. Cảm ơn quý cô chú và anh chị em hội viên Chi hội Nhà văn Việt Nam tỉnh An Giang đã tín nhiệm, ủng hộ. Em và BCH Chi hội sẽ nỗ lực thật tốt để hoàn thành nhiệm vụ của Chi hội giao cho. Cảm ơn Báo An Giang và Van.vn đã đưa tin về Đại hội Chi hội.</div>
+      
+      <!-- BỔ SUNG: NẾU CÓ LINK NGUỒN BÀI BÁO THÌ HIỂN THỊ DẠNG FACEBOOK LINK CARD -->
+      
+      <a href="https://vanvn.vn/dai-hoi-chi-hoi-nha-van-viet-nam-tinh-an-giang-lan-thu-i-nhiem-ky-2026-2031/?fbclid=IwY2xjawTbvpVwZG9mAWV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHheEPjWpsZJMpC6F7xXNx-J17B95Eiya6syTovEBAVENRwr1LxI_OY5DbuoC_aem_gHhOMQvCOP5ooC2Z1sQxlQ&zarsrc=1303&utm_source=zalo&utm_medium=zalo&utm_campaign=zalo" target="_blank" rel="noopener noreferrer" class="source-card">
+        <div class="source-card-body">
+          <span class="source-domain"><i class="fa-solid fa-globe"></i> vanvn.vn</span>
+          <div class="source-title">Đại hội Chi hội Nhà văn Việt Nam tỉnh An Giang, nhiệm kỳ 2026-2031</div>
+          <span class="source-btn-label">Đọc bài gốc trên vanvn.vn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </div>
+      </a>
+      
       
       <div class="share-box">
         <span style="width:100%; font-weight:bold; margin-bottom: 0.3rem;">Chia sẻ tác phẩm:</span>
