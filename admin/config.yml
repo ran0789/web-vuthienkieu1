@@ -7,19 +7,23 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  # 1. QUẢN LÝ BÀI VIẾT & TÁC PHẨM
+  # 1. QUẢN LÝ BÀI VIẾT & TÁC PHẨM (PHÂN NHÁNH THEO THỂ LOẠI)
   - name: "posts"
     label: "Bài Viết & Tác Phẩm"
     folder: "content/posts"
+    path: "{{category}}/{{slug}}"
     create: true
     slug: "{{slug}}"
 
-    # ----------------------------------------------------
-    # BỔ SUNG: Hiển thị phân nhóm theo Thể loại & Trạng thái
-    # ----------------------------------------------------
-    summary: "{{title}} — [{{category}}] ({{status}})" # Hiển thị Tiêu đề + Thể loại ngay dòng danh sách
-    nested: { depth: 2 } # Cho phép CMS hiển thị bài viết dưới dạng phân cấp/thư mục
-    sortable_fields: ["category", "title", "created_date", "date"] # Cho phép lọc/sắp xếp theo Thể loại
+    # Hiển thị cấu trúc cây & Gom nhóm tự động theo Thể loại
+    summary: "{{title}}"
+    nested:
+      depth: 2
+    view_groups:
+      - label: "Thể loại"
+        field: "category"
+
+    sortable_fields: ["title", "created_date", "date"]
 
     fields:
       - { label: "TIÊU ĐỀ BÀI VIẾT / BÀI BÁO", name: "title", widget: "string" }
@@ -51,7 +55,6 @@ collections:
       - { label: "TÁC GIẢ / NGUỒN BÁO", name: "author", widget: "string", default: "Vũ Thiên Kiều" }
       - { label: "ẢNH MINH HỌA", name: "featured_image", widget: "image", required: false }
       
-      # Ô nhập tên ảnh / tranh / họa sĩ minh họa
       - { label: "TÊN ẢNH / TRANH MINH HỌA (CỦA AI)", name: "image_caption", widget: "string", required: false }
       
       - { 
