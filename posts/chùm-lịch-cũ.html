@@ -96,7 +96,26 @@
       margin-bottom: 0.5rem;
     }
     
-    .post-img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; display: block; }
+    /* BỔ SUNG: CSS CHO KHUNG ẢNH & CHÚ THÍCH TRANH/ẢNH */
+    .post-figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .post-img { 
+      max-width: 100%; 
+      height: auto; 
+      border-radius: 8px; 
+      display: block; 
+      margin: 0 auto;
+    }
+    .post-caption {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #718096;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
     .share-box { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border-color); display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
     
     .btn { border: none; padding: 0.5rem 1rem; border-radius: 6px; color: #fff; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
@@ -163,6 +182,8 @@
       <a href="/" class="btn btn-back"><i class="fa-solid fa-arrow-left"></i> Trở về trang chủ</a>
       <h1>CHÙM LỊCH CŨ</h1>
       <div class="meta">Tác giả: Vũ Thiên Kiều </div>
+      
+      <!-- BỔ SUNG: HIỂN THỊ ẢNH VÀ TÊN TÁC GIẢ TRANH/ẢNH MINH HỌA -->
       
       
       <div class="post-body">Hòn đá xám vô tri
