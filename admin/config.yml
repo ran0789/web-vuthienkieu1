@@ -1,4 +1,4 @@
-Backend:
+backend:
   name: github
   repo: ran0789/web-vuthienkieu1
   branch: main
