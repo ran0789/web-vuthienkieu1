@@ -1,5 +1,5 @@
 ---
-title: Một buổi gặp gỡ thật vui và ý nghĩa. Cảm ơn quý thầy cô Khoa Sư phạm trường Đại học An Giang, các bạn văn và các em sinh viên thật nhiều.
+title: Buổi gặp gỡ quý thầy cô Khoa Sư phạm trường Đại học An Giang, các bạn văn và các em sinh viên
 status: published
 category: Báo Chí & Truyền Thông
 author: Vũ Thiên Kiều
